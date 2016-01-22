@@ -13,6 +13,9 @@
 		2257BA2E1C52912000CCFD7C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2257BA2C1C52912000CCFD7C /* Main.storyboard */; };
 		2257BA301C52912000CCFD7C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2257BA2F1C52912000CCFD7C /* Assets.xcassets */; };
 		2257BA331C52912000CCFD7C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2257BA311C52912000CCFD7C /* LaunchScreen.storyboard */; };
+		2257BA401C52979E00CCFD7C /* ShapeFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2257BA3F1C52979E00CCFD7C /* ShapeFactory.m */; };
+		2257BA451C5299F400CCFD7C /* CircleShape.m in Sources */ = {isa = PBXBuildFile; fileRef = 2257BA441C5299F400CCFD7C /* CircleShape.m */; };
+		2257BA481C529A0700CCFD7C /* TriangleShape.m in Sources */ = {isa = PBXBuildFile; fileRef = 2257BA471C529A0700CCFD7C /* TriangleShape.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,12 @@
 		2257BA2F1C52912000CCFD7C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2257BA321C52912000CCFD7C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2257BA341C52912000CCFD7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2257BA3E1C52979E00CCFD7C /* ShapeFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShapeFactory.h; path = DrawFactory/ShapeFactory.h; sourceTree = "<group>"; };
+		2257BA3F1C52979E00CCFD7C /* ShapeFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShapeFactory.m; path = DrawFactory/ShapeFactory.m; sourceTree = "<group>"; };
+		2257BA431C5299F400CCFD7C /* CircleShape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CircleShape.h; path = DrawFactory/CircleShape.h; sourceTree = "<group>"; };
+		2257BA441C5299F400CCFD7C /* CircleShape.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CircleShape.m; path = DrawFactory/CircleShape.m; sourceTree = "<group>"; };
+		2257BA461C529A0700CCFD7C /* TriangleShape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TriangleShape.h; path = DrawFactory/TriangleShape.h; sourceTree = "<group>"; };
+		2257BA471C529A0700CCFD7C /* TriangleShape.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TriangleShape.m; path = DrawFactory/TriangleShape.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,14 +67,9 @@
 		2257BA221C52912000CCFD7C /* Collection Layout */ = {
 			isa = PBXGroup;
 			children = (
-				2257BA261C52912000CCFD7C /* AppDelegate.h */,
-				2257BA271C52912000CCFD7C /* AppDelegate.m */,
-				2257BA291C52912000CCFD7C /* ViewController.h */,
-				2257BA2A1C52912000CCFD7C /* ViewController.m */,
-				2257BA2C1C52912000CCFD7C /* Main.storyboard */,
-				2257BA2F1C52912000CCFD7C /* Assets.xcassets */,
-				2257BA311C52912000CCFD7C /* LaunchScreen.storyboard */,
-				2257BA341C52912000CCFD7C /* Info.plist */,
+				2257BA3D1C52962E00CCFD7C /* DrawFactory */,
+				2257BA3C1C5294EE00CCFD7C /* Controllers */,
+				2257BA3B1C5294DE00CCFD7C /* System */,
 				2257BA231C52912000CCFD7C /* Supporting Files */,
 			);
 			path = "Collection Layout";
@@ -74,9 +78,68 @@
 		2257BA231C52912000CCFD7C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2257BA2F1C52912000CCFD7C /* Assets.xcassets */,
+				2257BA3A1C52944F00CCFD7C /* Storyboard */,
 				2257BA241C52912000CCFD7C /* main.m */,
+				2257BA341C52912000CCFD7C /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2257BA3A1C52944F00CCFD7C /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				2257BA2C1C52912000CCFD7C /* Main.storyboard */,
+				2257BA311C52912000CCFD7C /* LaunchScreen.storyboard */,
+			);
+			name = Storyboard;
+			sourceTree = "<group>";
+		};
+		2257BA3B1C5294DE00CCFD7C /* System */ = {
+			isa = PBXGroup;
+			children = (
+				2257BA261C52912000CCFD7C /* AppDelegate.h */,
+				2257BA271C52912000CCFD7C /* AppDelegate.m */,
+			);
+			name = System;
+			sourceTree = "<group>";
+		};
+		2257BA3C1C5294EE00CCFD7C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2257BA291C52912000CCFD7C /* ViewController.h */,
+				2257BA2A1C52912000CCFD7C /* ViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		2257BA3D1C52962E00CCFD7C /* DrawFactory */ = {
+			isa = PBXGroup;
+			children = (
+				2257BA421C5299D600CCFD7C /* Triangle */,
+				2257BA411C5299CF00CCFD7C /* Circle */,
+				2257BA3E1C52979E00CCFD7C /* ShapeFactory.h */,
+				2257BA3F1C52979E00CCFD7C /* ShapeFactory.m */,
+			);
+			name = DrawFactory;
+			sourceTree = "<group>";
+		};
+		2257BA411C5299CF00CCFD7C /* Circle */ = {
+			isa = PBXGroup;
+			children = (
+				2257BA431C5299F400CCFD7C /* CircleShape.h */,
+				2257BA441C5299F400CCFD7C /* CircleShape.m */,
+			);
+			name = Circle;
+			sourceTree = "<group>";
+		};
+		2257BA421C5299D600CCFD7C /* Triangle */ = {
+			isa = PBXGroup;
+			children = (
+				2257BA461C529A0700CCFD7C /* TriangleShape.h */,
+				2257BA471C529A0700CCFD7C /* TriangleShape.m */,
+			);
+			name = Triangle;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,7 +213,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2257BA2B1C52912000CCFD7C /* ViewController.m in Sources */,
+				2257BA481C529A0700CCFD7C /* TriangleShape.m in Sources */,
 				2257BA281C52912000CCFD7C /* AppDelegate.m in Sources */,
+				2257BA451C5299F400CCFD7C /* CircleShape.m in Sources */,
+				2257BA401C52979E00CCFD7C /* ShapeFactory.m in Sources */,
 				2257BA251C52912000CCFD7C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -300,6 +366,7 @@
 				2257BA391C52912000CCFD7C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
