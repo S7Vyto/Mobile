@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  CircleCollectionCell.h
 //  Collection Layout
 //
 //  Created by Semyon Vyatkin on 22/01/16.
@@ -8,9 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
-@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@interface CircleCollectionCell : UICollectionViewCell
 
 @end
-

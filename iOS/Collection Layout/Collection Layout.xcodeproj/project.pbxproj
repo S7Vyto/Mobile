@@ -16,6 +16,8 @@
 		2257BA401C52979E00CCFD7C /* ShapeFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2257BA3F1C52979E00CCFD7C /* ShapeFactory.m */; };
 		2257BA451C5299F400CCFD7C /* CircleShape.m in Sources */ = {isa = PBXBuildFile; fileRef = 2257BA441C5299F400CCFD7C /* CircleShape.m */; };
 		2257BA481C529A0700CCFD7C /* TriangleShape.m in Sources */ = {isa = PBXBuildFile; fileRef = 2257BA471C529A0700CCFD7C /* TriangleShape.m */; };
+		2257BA4B1C52AED700CCFD7C /* TriangleCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2257BA4A1C52AED700CCFD7C /* TriangleCollectionCell.m */; };
+		2257BA4F1C52AF4800CCFD7C /* CircleCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2257BA4E1C52AF4800CCFD7C /* CircleCollectionCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,10 @@
 		2257BA441C5299F400CCFD7C /* CircleShape.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CircleShape.m; path = DrawFactory/CircleShape.m; sourceTree = "<group>"; };
 		2257BA461C529A0700CCFD7C /* TriangleShape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TriangleShape.h; path = DrawFactory/TriangleShape.h; sourceTree = "<group>"; };
 		2257BA471C529A0700CCFD7C /* TriangleShape.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TriangleShape.m; path = DrawFactory/TriangleShape.m; sourceTree = "<group>"; };
+		2257BA491C52AED700CCFD7C /* TriangleCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TriangleCollectionCell.h; path = View/TriangleCollectionCell.h; sourceTree = "<group>"; };
+		2257BA4A1C52AED700CCFD7C /* TriangleCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TriangleCollectionCell.m; path = View/TriangleCollectionCell.m; sourceTree = "<group>"; };
+		2257BA4D1C52AF4800CCFD7C /* CircleCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CircleCollectionCell.h; path = View/CircleCollectionCell.h; sourceTree = "<group>"; };
+		2257BA4E1C52AF4800CCFD7C /* CircleCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CircleCollectionCell.m; path = View/CircleCollectionCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +73,7 @@
 		2257BA221C52912000CCFD7C /* Collection Layout */ = {
 			isa = PBXGroup;
 			children = (
+				2257BA4C1C52AEDC00CCFD7C /* Views */,
 				2257BA3D1C52962E00CCFD7C /* DrawFactory */,
 				2257BA3C1C5294EE00CCFD7C /* Controllers */,
 				2257BA3B1C5294DE00CCFD7C /* System */,
@@ -140,6 +147,33 @@
 				2257BA471C529A0700CCFD7C /* TriangleShape.m */,
 			);
 			name = Triangle;
+			sourceTree = "<group>";
+		};
+		2257BA4C1C52AEDC00CCFD7C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2257BA511C52AF5B00CCFD7C /* Circle */,
+				2257BA501C52AF5200CCFD7C /* Triangle */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		2257BA501C52AF5200CCFD7C /* Triangle */ = {
+			isa = PBXGroup;
+			children = (
+				2257BA491C52AED700CCFD7C /* TriangleCollectionCell.h */,
+				2257BA4A1C52AED700CCFD7C /* TriangleCollectionCell.m */,
+			);
+			name = Triangle;
+			sourceTree = "<group>";
+		};
+		2257BA511C52AF5B00CCFD7C /* Circle */ = {
+			isa = PBXGroup;
+			children = (
+				2257BA4D1C52AF4800CCFD7C /* CircleCollectionCell.h */,
+				2257BA4E1C52AF4800CCFD7C /* CircleCollectionCell.m */,
+			);
+			name = Circle;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -216,8 +250,10 @@
 				2257BA481C529A0700CCFD7C /* TriangleShape.m in Sources */,
 				2257BA281C52912000CCFD7C /* AppDelegate.m in Sources */,
 				2257BA451C5299F400CCFD7C /* CircleShape.m in Sources */,
+				2257BA4B1C52AED700CCFD7C /* TriangleCollectionCell.m in Sources */,
 				2257BA401C52979E00CCFD7C /* ShapeFactory.m in Sources */,
 				2257BA251C52912000CCFD7C /* main.m in Sources */,
+				2257BA4F1C52AF4800CCFD7C /* CircleCollectionCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

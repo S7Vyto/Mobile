@@ -18,7 +18,7 @@ typedef NS_ENUM(NSInteger, ShapeType) {
 
 + (ShapeFactory *)drawShapeInRect:(CGRect)rect withType:(ShapeType)shapeType;
 
-@property(nonatomic, strong) UIColor *shapeColor;
-@property(nonatomic, strong) UIColor *shapeBorderColor;
+@property (strong, nonatomic) UIColor *shapeColor;
+@property (strong, nonatomic) UIColor *shapeBorderColor;
 
 @end

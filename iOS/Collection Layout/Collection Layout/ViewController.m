@@ -7,33 +7,68 @@
 //
 
 #import "ViewController.h"
-#import "ShapeFactory.h"
+#import "CircleCollectionCell.h"
+#import "TriangleCollectionCell.h"
 
-@interface ViewController ()
+static int const kSectionsCount = 1;
+static int const kItemsCount = 5;
 
-@property(nonatomic, weak) UICollectionView *collectionView;
+static NSString *const kCircleCellId = @"CircleCell";
+static NSString *const kTriangleCellId = @"TriangleCell";
+
+@interface ViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 
 @end
 
 @implementation ViewController
 @synthesize collectionView = _collectionView;
 
+#pragma mark - Lifecycle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
     
-    ShapeFactory *shapeLayer = [ShapeFactory drawShapeInRect:self.view.frame
-                                                    withType:ShapeTriangle];
+    [_collectionView registerClass:[CircleCollectionCell class]
+        forCellWithReuseIdentifier:kCircleCellId];
     
-    shapeLayer.shapeBorderColor = [UIColor blackColor];
-    shapeLayer.shapeColor = [UIColor greenColor];
+    [_collectionView registerClass:[TriangleCollectionCell class]
+        forCellWithReuseIdentifier:kTriangleCellId];
     
-    [self.view addSubview:shapeLayer];
+    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+    [flowLayout setItemSize:CGSizeMake(200, 200)];
+    [flowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
+    
+    [_collectionView setCollectionViewLayout:flowLayout
+                                    animated:YES];
+    
+    [_collectionView setDataSource:self];
+    [_collectionView setDelegate:self];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - CollectionView Datasource
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return kItemsCount;
+}
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return kSectionsCount;
+}
+
+#pragma mark - CollectionView Delegate
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    UICollectionViewCell *contentCell = [collectionView dequeueReusableCellWithReuseIdentifier:kTriangleCellId
+                                                                                 forIndexPath:indexPath];
+    
+    if (indexPath.row % 2 == 0) {
+        contentCell = [collectionView dequeueReusableCellWithReuseIdentifier:kCircleCellId
+                                                                forIndexPath:indexPath];
+    }
+    
+    return contentCell;
 }
 
 @end

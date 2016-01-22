@@ -14,7 +14,7 @@
 - (void)drawRect:(CGRect)rect {
     CGRect shapeRect = CGRectInset(rect, 15, 60);
     CGPoint center = CGPointMake(CGRectGetMidX(shapeRect), CGRectGetMidY(shapeRect));
-    CGFloat radius = CGRectGetMidX(shapeRect);
+    CGFloat radius = CGRectGetMidX(shapeRect) * 0.85;
     
     UIBezierPath *bezierPath = [UIBezierPath bezierPathWithArcCenter:center
                                                               radius:radius

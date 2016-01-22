@@ -11,7 +11,7 @@
 @implementation TriangleShape
 
 - (void)drawRect:(CGRect)rect {
-    CGRect shapeRect = CGRectInset(rect, 15, 80);
+    CGRect shapeRect = CGRectInset(rect, 15, 15);
     CGPoint center = CGPointMake(CGRectGetMidX(shapeRect), CGRectGetMinY(shapeRect));
     CGPoint cornerLeft = CGPointMake(CGRectGetMinX(shapeRect), CGRectGetMaxY(shapeRect));
     CGPoint cornerRight = CGPointMake(CGRectGetMaxX(shapeRect), CGRectGetMaxY(shapeRect));
