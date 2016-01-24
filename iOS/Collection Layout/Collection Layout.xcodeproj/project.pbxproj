@@ -18,6 +18,9 @@
 		2257BA481C529A0700CCFD7C /* TriangleShape.m in Sources */ = {isa = PBXBuildFile; fileRef = 2257BA471C529A0700CCFD7C /* TriangleShape.m */; };
 		2257BA4B1C52AED700CCFD7C /* TriangleCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2257BA4A1C52AED700CCFD7C /* TriangleCollectionCell.m */; };
 		2257BA4F1C52AF4800CCFD7C /* CircleCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2257BA4E1C52AF4800CCFD7C /* CircleCollectionCell.m */; };
+		227633131C54FCBF00F6834B /* RectangleShape.m in Sources */ = {isa = PBXBuildFile; fileRef = 227633121C54FCBF00F6834B /* RectangleShape.m */; };
+		227633171C54FD3300F6834B /* RectangleCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 227633161C54FD3300F6834B /* RectangleCollectionCell.m */; };
+		22DC016F1C52C15B006B0195 /* CollectionFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 22DC016E1C52C15B006B0195 /* CollectionFlowLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +44,12 @@
 		2257BA4A1C52AED700CCFD7C /* TriangleCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TriangleCollectionCell.m; path = View/TriangleCollectionCell.m; sourceTree = "<group>"; };
 		2257BA4D1C52AF4800CCFD7C /* CircleCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CircleCollectionCell.h; path = View/CircleCollectionCell.h; sourceTree = "<group>"; };
 		2257BA4E1C52AF4800CCFD7C /* CircleCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CircleCollectionCell.m; path = View/CircleCollectionCell.m; sourceTree = "<group>"; };
+		227633111C54FCBF00F6834B /* RectangleShape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RectangleShape.h; path = DrawFactory/RectangleShape.h; sourceTree = "<group>"; };
+		227633121C54FCBF00F6834B /* RectangleShape.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RectangleShape.m; path = DrawFactory/RectangleShape.m; sourceTree = "<group>"; };
+		227633151C54FD3300F6834B /* RectangleCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RectangleCollectionCell.h; path = View/RectangleCollectionCell.h; sourceTree = "<group>"; };
+		227633161C54FD3300F6834B /* RectangleCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RectangleCollectionCell.m; path = View/RectangleCollectionCell.m; sourceTree = "<group>"; };
+		22DC016D1C52C15B006B0195 /* CollectionFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CollectionFlowLayout.h; path = View/CollectionFlowLayout.h; sourceTree = "<group>"; };
+		22DC016E1C52C15B006B0195 /* CollectionFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CollectionFlowLayout.m; path = View/CollectionFlowLayout.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +132,7 @@
 		2257BA3D1C52962E00CCFD7C /* DrawFactory */ = {
 			isa = PBXGroup;
 			children = (
+				227633141C54FCC400F6834B /* Rectangle */,
 				2257BA421C5299D600CCFD7C /* Triangle */,
 				2257BA411C5299CF00CCFD7C /* Circle */,
 				2257BA3E1C52979E00CCFD7C /* ShapeFactory.h */,
@@ -152,8 +162,11 @@
 		2257BA4C1C52AEDC00CCFD7C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				227633101C54FC9D00F6834B /* Rectangle */,
 				2257BA511C52AF5B00CCFD7C /* Circle */,
 				2257BA501C52AF5200CCFD7C /* Triangle */,
+				22DC016D1C52C15B006B0195 /* CollectionFlowLayout.h */,
+				22DC016E1C52C15B006B0195 /* CollectionFlowLayout.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -174,6 +187,24 @@
 				2257BA4E1C52AF4800CCFD7C /* CircleCollectionCell.m */,
 			);
 			name = Circle;
+			sourceTree = "<group>";
+		};
+		227633101C54FC9D00F6834B /* Rectangle */ = {
+			isa = PBXGroup;
+			children = (
+				227633151C54FD3300F6834B /* RectangleCollectionCell.h */,
+				227633161C54FD3300F6834B /* RectangleCollectionCell.m */,
+			);
+			name = Rectangle;
+			sourceTree = "<group>";
+		};
+		227633141C54FCC400F6834B /* Rectangle */ = {
+			isa = PBXGroup;
+			children = (
+				227633111C54FCBF00F6834B /* RectangleShape.h */,
+				227633121C54FCBF00F6834B /* RectangleShape.m */,
+			);
+			name = Rectangle;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,7 +280,10 @@
 				2257BA2B1C52912000CCFD7C /* ViewController.m in Sources */,
 				2257BA481C529A0700CCFD7C /* TriangleShape.m in Sources */,
 				2257BA281C52912000CCFD7C /* AppDelegate.m in Sources */,
+				22DC016F1C52C15B006B0195 /* CollectionFlowLayout.m in Sources */,
 				2257BA451C5299F400CCFD7C /* CircleShape.m in Sources */,
+				227633131C54FCBF00F6834B /* RectangleShape.m in Sources */,
+				227633171C54FD3300F6834B /* RectangleCollectionCell.m in Sources */,
 				2257BA4B1C52AED700CCFD7C /* TriangleCollectionCell.m in Sources */,
 				2257BA401C52979E00CCFD7C /* ShapeFactory.m in Sources */,
 				2257BA251C52912000CCFD7C /* main.m in Sources */,

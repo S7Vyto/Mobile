@@ -7,6 +7,7 @@
 //
 
 #import "ShapeFactory.h"
+#import "RectangleShape.h"
 #import "CircleShape.h"
 #import "TriangleShape.h"
 
@@ -15,6 +16,9 @@
 
 + (ShapeFactory *)drawShapeInRect:(CGRect)rect withType:(ShapeType)shapeType {
     switch (shapeType) {
+        case ShapeRectangle:
+            return [[RectangleShape alloc] initWithFrame:rect];
+            
         case ShapeTriangle:
             return [[TriangleShape alloc] initWithFrame:rect];
             
@@ -31,6 +35,24 @@
     }
     
     return self;
+}
+
+- (void)layoutSubviews {
+    UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
+    CGRect appRect = [UIScreen mainScreen].bounds;
+    CGRect frame = self.frame;
+    
+    if (UIInterfaceOrientationIsLandscape(orientation)) {
+        frame.size.width = frame.size.height;
+        frame.origin.x = CGRectGetMidX(appRect) - CGRectGetMidX(frame);
+    }
+    else {
+        frame.size.width = appRect.size.width;
+        frame.origin.x = 0;
+    }
+    
+    [self setFrame:frame];
+    [self setNeedsDisplay];
 }
 
 - (void)dealloc {
