@@ -1,0 +1,400 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		229D39221CF2088F004BECFD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 229D39211CF2088F004BECFD /* main.m */; };
+		229D392B1CF2088F004BECFD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 229D39291CF2088F004BECFD /* Main.storyboard */; };
+		229D392D1CF2088F004BECFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 229D392C1CF2088F004BECFD /* Assets.xcassets */; };
+		229D39301CF2088F004BECFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 229D392E1CF2088F004BECFD /* LaunchScreen.storyboard */; };
+		229D393B1CF2090F004BECFD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 229D393A1CF2090F004BECFD /* AppDelegate.m */; };
+		D86C60CA74C54D9056DB610E /* libPods-VKApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 674F99937784E3D8258E1569 /* libPods-VKApp.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		229D391D1CF2088F004BECFD /* VKApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		229D39211CF2088F004BECFD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		229D392A1CF2088F004BECFD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		229D392C1CF2088F004BECFD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		229D392F1CF2088F004BECFD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		229D39311CF2088F004BECFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		229D39391CF2090F004BECFD /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = System/AppDelegate.h; sourceTree = "<group>"; };
+		229D393A1CF2090F004BECFD /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = System/AppDelegate.m; sourceTree = "<group>"; };
+		674F99937784E3D8258E1569 /* libPods-VKApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VKApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DE80BE5DDB68451C69B2701 /* Pods-VKApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VKApp/Pods-VKApp.debug.xcconfig"; sourceTree = "<group>"; };
+		C3142FC5465F83122783AD05 /* Pods-VKApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-VKApp/Pods-VKApp.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		229D391A1CF2088F004BECFD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D86C60CA74C54D9056DB610E /* libPods-VKApp.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		229D39141CF2088F004BECFD = {
+			isa = PBXGroup;
+			children = (
+				229D391F1CF2088F004BECFD /* VKApp */,
+				229D391E1CF2088F004BECFD /* Products */,
+				8F43B9A1894ABC23100166C1 /* Pods */,
+				F5B86B016B3F75A296F3A912 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		229D391E1CF2088F004BECFD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				229D391D1CF2088F004BECFD /* VKApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		229D391F1CF2088F004BECFD /* VKApp */ = {
+			isa = PBXGroup;
+			children = (
+				229D39381CF208E2004BECFD /* System */,
+				229D39201CF2088F004BECFD /* Supporting Files */,
+			);
+			path = VKApp;
+			sourceTree = "<group>";
+		};
+		229D39201CF2088F004BECFD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				229D392C1CF2088F004BECFD /* Assets.xcassets */,
+				229D39311CF2088F004BECFD /* Info.plist */,
+				229D39211CF2088F004BECFD /* main.m */,
+				229D39371CF208AB004BECFD /* Storyboards */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		229D39371CF208AB004BECFD /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				229D39291CF2088F004BECFD /* Main.storyboard */,
+				229D392E1CF2088F004BECFD /* LaunchScreen.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		229D39381CF208E2004BECFD /* System */ = {
+			isa = PBXGroup;
+			children = (
+				229D39391CF2090F004BECFD /* AppDelegate.h */,
+				229D393A1CF2090F004BECFD /* AppDelegate.m */,
+			);
+			name = System;
+			sourceTree = "<group>";
+		};
+		8F43B9A1894ABC23100166C1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8DE80BE5DDB68451C69B2701 /* Pods-VKApp.debug.xcconfig */,
+				C3142FC5465F83122783AD05 /* Pods-VKApp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F5B86B016B3F75A296F3A912 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				674F99937784E3D8258E1569 /* libPods-VKApp.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		229D391C1CF2088F004BECFD /* VKApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 229D39341CF2088F004BECFD /* Build configuration list for PBXNativeTarget "VKApp" */;
+			buildPhases = (
+				2BB7F1F6870290164822D5C3 /* 📦 Check Pods Manifest.lock */,
+				229D39191CF2088F004BECFD /* Sources */,
+				229D391A1CF2088F004BECFD /* Frameworks */,
+				229D391B1CF2088F004BECFD /* Resources */,
+				DCA4E828D01F19E1D5563A5A /* 📦 Embed Pods Frameworks */,
+				255A0633E9743BFBEC4FF1F5 /* 📦 Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VKApp;
+			productName = VKApp;
+			productReference = 229D391D1CF2088F004BECFD /* VKApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		229D39151CF2088F004BECFD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Semyon-Vyatkin";
+				TargetAttributes = {
+					229D391C1CF2088F004BECFD = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = UWWE7R5BZG;
+					};
+				};
+			};
+			buildConfigurationList = 229D39181CF2088F004BECFD /* Build configuration list for PBXProject "VKApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 229D39141CF2088F004BECFD;
+			productRefGroup = 229D391E1CF2088F004BECFD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				229D391C1CF2088F004BECFD /* VKApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		229D391B1CF2088F004BECFD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				229D39301CF2088F004BECFD /* LaunchScreen.storyboard in Resources */,
+				229D392D1CF2088F004BECFD /* Assets.xcassets in Resources */,
+				229D392B1CF2088F004BECFD /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		255A0633E9743BFBEC4FF1F5 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VKApp/Pods-VKApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2BB7F1F6870290164822D5C3 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DCA4E828D01F19E1D5563A5A /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VKApp/Pods-VKApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		229D39191CF2088F004BECFD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				229D393B1CF2090F004BECFD /* AppDelegate.m in Sources */,
+				229D39221CF2088F004BECFD /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		229D39291CF2088F004BECFD /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				229D392A1CF2088F004BECFD /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		229D392E1CF2088F004BECFD /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				229D392F1CF2088F004BECFD /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		229D39321CF2088F004BECFD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		229D39331CF2088F004BECFD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		229D39351CF2088F004BECFD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8DE80BE5DDB68451C69B2701 /* Pods-VKApp.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = VKApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Semyon-Vyatkin.VKApp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		229D39361CF2088F004BECFD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C3142FC5465F83122783AD05 /* Pods-VKApp.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				INFOPLIST_FILE = VKApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Semyon-Vyatkin.VKApp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		229D39181CF2088F004BECFD /* Build configuration list for PBXProject "VKApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				229D39321CF2088F004BECFD /* Debug */,
+				229D39331CF2088F004BECFD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		229D39341CF2088F004BECFD /* Build configuration list for PBXNativeTarget "VKApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				229D39351CF2088F004BECFD /* Debug */,
+				229D39361CF2088F004BECFD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 229D39151CF2088F004BECFD /* Project object */;
+}
