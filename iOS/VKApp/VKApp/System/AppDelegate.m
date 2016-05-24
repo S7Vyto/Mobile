@@ -7,7 +7,10 @@
 //
 
 #import "AppDelegate.h"
+#import "AuthService.h"
+#import "StoryboardFactory.h"
 
+@class LoginController;
 @interface AppDelegate ()
 
 @end
@@ -16,7 +19,21 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    if (self.window == nil) {
+        self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    }
+    
+    UIViewController *rootController = nil;
+    if ([[AuthService sharedInstance] isUserAuthorized]) {
+        rootController = [StoryboardFactory rootController:MainStoryboard];
+    }
+    else {
+        rootController = [StoryboardFactory rootController:LoginStoryboard];
+    }
+    
+    [self.window setRootViewController:rootController];
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 

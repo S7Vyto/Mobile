@@ -1,26 +1,114 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="b5u-KY-UFU">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Navigation Controller-->
+        <scene sceneID="BzM-Ti-bSB">
             <objects>
-                <viewController id="BYZ-38-t0r" sceneMemberID="viewController">
+                <navigationController id="b5u-KY-UFU" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="LRr-88-vVW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="5YH-XE-PiR">
+                        <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="1fu-Nf-1PF" kind="relationship" relationship="rootViewController" id="KmO-R2-iv3"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OeJ-Ts-w1A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-951" y="227"/>
+        </scene>
+        <!--Wall-->
+        <scene sceneID="6zV-x3-mFm">
+            <objects>
+                <viewController storyboardIdentifier="WallController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="uxG-KA-187" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="uuz-h6-Fk1"/>
+                        <viewControllerLayoutGuide type="bottom" id="GJM-o7-HUs"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="P5M-MQ-eW8">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.16078431372549018" green="0.19607843137254902" blue="0.28627450980392155" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Wall" image="news" id="6xd-85-blK"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KQa-ez-nMT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="526" y="-110"/>
+        </scene>
+        <!--NavigationController-->
+        <scene sceneID="2rW-cn-dNr">
+            <objects>
+                <tabBarController title="NavigationController" id="1fu-Nf-1PF" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="WAS-J0-0iT">
+                        <barButtonItem key="rightBarButtonItem" image="exit" id="BFi-c7-zGi"/>
+                    </navigationItem>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="bbl-MK-05q">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="uxG-KA-187" kind="relationship" relationship="viewControllers" id="ajD-1B-qcp"/>
+                        <segue destination="CBn-5Q-xRY" kind="relationship" relationship="viewControllers" id="YW5-64-JwR"/>
+                        <segue destination="ubT-f3-RvS" kind="relationship" relationship="viewControllers" id="TMz-fF-IYY"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UzP-CL-60x" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-235" y="227"/>
+        </scene>
+        <!--Audio-->
+        <scene sceneID="Ln1-Ai-9Xk">
+            <objects>
+                <viewController storyboardIdentifier="AudioController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ubT-f3-RvS" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Mxe-IS-n2c"/>
+                        <viewControllerLayoutGuide type="bottom" id="JgO-jD-qvQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hW9-Ct-vz3">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Audio" image="audio" id="8pk-sa-FXc"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="whJ-VN-fK8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1178" y="227"/>
+        </scene>
+        <!--Photo-->
+        <scene sceneID="QsX-Vs-ciX">
+            <objects>
+                <viewController storyboardIdentifier="PhotoController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="CBn-5Q-xRY" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="A0W-t9-1V3"/>
+                        <viewControllerLayoutGuide type="bottom" id="nI7-kq-tZr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mGe-1w-mJB">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.0039215686274509803" green="0.0" blue="0.15294117647058825" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Photo" image="photos" id="wtp-2b-dOe"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rsx-Wi-8ht" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="526" y="588"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="audio" width="22" height="22"/>
+        <image name="exit" width="22" height="22"/>
+        <image name="news" width="22" height="22"/>
+        <image name="photos" width="22" height="22"/>
+    </resources>
 </document>
