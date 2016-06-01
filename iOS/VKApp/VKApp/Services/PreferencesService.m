@@ -8,21 +8,11 @@
 
 #import "PreferencesService.h"
 
-NSString *const PSExistsUserKey = @"ExistsUser";
-NSString *const PSIsUserAuthorized = @"IsUserAuthorized";
+NSString *const PSAuthorizationData = @"AuthorizationData";
 
 @implementation PreferencesService
 
 #pragma mark - ServiceLifecycle
-- (instancetype)init {
-    self = [super init];
-    if (self) {
-        
-    }
-    
-    return self;
-}
-
 + (instancetype)sharedInstance {
     static PreferencesService *prefService = nil;
     static dispatch_once_t onceToken;
@@ -34,10 +24,24 @@ NSString *const PSIsUserAuthorized = @"IsUserAuthorized";
     return prefService;
 }
 
-- (void)dealloc {
-    
+#pragma mark - ServiceMethods
+- (void)deleteCookieWithDomain:(NSString *)domain {
+    NSArray *cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies];
+    for (NSHTTPCookie *cookie in cookies) {
+        if ([[cookie domain] rangeOfString:domain options:NSCaseInsensitiveSearch].location != NSNotFound) {
+            [[NSHTTPCookieStorage sharedHTTPCookieStorage] deleteCookie:cookie];
+        }
+    }
 }
 
-#pragma mark - ServiceMethods
+- (void)updateData:(id)data withKey:(NSString *)key {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setObject:data forKey:key];
+    [userDefaults synchronize];
+}
+
+- (id)loadDataWithKey:(NSString *)key {
+    return [[NSUserDefaults standardUserDefaults] objectForKey:key];
+}
 
 @end

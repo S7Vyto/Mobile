@@ -66,4 +66,32 @@
     return [NSURLRequest requestWithURL:[NSURL URLWithString:stringURL]];
 }
 
+- (void)executeGetRequestWithURL:(NSURL *)URL completion:(completionBlock)completion exception:(exceptionBlock)exception {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:URL];
+    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request
+                                                completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+                                                    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+                                                    if (error == nil) {
+                                                        if (completion) {
+                                                            completion(responseObject);
+                                                        }
+                                                    }
+                                                    else {
+                                                        if (exception) {
+                                                            exception(error);
+                                                        }
+                                                    }
+    }];
+    
+    [dataTask resume];
+}
+
+- (void)executePostRequestWithURL:(NSURL *)URL completion:(completionBlock)completion exception:(exceptionBlock)exception {
+    
+}
+
 @end

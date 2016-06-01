@@ -8,11 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-extern NSString *const PSExistsUserKey;
-extern NSString *const PSIsUserAuthorized;
+extern NSString *const PSAuthorizationData;
 
 @interface PreferencesService : NSObject
 
 + (instancetype)sharedInstance;
+- (void)deleteCookieWithDomain:(NSString *)domain;
+- (void)updateData:(id)data withKey:(NSString *)key;
+- (id)loadDataWithKey:(NSString *)key;
 
 @end

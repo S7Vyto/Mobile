@@ -7,8 +7,10 @@
 //
 
 #import "NavigationController.h"
+#import "AppDelegate.h"
+#import "AuthService.h"
 
-@interface NavigationController ()
+@interface NavigationController () <AuthServiceDelegate>
 
 @end
 
@@ -22,6 +24,18 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - AuthMethods
+- (IBAction)didTouchedLogout:(UIBarButtonItem *)sender {
+    AuthService *authService = [AuthService new];
+    [authService setDelegate:self];
+    [authService deauthorizeUser];
+}
+
+- (void)didUserLogout:(LogoutStatus)logoutStatus {
+    AppDelegate *app = (AppDelegate *) [UIApplication sharedApplication].delegate;
+    [app setupRootController];
 }
 
 /*

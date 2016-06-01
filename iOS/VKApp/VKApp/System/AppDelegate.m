@@ -19,21 +19,11 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    if (self.window == nil) {
-        self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    }
-    
-    UIViewController *rootController = nil;
-    if ([[AuthService sharedInstance] isUserAuthorized]) {
-        rootController = [StoryboardFactory rootController:MainStoryboard];
-    }
-    else {
-        rootController = [StoryboardFactory rootController:LoginStoryboard];
-    }
-    
-    [self.window setRootViewController:rootController];
-    [self.window makeKeyAndVisible];
-    
+    [self setupRootController];
+    return YES;
+}
+
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options {
     return YES;
 }
 
@@ -57,6 +47,32 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)setupRootController {
+    if (self.window == nil) {
+        self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    }
+    
+    AuthService *authService = [AuthService new];
+    UIViewController *sourceController = self.window.rootViewController;
+    UIViewController *destinationController = nil;
+    
+    if ([authService isUserAuthorized]) {
+        destinationController = [StoryboardFactory rootController:MainStoryboard];
+    }
+    else {
+        destinationController = [StoryboardFactory rootController:LoginStoryboard];
+    }
+    
+    [UIView transitionFromView:sourceController.view
+                        toView:destinationController.view
+                      duration:0.5
+                       options:UIViewAnimationOptionTransitionCrossDissolve
+                    completion:^(BOOL finished) {
+                        [self.window setRootViewController:destinationController];
+                        [self.window makeKeyAndVisible];
+                    }];
 }
 
 @end

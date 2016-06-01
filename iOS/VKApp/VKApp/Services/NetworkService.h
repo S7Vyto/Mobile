@@ -8,8 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void (^exceptionBlock)(void);
-typedef void (^completionBlock)(void);
+typedef void (^exceptionBlock)(NSError *exception);
+typedef void (^completionBlock)(id response);
 
 @interface NetworkService : NSObject
 
@@ -17,5 +17,7 @@ typedef void (^completionBlock)(void);
 - (BOOL)hasInternetConnection;
 
 - (NSURLRequest *)requestWithURL:(NSString *)stringURL;
+- (void)executeGetRequestWithURL:(NSURL *)URL completion:(completionBlock)completion exception:(exceptionBlock)exception;
+- (void)executePostRequestWithURL:(NSURL *)URL completion:(completionBlock)completion exception:(exceptionBlock)exception;
 
 @end

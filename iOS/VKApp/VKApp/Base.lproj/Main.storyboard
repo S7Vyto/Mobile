@@ -25,7 +25,7 @@
             </objects>
             <point key="canvasLocation" x="-951" y="227"/>
         </scene>
-        <!--Wall-->
+        <!--View Controller-->
         <scene sceneID="6zV-x3-mFm">
             <objects>
                 <viewController storyboardIdentifier="WallController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="uxG-KA-187" sceneMemberID="viewController">
@@ -38,7 +38,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.16078431372549018" green="0.19607843137254902" blue="0.28627450980392155" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Wall" image="news" id="6xd-85-blK"/>
+                    <tabBarItem key="tabBarItem" title="" image="news" id="6xd-85-blK">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KQa-ez-nMT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -47,10 +49,8 @@
         <!--NavigationController-->
         <scene sceneID="2rW-cn-dNr">
             <objects>
-                <tabBarController title="NavigationController" id="1fu-Nf-1PF" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="WAS-J0-0iT">
-                        <barButtonItem key="rightBarButtonItem" image="exit" id="BFi-c7-zGi"/>
-                    </navigationItem>
+                <tabBarController storyboardIdentifier="NavigationController" title="NavigationController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1fu-Nf-1PF" customClass="NavigationController" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="WAS-J0-0iT"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="bbl-MK-05q">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -60,13 +60,35 @@
                         <segue destination="uxG-KA-187" kind="relationship" relationship="viewControllers" id="ajD-1B-qcp"/>
                         <segue destination="CBn-5Q-xRY" kind="relationship" relationship="viewControllers" id="YW5-64-JwR"/>
                         <segue destination="ubT-f3-RvS" kind="relationship" relationship="viewControllers" id="TMz-fF-IYY"/>
+                        <segue destination="Oxe-s5-oFw" kind="relationship" relationship="viewControllers" id="Wp7-S3-0b2"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UzP-CL-60x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-235" y="227"/>
         </scene>
-        <!--Audio-->
+        <!--Settings-->
+        <scene sceneID="yNd-sg-TRT">
+            <objects>
+                <viewController storyboardIdentifier="SettingsController" title="Settings" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Oxe-s5-oFw" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mUv-hU-fIi"/>
+                        <viewControllerLayoutGuide type="bottom" id="TJT-Wk-U5p"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uTr-aj-1pi">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="menu" id="PTr-yK-mb9">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
+                    </tabBarItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3lD-NQ-Tjc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-235" y="1070"/>
+        </scene>
+        <!--View Controller-->
         <scene sceneID="Ln1-Ai-9Xk">
             <objects>
                 <viewController storyboardIdentifier="AudioController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ubT-f3-RvS" sceneMemberID="viewController">
@@ -79,13 +101,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Audio" image="audio" id="8pk-sa-FXc"/>
+                    <tabBarItem key="tabBarItem" title="" image="audio" id="8pk-sa-FXc">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="whJ-VN-fK8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1178" y="227"/>
         </scene>
-        <!--Photo-->
+        <!--View Controller-->
         <scene sceneID="QsX-Vs-ciX">
             <objects>
                 <viewController storyboardIdentifier="PhotoController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="CBn-5Q-xRY" sceneMemberID="viewController">
@@ -98,7 +122,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.0039215686274509803" green="0.0" blue="0.15294117647058825" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Photo" image="photos" id="wtp-2b-dOe"/>
+                    <tabBarItem key="tabBarItem" title="" image="photos" id="wtp-2b-dOe">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rsx-Wi-8ht" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -107,7 +133,7 @@
     </scenes>
     <resources>
         <image name="audio" width="22" height="22"/>
-        <image name="exit" width="22" height="22"/>
+        <image name="menu" width="22" height="22"/>
         <image name="news" width="22" height="22"/>
         <image name="photos" width="22" height="22"/>
     </resources>

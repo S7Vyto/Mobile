@@ -7,15 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2211ED941CF4C23400E29443 /* NetworkService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2211ED931CF4C23400E29443 /* NetworkService.m */; };
+		2211ED971CF4C67F00E29443 /* AuthService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2211ED961CF4C67F00E29443 /* AuthService.m */; };
+		2211ED9A1CF4CEAC00E29443 /* PreferencesService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2211ED991CF4CEAC00E29443 /* PreferencesService.m */; };
+		2211ED9E1CF4D5BA00E29443 /* StoryboardFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2211ED9D1CF4D5BA00E29443 /* StoryboardFactory.m */; };
+		228557451CFCA8FC00E919C5 /* ParserUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 228557431CFCA8FC00E919C5 /* ParserUtils.h */; };
+		228557461CFCA8FC00E919C5 /* ParserUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 228557441CFCA8FC00E919C5 /* ParserUtils.m */; };
 		229D39221CF2088F004BECFD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 229D39211CF2088F004BECFD /* main.m */; };
 		229D392B1CF2088F004BECFD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 229D39291CF2088F004BECFD /* Main.storyboard */; };
 		229D392D1CF2088F004BECFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 229D392C1CF2088F004BECFD /* Assets.xcassets */; };
 		229D39301CF2088F004BECFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 229D392E1CF2088F004BECFD /* LaunchScreen.storyboard */; };
 		229D393B1CF2090F004BECFD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 229D393A1CF2090F004BECFD /* AppDelegate.m */; };
+		229D39431CF20E09004BECFD /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 229D39421CF20E09004BECFD /* Login.storyboard */; };
+		229D39471CF20E6E004BECFD /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 229D39461CF20E6E004BECFD /* LoginController.m */; };
+		229D394B1CF20E9B004BECFD /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 229D394A1CF20E9B004BECFD /* Constants.m */; };
+		229D394F1CF20FFC004BECFD /* NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 229D394E1CF20FFC004BECFD /* NavigationController.m */; };
 		D86C60CA74C54D9056DB610E /* libPods-VKApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 674F99937784E3D8258E1569 /* libPods-VKApp.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2211ED921CF4C23400E29443 /* NetworkService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetworkService.h; path = Services/NetworkService.h; sourceTree = "<group>"; };
+		2211ED931CF4C23400E29443 /* NetworkService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NetworkService.m; path = Services/NetworkService.m; sourceTree = "<group>"; };
+		2211ED951CF4C67F00E29443 /* AuthService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AuthService.h; path = Services/AuthService.h; sourceTree = "<group>"; };
+		2211ED961CF4C67F00E29443 /* AuthService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AuthService.m; path = Services/AuthService.m; sourceTree = "<group>"; };
+		2211ED981CF4CEAC00E29443 /* PreferencesService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PreferencesService.h; path = Services/PreferencesService.h; sourceTree = "<group>"; };
+		2211ED991CF4CEAC00E29443 /* PreferencesService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PreferencesService.m; path = Services/PreferencesService.m; sourceTree = "<group>"; };
+		2211ED9C1CF4D5BA00E29443 /* StoryboardFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoryboardFactory.h; path = Factories/StoryboardFactory.h; sourceTree = "<group>"; };
+		2211ED9D1CF4D5BA00E29443 /* StoryboardFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StoryboardFactory.m; path = Factories/StoryboardFactory.m; sourceTree = "<group>"; };
+		228557431CFCA8FC00E919C5 /* ParserUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParserUtils.h; path = Helper/ParserUtils.h; sourceTree = "<group>"; };
+		228557441CFCA8FC00E919C5 /* ParserUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ParserUtils.m; path = Helper/ParserUtils.m; sourceTree = "<group>"; };
 		229D391D1CF2088F004BECFD /* VKApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		229D39211CF2088F004BECFD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		229D392A1CF2088F004BECFD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -24,6 +44,13 @@
 		229D39311CF2088F004BECFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		229D39391CF2090F004BECFD /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = System/AppDelegate.h; sourceTree = "<group>"; };
 		229D393A1CF2090F004BECFD /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = System/AppDelegate.m; sourceTree = "<group>"; };
+		229D39421CF20E09004BECFD /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		229D39451CF20E6E004BECFD /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginController.h; path = Controllers/Login/LoginController.h; sourceTree = "<group>"; };
+		229D39461CF20E6E004BECFD /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginController.m; path = Controllers/Login/LoginController.m; sourceTree = "<group>"; };
+		229D39491CF20E9B004BECFD /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = Constants/Constants.h; sourceTree = "<group>"; };
+		229D394A1CF20E9B004BECFD /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Constants.m; path = Constants/Constants.m; sourceTree = "<group>"; };
+		229D394D1CF20FFC004BECFD /* NavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NavigationController.h; path = Controllers/Navigation/NavigationController.h; sourceTree = "<group>"; };
+		229D394E1CF20FFC004BECFD /* NavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NavigationController.m; path = Controllers/Navigation/NavigationController.m; sourceTree = "<group>"; };
 		674F99937784E3D8258E1569 /* libPods-VKApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VKApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DE80BE5DDB68451C69B2701 /* Pods-VKApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VKApp/Pods-VKApp.debug.xcconfig"; sourceTree = "<group>"; };
 		C3142FC5465F83122783AD05 /* Pods-VKApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-VKApp/Pods-VKApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -41,6 +68,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2211ED911CF4C21000E29443 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				2211ED951CF4C67F00E29443 /* AuthService.h */,
+				2211ED961CF4C67F00E29443 /* AuthService.m */,
+				2211ED921CF4C23400E29443 /* NetworkService.h */,
+				2211ED931CF4C23400E29443 /* NetworkService.m */,
+				2211ED981CF4CEAC00E29443 /* PreferencesService.h */,
+				2211ED991CF4CEAC00E29443 /* PreferencesService.m */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		2211ED9B1CF4D59D00E29443 /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				2211ED9C1CF4D5BA00E29443 /* StoryboardFactory.h */,
+				2211ED9D1CF4D5BA00E29443 /* StoryboardFactory.m */,
+			);
+			name = Factories;
+			sourceTree = "<group>";
+		};
+		2211ED9F1CF4E22E00E29443 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		228557421CFCA8C300E919C5 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				228557431CFCA8FC00E919C5 /* ParserUtils.h */,
+				228557441CFCA8FC00E919C5 /* ParserUtils.m */,
+			);
+			name = Helper;
+			sourceTree = "<group>";
+		};
 		229D39141CF2088F004BECFD = {
 			isa = PBXGroup;
 			children = (
@@ -62,8 +127,16 @@
 		229D391F1CF2088F004BECFD /* VKApp */ = {
 			isa = PBXGroup;
 			children = (
+				2211ED9F1CF4E22E00E29443 /* Categories */,
+				229D39481CF20E7C004BECFD /* Constants */,
+				229D393F1CF20DC8004BECFD /* Controllers */,
+				2211ED9B1CF4D59D00E29443 /* Factories */,
+				228557421CFCA8C300E919C5 /* Helper */,
+				229D39411CF20DD7004BECFD /* Models */,
+				2211ED911CF4C21000E29443 /* Services */,
 				229D39381CF208E2004BECFD /* System */,
 				229D39201CF2088F004BECFD /* Supporting Files */,
+				229D39401CF20DCF004BECFD /* Views */,
 			);
 			path = VKApp;
 			sourceTree = "<group>";
@@ -83,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				229D39291CF2088F004BECFD /* Main.storyboard */,
+				229D39421CF20E09004BECFD /* Login.storyboard */,
 				229D392E1CF2088F004BECFD /* LaunchScreen.storyboard */,
 			);
 			name = Storyboards;
@@ -95,6 +169,56 @@
 				229D393A1CF2090F004BECFD /* AppDelegate.m */,
 			);
 			name = System;
+			sourceTree = "<group>";
+		};
+		229D393F1CF20DC8004BECFD /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				229D394C1CF20FB7004BECFD /* Navigation */,
+				229D39441CF20E34004BECFD /* Login */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		229D39401CF20DCF004BECFD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		229D39411CF20DD7004BECFD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		229D39441CF20E34004BECFD /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				229D39451CF20E6E004BECFD /* LoginController.h */,
+				229D39461CF20E6E004BECFD /* LoginController.m */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		229D39481CF20E7C004BECFD /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				229D39491CF20E9B004BECFD /* Constants.h */,
+				229D394A1CF20E9B004BECFD /* Constants.m */,
+			);
+			name = Constants;
+			sourceTree = "<group>";
+		};
+		229D394C1CF20FB7004BECFD /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				229D394D1CF20FFC004BECFD /* NavigationController.h */,
+				229D394E1CF20FFC004BECFD /* NavigationController.m */,
+			);
+			name = Navigation;
 			sourceTree = "<group>";
 		};
 		8F43B9A1894ABC23100166C1 /* Pods */ = {
@@ -116,6 +240,17 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		2211EDA01CF4E5BA00E29443 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				228557451CFCA8FC00E919C5 /* ParserUtils.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
 		229D391C1CF2088F004BECFD /* VKApp */ = {
 			isa = PBXNativeTarget;
@@ -127,6 +262,7 @@
 				229D391B1CF2088F004BECFD /* Resources */,
 				DCA4E828D01F19E1D5563A5A /* 📦 Embed Pods Frameworks */,
 				255A0633E9743BFBEC4FF1F5 /* 📦 Copy Pods Resources */,
+				2211EDA01CF4E5BA00E29443 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -175,6 +311,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				229D39431CF20E09004BECFD /* Login.storyboard in Resources */,
 				229D39301CF2088F004BECFD /* LaunchScreen.storyboard in Resources */,
 				229D392D1CF2088F004BECFD /* Assets.xcassets in Resources */,
 				229D392B1CF2088F004BECFD /* Main.storyboard in Resources */,
@@ -237,7 +374,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				229D393B1CF2090F004BECFD /* AppDelegate.m in Sources */,
+				2211ED9E1CF4D5BA00E29443 /* StoryboardFactory.m in Sources */,
+				228557461CFCA8FC00E919C5 /* ParserUtils.m in Sources */,
 				229D39221CF2088F004BECFD /* main.m in Sources */,
+				2211ED9A1CF4CEAC00E29443 /* PreferencesService.m in Sources */,
+				2211ED971CF4C67F00E29443 /* AuthService.m in Sources */,
+				229D394F1CF20FFC004BECFD /* NavigationController.m in Sources */,
+				229D39471CF20E6E004BECFD /* LoginController.m in Sources */,
+				2211ED941CF4C23400E29443 /* NetworkService.m in Sources */,
+				229D394B1CF20E9B004BECFD /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
