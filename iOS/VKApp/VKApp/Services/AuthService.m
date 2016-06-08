@@ -7,18 +7,17 @@
 //
 
 #import "AuthService.h"
+#import "Constants.h"
 #import "NetworkService.h"
 #import "PreferencesService.h"
 #import "ParserUtils.h"
 
 static NSString *kAuthURL = @"https://oauth.vk.com/authorize";
 static NSString *kLogoutURL = @"https://oauth.vk.com/logout";
-
 static NSString *kRedirectURL = @"https://oauth.vk.com/blank.html";
 static NSString *kDisplay =@"mobile";
 static NSString *kScope =@"wall,photo,audio,offline";
 static NSString *kResponsType =@"token";
-static NSString *kApiVersion =@"5.52";
 static NSString *kApiRevoke = @"1";
 
 static NSString *kAuthUserId = @"AuthUserId";
@@ -46,7 +45,6 @@ static NSString *kAuthErrorDescription = @"AuthErrorDescription";
 @end
 
 @implementation AuthService
-@synthesize delegate = _delegate;
 
 #pragma mark - ServiceLifecycle
 - (instancetype)init {
@@ -58,8 +56,14 @@ static NSString *kAuthErrorDescription = @"AuthErrorDescription";
     return self;
 }
 
-- (void)dealloc {
-    _delegate = nil;
++ (instancetype)sharedInstance {
+    static AuthService *instance = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        instance = [self new];
+    });
+    
+    return instance;
 }
 
 #pragma mark - AuthMethods
@@ -89,10 +93,9 @@ static NSString *kAuthErrorDescription = @"AuthErrorDescription";
     }
     
     [self updateAuthorizationData:_authResponse];
-    
-    if (_delegate) {
-        [_delegate didUserAuthorizedWithStatus:_authResponse.authStatus];
-    }
+    [[NSNotificationCenter defaultCenter] postNotificationName:@""
+                                                        object:@""
+                                                      userInfo:nil];
 }
 
 - (void)deauthorizeUser {
@@ -106,20 +109,33 @@ static NSString *kAuthErrorDescription = @"AuthErrorDescription";
     [[PreferencesService sharedInstance] deleteCookieWithDomain:@"vk.com"];
     [self updateAuthorizationData:_authResponse];
     
-    if (_delegate) {
-        [_delegate didUserLogout:LogoutSuccess];
-    }
+    [[NSNotificationCenter defaultCenter] postNotificationName:@""
+                                                        object:@""
+                                                      userInfo:nil];
 }
 
-- (void)requestAuthorization {
-    if (_delegate) {
-        NSString *authQueryString = @"%@?client_id=%@&display=%@&redirect_uri=%@&scope=%@&response_type=%@&v=%@&revoke=%@";
-        NSString *authRawURL = [NSString stringWithFormat:authQueryString,kAuthURL, kClientId, kDisplay, kRedirectURL, kScope, kResponsType, kApiVersion, kApiRevoke];
-        
-        [_delegate didRequestUserAuthorization:[[NetworkService sharedInstance] requestWithURL:authRawURL]];
-    }
+- (NSURLRequest *)authorizationURL {
+    NSString *authQueryString = @"%@?client_id=%@&display=%@&redirect_uri=%@&scope=%@&response_type=%@&v=%@&revoke=%@";
+    NSString *authRawURL = [NSString stringWithFormat:authQueryString,kAuthURL, CNSAppId, kDisplay, kRedirectURL, kScope, kResponsType, CNSApiVersion, kApiRevoke];
+    
+    return [[NetworkService sharedInstance] requestWithURL:authRawURL];
 }
 
+- (NSInteger)userId {
+    if ([self isUserAuthorized]) {
+        return _authResponse.userId;
+    }
+    
+    return -1;
+}
+
+- (NSString *)token {
+    if ([self isUserAuthorized]) {
+        return _authResponse.token;
+    }
+    
+    return nil;
+}
 
 #pragma mark - StoringMethods
 - (void)updateAuthorizationData:(AuthResponse *)authData {

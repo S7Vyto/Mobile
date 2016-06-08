@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 
 extern NSString *const CNSAppId;
+extern NSString *const CNSApiHost;
+extern NSString *const CNSApiMethod;
+extern NSString *const CNSApiVersion;
 
 @interface Constants : NSObject
 

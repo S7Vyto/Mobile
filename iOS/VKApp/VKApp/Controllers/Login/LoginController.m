@@ -10,7 +10,7 @@
 #import "AuthService.h"
 #import "AppDelegate.h"
 
-@interface LoginController () <UIWebViewDelegate, AuthServiceDelegate>
+@interface LoginController () <UIWebViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (strong, nonatomic) AuthService *authService;
@@ -22,6 +22,12 @@
 
 
 #pragma mark - ControllerLifeCycle
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    
+    self.authService = [AuthService sharedInstance];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupAppearance];
@@ -38,10 +44,6 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-}
-
-- (void)dealloc {
-    _authService.delegate = nil;
 }
 
 #pragma mark - SetupAppearance
@@ -63,12 +65,9 @@
 
 #pragma mark - AuthServiceMethods
 - (void)setupAuthService {
-    self.authService = [AuthService new];
-    
-    [_authService setDelegate:self];    
     dispatch_time_t time = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC));
     dispatch_after(time, dispatch_get_main_queue(), ^{
-        [_authService requestAuthorization];
+        [self reloadAuthPage:nil];
     });
 }
 
@@ -77,18 +76,10 @@
         [_webView stopLoading];
     }
     
-    [_authService requestAuthorization];
+    [_webView loadRequest:[_authService authorizationURL]];
 }
 
 #pragma mark - AuthServiceDelegate
-- (void)didRequestUserAuthorization:(NSURLRequest *)authorizationRequest {
-    if ([_webView isLoading]) {
-        [_webView stopLoading];
-    }
-    
-    [_webView loadRequest:authorizationRequest];
-}
-
 - (void)didUserAuthorizedWithStatus:(AuthStatus)authStatus {
     if (authStatus == AuthSuccess) {
         [self updateRootController];

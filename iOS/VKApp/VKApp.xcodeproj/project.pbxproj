@@ -11,6 +11,14 @@
 		2211ED971CF4C67F00E29443 /* AuthService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2211ED961CF4C67F00E29443 /* AuthService.m */; };
 		2211ED9A1CF4CEAC00E29443 /* PreferencesService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2211ED991CF4CEAC00E29443 /* PreferencesService.m */; };
 		2211ED9E1CF4D5BA00E29443 /* StoryboardFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2211ED9D1CF4D5BA00E29443 /* StoryboardFactory.m */; };
+		227A2A611CFF56A20029C268 /* NewsViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 227A2A5F1CFF56A20029C268 /* NewsViewController.h */; };
+		227A2A621CFF56A20029C268 /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 227A2A601CFF56A20029C268 /* NewsViewController.m */; };
+		227A2A651CFF58740029C268 /* NewsDataManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 227A2A631CFF58740029C268 /* NewsDataManager.h */; };
+		227A2A661CFF58740029C268 /* NewsDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 227A2A641CFF58740029C268 /* NewsDataManager.m */; };
+		227A2A6C1CFF632B0029C268 /* NewsEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = 227A2A6A1CFF632B0029C268 /* NewsEntity.h */; };
+		227A2A6D1CFF632B0029C268 /* NewsEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 227A2A6B1CFF632B0029C268 /* NewsEntity.m */; };
+		227A2A751CFF678C0029C268 /* UIViewController+ExtensionContoller.h in Headers */ = {isa = PBXBuildFile; fileRef = 227A2A731CFF678C0029C268 /* UIViewController+ExtensionContoller.h */; };
+		227A2A761CFF678C0029C268 /* UIViewController+ExtensionContoller.m in Sources */ = {isa = PBXBuildFile; fileRef = 227A2A741CFF678C0029C268 /* UIViewController+ExtensionContoller.m */; };
 		228557451CFCA8FC00E919C5 /* ParserUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 228557431CFCA8FC00E919C5 /* ParserUtils.h */; };
 		228557461CFCA8FC00E919C5 /* ParserUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 228557441CFCA8FC00E919C5 /* ParserUtils.m */; };
 		229D39221CF2088F004BECFD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 229D39211CF2088F004BECFD /* main.m */; };
@@ -22,6 +30,8 @@
 		229D39471CF20E6E004BECFD /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 229D39461CF20E6E004BECFD /* LoginController.m */; };
 		229D394B1CF20E9B004BECFD /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 229D394A1CF20E9B004BECFD /* Constants.m */; };
 		229D394F1CF20FFC004BECFD /* NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 229D394E1CF20FFC004BECFD /* NavigationController.m */; };
+		22B159FB1D0743F500BA2D31 /* NewsDataOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 22B159F91D0743F500BA2D31 /* NewsDataOperation.h */; };
+		22B159FC1D0743F500BA2D31 /* NewsDataOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B159FA1D0743F500BA2D31 /* NewsDataOperation.m */; };
 		D86C60CA74C54D9056DB610E /* libPods-VKApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 674F99937784E3D8258E1569 /* libPods-VKApp.a */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +44,15 @@
 		2211ED991CF4CEAC00E29443 /* PreferencesService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PreferencesService.m; path = Services/PreferencesService.m; sourceTree = "<group>"; };
 		2211ED9C1CF4D5BA00E29443 /* StoryboardFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoryboardFactory.h; path = Factories/StoryboardFactory.h; sourceTree = "<group>"; };
 		2211ED9D1CF4D5BA00E29443 /* StoryboardFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StoryboardFactory.m; path = Factories/StoryboardFactory.m; sourceTree = "<group>"; };
+		227A2A5F1CFF56A20029C268 /* NewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewsViewController.h; path = Controllers/News/NewsViewController.h; sourceTree = "<group>"; };
+		227A2A601CFF56A20029C268 /* NewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewsViewController.m; path = Controllers/News/NewsViewController.m; sourceTree = "<group>"; };
+		227A2A631CFF58740029C268 /* NewsDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewsDataManager.h; path = Models/News/NewsDataManager.h; sourceTree = "<group>"; };
+		227A2A641CFF58740029C268 /* NewsDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewsDataManager.m; path = Models/News/NewsDataManager.m; sourceTree = "<group>"; };
+		227A2A691CFF5C550029C268 /* Delegates.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Delegates.h; path = Delegates/Delegates.h; sourceTree = "<group>"; };
+		227A2A6A1CFF632B0029C268 /* NewsEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewsEntity.h; path = Entities/NewsEntity.h; sourceTree = "<group>"; };
+		227A2A6B1CFF632B0029C268 /* NewsEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewsEntity.m; path = Entities/NewsEntity.m; sourceTree = "<group>"; };
+		227A2A731CFF678C0029C268 /* UIViewController+ExtensionContoller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+ExtensionContoller.h"; path = "Categories/UIViewController+ExtensionContoller.h"; sourceTree = "<group>"; };
+		227A2A741CFF678C0029C268 /* UIViewController+ExtensionContoller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+ExtensionContoller.m"; path = "Categories/UIViewController+ExtensionContoller.m"; sourceTree = "<group>"; };
 		228557431CFCA8FC00E919C5 /* ParserUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParserUtils.h; path = Helper/ParserUtils.h; sourceTree = "<group>"; };
 		228557441CFCA8FC00E919C5 /* ParserUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ParserUtils.m; path = Helper/ParserUtils.m; sourceTree = "<group>"; };
 		229D391D1CF2088F004BECFD /* VKApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,6 +70,8 @@
 		229D394A1CF20E9B004BECFD /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Constants.m; path = Constants/Constants.m; sourceTree = "<group>"; };
 		229D394D1CF20FFC004BECFD /* NavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NavigationController.h; path = Controllers/Navigation/NavigationController.h; sourceTree = "<group>"; };
 		229D394E1CF20FFC004BECFD /* NavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NavigationController.m; path = Controllers/Navigation/NavigationController.m; sourceTree = "<group>"; };
+		22B159F91D0743F500BA2D31 /* NewsDataOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewsDataOperation.h; path = Operations/NewsDataOperation.h; sourceTree = "<group>"; };
+		22B159FA1D0743F500BA2D31 /* NewsDataOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewsDataOperation.m; path = Operations/NewsDataOperation.m; sourceTree = "<group>"; };
 		674F99937784E3D8258E1569 /* libPods-VKApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VKApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DE80BE5DDB68451C69B2701 /* Pods-VKApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VKApp/Pods-VKApp.debug.xcconfig"; sourceTree = "<group>"; };
 		C3142FC5465F83122783AD05 /* Pods-VKApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-VKApp/Pods-VKApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -93,8 +114,45 @@
 		2211ED9F1CF4E22E00E29443 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				227A2A731CFF678C0029C268 /* UIViewController+ExtensionContoller.h */,
+				227A2A741CFF678C0029C268 /* UIViewController+ExtensionContoller.m */,
 			);
 			name = Categories;
+			sourceTree = "<group>";
+		};
+		227A2A5E1CFF567A0029C268 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				227A2A5F1CFF56A20029C268 /* NewsViewController.h */,
+				227A2A601CFF56A20029C268 /* NewsViewController.m */,
+			);
+			name = News;
+			sourceTree = "<group>";
+		};
+		227A2A671CFF58780029C268 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				227A2A631CFF58740029C268 /* NewsDataManager.h */,
+				227A2A641CFF58740029C268 /* NewsDataManager.m */,
+			);
+			name = News;
+			sourceTree = "<group>";
+		};
+		227A2A681CFF5C110029C268 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				227A2A691CFF5C550029C268 /* Delegates.h */,
+			);
+			name = Delegates;
+			sourceTree = "<group>";
+		};
+		227A2A6E1CFF63330029C268 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				227A2A6A1CFF632B0029C268 /* NewsEntity.h */,
+				227A2A6B1CFF632B0029C268 /* NewsEntity.m */,
+			);
+			name = Entities;
 			sourceTree = "<group>";
 		};
 		228557421CFCA8C300E919C5 /* Helper */ = {
@@ -127,9 +185,12 @@
 		229D391F1CF2088F004BECFD /* VKApp */ = {
 			isa = PBXGroup;
 			children = (
+				22B159F81D0743CF00BA2D31 /* Operations */,
+				227A2A6E1CFF63330029C268 /* Entities */,
 				2211ED9F1CF4E22E00E29443 /* Categories */,
 				229D39481CF20E7C004BECFD /* Constants */,
 				229D393F1CF20DC8004BECFD /* Controllers */,
+				227A2A681CFF5C110029C268 /* Delegates */,
 				2211ED9B1CF4D59D00E29443 /* Factories */,
 				228557421CFCA8C300E919C5 /* Helper */,
 				229D39411CF20DD7004BECFD /* Models */,
@@ -174,6 +235,7 @@
 		229D393F1CF20DC8004BECFD /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				227A2A5E1CFF567A0029C268 /* News */,
 				229D394C1CF20FB7004BECFD /* Navigation */,
 				229D39441CF20E34004BECFD /* Login */,
 			);
@@ -190,6 +252,7 @@
 		229D39411CF20DD7004BECFD /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				227A2A671CFF58780029C268 /* News */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -221,6 +284,15 @@
 			name = Navigation;
 			sourceTree = "<group>";
 		};
+		22B159F81D0743CF00BA2D31 /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				22B159F91D0743F500BA2D31 /* NewsDataOperation.h */,
+				22B159FA1D0743F500BA2D31 /* NewsDataOperation.m */,
+			);
+			name = Operations;
+			sourceTree = "<group>";
+		};
 		8F43B9A1894ABC23100166C1 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -245,6 +317,11 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				227A2A6C1CFF632B0029C268 /* NewsEntity.h in Headers */,
+				22B159FB1D0743F500BA2D31 /* NewsDataOperation.h in Headers */,
+				227A2A611CFF56A20029C268 /* NewsViewController.h in Headers */,
+				227A2A651CFF58740029C268 /* NewsDataManager.h in Headers */,
+				227A2A751CFF678C0029C268 /* UIViewController+ExtensionContoller.h in Headers */,
 				228557451CFCA8FC00E919C5 /* ParserUtils.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -373,15 +450,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				227A2A6D1CFF632B0029C268 /* NewsEntity.m in Sources */,
 				229D393B1CF2090F004BECFD /* AppDelegate.m in Sources */,
 				2211ED9E1CF4D5BA00E29443 /* StoryboardFactory.m in Sources */,
 				228557461CFCA8FC00E919C5 /* ParserUtils.m in Sources */,
+				22B159FC1D0743F500BA2D31 /* NewsDataOperation.m in Sources */,
 				229D39221CF2088F004BECFD /* main.m in Sources */,
 				2211ED9A1CF4CEAC00E29443 /* PreferencesService.m in Sources */,
+				227A2A621CFF56A20029C268 /* NewsViewController.m in Sources */,
 				2211ED971CF4C67F00E29443 /* AuthService.m in Sources */,
 				229D394F1CF20FFC004BECFD /* NavigationController.m in Sources */,
 				229D39471CF20E6E004BECFD /* LoginController.m in Sources */,
 				2211ED941CF4C23400E29443 /* NetworkService.m in Sources */,
+				227A2A761CFF678C0029C268 /* UIViewController+ExtensionContoller.m in Sources */,
+				227A2A661CFF58740029C268 /* NewsDataManager.m in Sources */,
 				229D394B1CF20E9B004BECFD /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

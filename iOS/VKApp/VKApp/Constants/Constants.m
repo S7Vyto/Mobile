@@ -8,7 +8,10 @@
 
 #import "Constants.h"
 
-NSString *const CNSAppId = @"12345";
+NSString *const CNSAppId = @"";
+NSString *const CNSApiHost = @"https://api.vk.com";
+NSString *const CNSApiMethod = @"method";
+NSString *const CNSApiVersion =@"5.52";
 
 @implementation Constants
 

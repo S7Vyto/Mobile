@@ -25,10 +25,10 @@
             </objects>
             <point key="canvasLocation" x="-951" y="227"/>
         </scene>
-        <!--View Controller-->
+        <!--News-->
         <scene sceneID="6zV-x3-mFm">
             <objects>
-                <viewController storyboardIdentifier="WallController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="uxG-KA-187" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NewsController" title="News" useStoryboardIdentifierAsRestorationIdentifier="YES" id="uxG-KA-187" customClass="NewsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uuz-h6-Fk1"/>
                         <viewControllerLayoutGuide type="bottom" id="GJM-o7-HUs"/>
@@ -36,11 +36,26 @@
                     <view key="view" contentMode="scaleToFill" id="P5M-MQ-eW8">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.16078431372549018" green="0.19607843137254902" blue="0.28627450980392155" alpha="1" colorSpace="calibratedRGB"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="white" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ru2-M8-tp8">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.12941176470588234" green="0.16078431372549018" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="GJM-o7-HUs" firstAttribute="top" secondItem="Ru2-M8-tp8" secondAttribute="bottom" id="BxG-FJ-O2A"/>
+                            <constraint firstItem="Ru2-M8-tp8" firstAttribute="top" secondItem="uuz-h6-Fk1" secondAttribute="bottom" id="a0d-Ch-RmS"/>
+                            <constraint firstAttribute="trailing" secondItem="Ru2-M8-tp8" secondAttribute="trailing" id="nwy-6x-eHb"/>
+                            <constraint firstItem="Ru2-M8-tp8" firstAttribute="leading" secondItem="P5M-MQ-eW8" secondAttribute="leading" id="xU8-Y0-ysq"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="news" id="6xd-85-blK">
                         <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="newsTableView" destination="Ru2-M8-tp8" id="fB3-lm-9Rh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KQa-ez-nMT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -120,7 +135,7 @@
                     <view key="view" contentMode="scaleToFill" id="mGe-1w-mJB">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.0039215686274509803" green="0.0" blue="0.15294117647058825" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.12941176470588234" green="0.16078431372549018" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="photos" id="wtp-2b-dOe">
                         <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>

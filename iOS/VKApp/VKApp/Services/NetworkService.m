@@ -88,6 +88,8 @@
     }];
     
     [dataTask resume];
+    // Optimization trick
+    [manager invalidateSessionCancelingTasks:NO];
 }
 
 - (void)executePostRequestWithURL:(NSURL *)URL completion:(completionBlock)completion exception:(exceptionBlock)exception {

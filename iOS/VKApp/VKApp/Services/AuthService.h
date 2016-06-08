@@ -19,22 +19,16 @@ typedef NS_ENUM(NSInteger, LogoutStatus) {
     LogoutFailed
 };
 
-@protocol AuthServiceDelegate <NSObject>
-
-@optional
-- (void)didRequestUserAuthorization:(NSURLRequest *)authorizationRequest;
-- (void)didUserAuthorizedWithStatus:(AuthStatus)authStatus;
-- (void)didUserLogout:(LogoutStatus)logoutStatus;
-
-@end
-
 @interface AuthService : NSObject
 
-@property(weak, nonatomic) id<AuthServiceDelegate> delegate;
++ (instancetype)sharedInstance;
 
 - (BOOL)isUserAuthorized;
-- (void)requestAuthorization;
+- (NSURLRequest *)authorizationURL;
 - (void)confirmAuthorizationResponse:(NSString *)response;
 - (void)deauthorizeUser;
+
+- (NSInteger)userId;
+- (NSString *)token;
 
 @end

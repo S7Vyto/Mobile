@@ -10,7 +10,7 @@
 #import "AppDelegate.h"
 #import "AuthService.h"
 
-@interface NavigationController () <AuthServiceDelegate>
+@interface NavigationController ()
 
 @end
 
@@ -28,9 +28,7 @@
 
 #pragma mark - AuthMethods
 - (IBAction)didTouchedLogout:(UIBarButtonItem *)sender {
-    AuthService *authService = [AuthService new];
-    [authService setDelegate:self];
-    [authService deauthorizeUser];
+    [[AuthService sharedInstance] deauthorizeUser];
 }
 
 - (void)didUserLogout:(LogoutStatus)logoutStatus {
