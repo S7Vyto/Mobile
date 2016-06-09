@@ -10,4 +10,5 @@
 
 @implementation NewsEntity
 
+
 @end

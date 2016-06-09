@@ -85,7 +85,7 @@
         <!--Settings-->
         <scene sceneID="yNd-sg-TRT">
             <objects>
-                <viewController storyboardIdentifier="SettingsController" title="Settings" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Oxe-s5-oFw" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingsController" title="Settings" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Oxe-s5-oFw" customClass="SettingsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mUv-hU-fIi"/>
                         <viewControllerLayoutGuide type="bottom" id="TJT-Wk-U5p"/>
@@ -93,11 +93,37 @@
                     <view key="view" contentMode="scaleToFill" id="uTr-aj-1pi">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="nPx-Ls-Gn2">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingCell" id="2Lb-qg-LTV">
+                                        <rect key="frame" x="0.0" y="114" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2Lb-qg-LTV" id="RAb-dL-mAR">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="nPx-Ls-Gn2" secondAttribute="trailing" id="6Om-dn-3xC"/>
+                            <constraint firstItem="TJT-Wk-U5p" firstAttribute="top" secondItem="nPx-Ls-Gn2" secondAttribute="bottom" id="JsM-KN-QEJ"/>
+                            <constraint firstItem="nPx-Ls-Gn2" firstAttribute="leading" secondItem="uTr-aj-1pi" secondAttribute="leading" id="K2n-12-7bj"/>
+                            <constraint firstItem="nPx-Ls-Gn2" firstAttribute="top" secondItem="mUv-hU-fIi" secondAttribute="bottom" id="ajP-kd-Gk4"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="menu" id="PTr-yK-mb9">
                         <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="settingsTableView" destination="nPx-Ls-Gn2" id="OHN-xY-Cto"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3lD-NQ-Tjc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

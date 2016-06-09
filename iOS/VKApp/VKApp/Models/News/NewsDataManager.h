@@ -25,5 +25,9 @@ typedef NS_ENUM(NSInteger, ContentStatus) {
 - (void)editNews:(NSInteger)newsId withMessage:(NSString *)message;
 - (void)deleteNews:(NSInteger)newsId;
 
+- (void)suspendOperations;
+- (void)resumeOperations;
+- (void)stopOperations;
+
 
 @end

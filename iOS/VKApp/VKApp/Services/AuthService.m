@@ -144,13 +144,15 @@ static NSString *kAuthErrorDescription = @"AuthErrorDescription";
 }
 
 - (AuthResponse *)loadAuthorizationData {
-    NSData *encodedData = [[PreferencesService sharedInstance] loadDataWithKey:PSAuthorizationData];    
-    AuthResponse *authResponse = [NSKeyedUnarchiver unarchiveObjectWithData:encodedData];
+    NSData *encodedData = [[PreferencesService sharedInstance] loadDataWithKey:PSAuthorizationData];
+    AuthResponse *authResponse = nil;
     
-    if (authResponse == nil) {
+    if (encodedData == nil) {
         authResponse = [AuthResponse new];
-        
         [self updateAuthorizationData:authResponse];
+    }
+    else {
+        authResponse = [NSKeyedUnarchiver unarchiveObjectWithData:encodedData];
     }
     
     return authResponse;

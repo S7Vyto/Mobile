@@ -8,12 +8,10 @@
 
 #import <Foundation/Foundation.h>
 @class NewsEntity;
-typedef void(^DataCompletionBlock)(NSArray <NewsEntity *> *entityList);
-
 @interface NewsDataOperation : NSOperation
 
-@property (nonatomic, copy) DataCompletionBlock dataCompletionBlock;
+@property (strong, nonatomic) NSArray <NewsEntity *> *entityList;
 
-- (instancetype)initWithResponse:(id)response entitList:(NSMutableArray *)entityList;
+- (instancetype)initWithResponse:(id)response;
 
 @end

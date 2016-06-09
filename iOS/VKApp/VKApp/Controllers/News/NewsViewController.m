@@ -40,6 +40,7 @@ static NSString *const kNewsCellId = @"NewsCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     [self setupAppearance];
     [self setupNewsTableView];
     [self fetchUserNews];
@@ -58,7 +59,7 @@ static NSString *const kNewsCellId = @"NewsCell";
     _newsTableView.dataSource = self;
     _newsTableView.delegate = self;
     
-    _newsTableView.contentInset = UIEdgeInsetsZero;
+    _newsTableView.contentInset = UIEdgeInsetsMake(-66.0, 0, 0, 0);
     _newsTableView.separatorInset = UIEdgeInsetsZero;
     
     _newsTableView.estimatedRowHeight = 85.0;
@@ -82,6 +83,9 @@ static NSString *const kNewsCellId = @"NewsCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kNewsCellId
                                                             forIndexPath:indexPath];
     
+    NewsEntity *entity = _newsData[indexPath.row];
+    cell.textLabel.text = entity.text;
+    
     return cell;
 }
 
@@ -91,7 +95,7 @@ static NSString *const kNewsCellId = @"NewsCell";
 
 #pragma mark - NewsDataManagerDelegate
 - (void)didRecievedNews:(NSArray<NewsEntity *> *)newsData {
-    self.newsData = newsData;
+    [self setNewsData:newsData];
     [_newsTableView reloadData];
 }
 

@@ -35,7 +35,7 @@ static NSInteger const kNewsCount = 50;
     if (self) {
         self.pendingOperations = [NSOperationQueue new];
         self.pendingOperations.name = @"NewsDataOperation";
-        self.pendingOperations.maxConcurrentOperationCount = 5;
+        self.pendingOperations.maxConcurrentOperationCount = 1;
     }
     
     return self;
@@ -50,33 +50,51 @@ static NSInteger const kNewsCount = 50;
 }
 
 - (void)dealloc {
+    [_pendingOperations cancelAllOperations];
+    _pendingOperations = nil;
+    
     _netService = nil;
     _delegate = nil;
 }
 
+#pragma mark - OperationLifeCycle
+- (void)stopOperations {
+    [_pendingOperations cancelAllOperations];
+}
+
+- (void)suspendOperations {
+    _pendingOperations.suspended = YES;
+}
+
+- (void)resumeOperations {
+    _pendingOperations.suspended = NO;
+}
+
 #pragma mark - ManagerMethods
 - (void)fetchNewsWithUserId:(NSInteger)userId {
-    __weak NewsDataManager *weakManager = self;
     NSString *token = [[AuthService sharedInstance] token];
     NSString *rawURL = [NSString stringWithFormat:@"%@/%@/%@?owner_id=%li&access_token=%@&count=%li&v=%@", CNSApiHost, CNSApiMethod, kNewsList, (long)userId, token, (long)kNewsCount, CNSApiVersion];
     NSURL *URL = [NSURL URLWithString:rawURL];
     [self.netService executeGetRequestWithURL:URL
                                    completion:^(id response) {
-                                       NewsDataManager *strongManager = weakManager;
-                                       
                                        if (response != nil) {
-                                           __block NSMutableArray *entityList = [NSMutableArray new];
-                                           NewsDataOperation *newsOperation = [[NewsDataOperation alloc] initWithResponse:response
-                                                                                                                entitList:entityList];
-                                           newsOperation.queuePriority = NSOperationQueuePriorityHigh;
-                                           newsOperation.qualityOfService = NSOperationQualityOfServiceUserInitiated;
-                                           newsOperation.completionBlock = ^{
-                                               if (strongManager.delegate != nil) {
-                                                   [strongManager.delegate didRecievedNews:entityList];
-                                               }
+                                           __weak NewsDataManager *weakManager = self;
+                                           __block NewsDataOperation *operation = [[NewsDataOperation alloc] initWithResponse:response];
+                                           operation.queuePriority = NSOperationQueuePriorityHigh;
+                                           operation.qualityOfService = NSOperationQualityOfServiceUserInitiated;
+                                           operation.completionBlock = ^{
+                                               dispatch_async(dispatch_get_main_queue(), ^{
+                                                   NewsDataManager *strongManager = weakManager;
+                                                   if (strongManager.delegate != nil) {
+                                                       [strongManager.delegate didRecievedNews:operation.entityList];
+                                                   }
+                                                   
+                                                   operation = nil;
+                                                   strongManager = nil;
+                                               });
                                            };
                                            
-                                           [strongManager.pendingOperations addOperation:newsOperation];
+                                           [_pendingOperations addOperation:operation];
                                        }
                                    }
                                     exception:^(NSError *exception) {
@@ -101,5 +119,6 @@ static NSInteger const kNewsCount = 50;
 -(void)deleteNews:(NSInteger)newsId {
     
 }
+
 
 @end

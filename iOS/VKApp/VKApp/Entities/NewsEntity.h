@@ -8,6 +8,22 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NS_ENUM(NSInteger, EntityType) {
+    EntityPost = 0,
+    EntityCopy,
+    EntityReply,
+    EntityPostPone,
+    EntitySuggest
+};
+
 @interface NewsEntity : NSOperation
+
+@property (assign, nonatomic) NSInteger entityId;
+@property (assign, nonatomic) NSInteger ownerId;
+@property (assign, nonatomic) NSInteger fromId;
+@property (assign, nonatomic) double postDate;
+@property (copy, nonatomic) NSString *text;
+
+
 
 @end

@@ -7,23 +7,22 @@
 //
 
 #import "NewsDataOperation.h"
+#import "NewsEntity.h"
 
 @interface NewsDataOperation ()
 
-@property(strong, nonatomic) NSMutableArray <NewsEntity *> *entityList;
-@property(strong, nonatomic) id response;
+@property (copy, nonatomic) id response;
 
 @end
 
 @implementation NewsDataOperation
-@synthesize response = _response, entityList = _entityList, dataCompletionBlock = _dataCompletionBlock;
+@synthesize response = _response, entityList = _entityList;
 
 #pragma mark - OperationLifeCycle
-- (instancetype)initWithResponse:(id)response entitList:(NSMutableArray *)entityList {
+- (instancetype)initWithResponse:(id)response {
     self = [super init];
     if (self) {
-        self.response = response;
-        self.entityList = entityList;
+        self.response = [response copy];
     }
     
     return self;
@@ -38,22 +37,22 @@
     }
     
     BOOL isJsonWithError = YES;
-    NSJSONSerialization *jsonObject = nil;
+    id jsonResponse = nil;
     
-    if ([_response isKindOfClass:[NSDictionary class]]) {
+    if ([_response isKindOfClass:[NSDictionary class]]) {        
         if ([NSJSONSerialization isValidJSONObject:_response]) {
             isJsonWithError = NO;
-            jsonObject = _response;
+            jsonResponse = _response;
         }
     }
     else if ([_response isKindOfClass:[NSData class]]) {
         NSError *jsonError = nil;
-         jsonObject = [NSJSONSerialization JSONObjectWithData:_response
-                                                      options:NSJSONReadingAllowFragments
-                                                        error:&jsonError];
+         jsonResponse = [NSJSONSerialization JSONObjectWithData:_response
+                                                        options:NSJSONReadingAllowFragments
+                                                          error:&jsonError];
         
         if (jsonError == nil) {
-            if ([NSJSONSerialization isValidJSONObject:jsonObject]) {
+            if ([NSJSONSerialization isValidJSONObject:jsonResponse]) {
                 isJsonWithError = NO;
             }
         }
@@ -63,18 +62,35 @@
         [self cancel];
     }
     else {
+        if ([self isCancelled]) {
+            return;
+        }
         
+        id jsonObject = jsonResponse[@"response"];
+        id jsonItems = jsonObject[@"items"];
+        if ([jsonItems isKindOfClass:[NSArray class]]) {
+            NSMutableArray *entityList = [NSMutableArray new];
+            for (id jsonItem in jsonItems) {
+                NewsEntity *entity = [NewsEntity new];
+                entity.entityId = [jsonItem[@"id"] integerValue];
+                entity.ownerId = [jsonItem[@"owner_id"] integerValue];
+                entity.fromId = [jsonItem[@"from_id"] integerValue];
+                entity.postDate = [jsonItem[@"date"] doubleValue];
+                entity.text = jsonItem[@"text"];
+                
+                [entityList addObject:entity];
+            }
+            
+            self.entityList = entityList;
+        }
     }
 }
 
 - (void)cancel {
-    [_entityList removeAllObjects];
-    
-    _response = nil;
-    _entityList = nil;
-    _dataCompletionBlock = nil;
-    
     [super cancel];
+    
+    _entityList = nil;
+    _response = nil;
 }
 
 @end
