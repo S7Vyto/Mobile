@@ -16,14 +16,19 @@ typedef NS_ENUM(NSInteger, EntityType) {
     EntitySuggest
 };
 
+@class PhotoEntity;
 @interface NewsEntity : NSOperation
 
 @property (assign, nonatomic) NSInteger entityId;
 @property (assign, nonatomic) NSInteger ownerId;
 @property (assign, nonatomic) NSInteger fromId;
-@property (assign, nonatomic) double postDate;
+@property (assign, nonatomic) NSTimeInterval postDate;
 @property (copy, nonatomic) NSString *text;
-
+@property (strong, nonatomic) NSMutableArray *attachments;
+@property (assign, nonatomic) EntityType type;
+@property (assign, nonatomic) BOOL canDelete;
+@property (assign, nonatomic) BOOL canEdit;
+@property (assign, nonatomic) BOOL canPin;
 
 
 @end

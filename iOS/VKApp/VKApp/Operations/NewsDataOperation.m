@@ -8,10 +8,12 @@
 
 #import "NewsDataOperation.h"
 #import "NewsEntity.h"
+#import "AttachmentEntity.h"
+#import "AttachmentPhotoEntity.h"
 
 @interface NewsDataOperation ()
 
-@property (copy, nonatomic) id response;
+@property (copy) id response;
 
 @end
 
@@ -22,7 +24,7 @@
 - (instancetype)initWithResponse:(id)response {
     self = [super init];
     if (self) {
-        self.response = [response copy];
+        self.response = response;
     }
     
     return self;
@@ -38,6 +40,11 @@
     
     BOOL isJsonWithError = YES;
     id jsonResponse = nil;
+    
+    if (_response == nil) {
+        [self cancel];
+        return;
+    }
     
     if ([_response isKindOfClass:[NSDictionary class]]) {        
         if ([NSJSONSerialization isValidJSONObject:_response]) {
@@ -77,6 +84,27 @@
                 entity.fromId = [jsonItem[@"from_id"] integerValue];
                 entity.postDate = [jsonItem[@"date"] doubleValue];
                 entity.text = jsonItem[@"text"];
+                entity.canDelete = [jsonItem[@"can_delete"] boolValue];
+                entity.canEdit = [jsonItem[@"can_edit"] boolValue];
+                entity.canPin = [jsonItem[@"can_pin"] boolValue];
+                
+                id jsonHistory = jsonItem[@"copy_history"];
+                if (jsonHistory != nil) {
+                    id jsonAttachments = jsonHistory[0][@"attachments"];
+                    if (jsonAttachments != nil && [jsonAttachments isKindOfClass:[NSArray class]]) {
+                        for (id jsonAttachment in jsonAttachments) {
+                            AttachmentEntity *attachment = nil;
+                            NSString *type = jsonAttachment[@"type"];
+                            if ([type isEqualToString:@"photo"]) {
+                                attachment = [self parsePhotoAttachment:jsonAttachment[@"photo"]];
+                            }
+                            
+                            if (attachment != nil) {
+                                [entity.attachments addObject:attachment];
+                            }
+                        }
+                    }
+                }
                 
                 [entityList addObject:entity];
             }
@@ -91,6 +119,25 @@
     
     _entityList = nil;
     _response = nil;
+}
+
+- (AttachmentEntity *)parsePhotoAttachment:(id)jsonAttachment {
+    AttachmentPhotoEntity *photoEntity = [AttachmentPhotoEntity new];
+    photoEntity.accessKey = jsonAttachment[@"access_key"];
+    photoEntity.albumId = [jsonAttachment[@"album_id"] integerValue];
+    photoEntity.date = [jsonAttachment[@"date"] doubleValue];
+    photoEntity.width = [jsonAttachment[@"width"] integerValue];
+    photoEntity.height = [jsonAttachment[@"height"] integerValue];
+    photoEntity.entityId = [jsonAttachment[@"id"] integerValue];
+    photoEntity.ownerId = [jsonAttachment[@"owner_id"] integerValue];
+    photoEntity.userId = [jsonAttachment[@"user_id"] integerValue];
+    photoEntity.photo75 = jsonAttachment[@"photo_75"];
+    photoEntity.photo130 = jsonAttachment[@"photo_130"];
+    photoEntity.photo604 = jsonAttachment[@"photo_604"];
+    photoEntity.photo807 = jsonAttachment[@"photo_807"];
+    photoEntity.text = jsonAttachment[@"text"];
+    
+    return photoEntity;
 }
 
 @end

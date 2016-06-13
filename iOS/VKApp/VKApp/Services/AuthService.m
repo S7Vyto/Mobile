@@ -94,8 +94,8 @@ static NSString *kAuthErrorDescription = @"AuthErrorDescription";
     
     [self updateAuthorizationData:_authResponse];
     [[NSNotificationCenter defaultCenter] postNotificationName:@""
-                                                        object:@""
-                                                      userInfo:nil];
+                                                        object:self
+                                                      userInfo:@{@"" :_authResponse}];
 }
 
 - (void)deauthorizeUser {
@@ -110,8 +110,8 @@ static NSString *kAuthErrorDescription = @"AuthErrorDescription";
     [self updateAuthorizationData:_authResponse];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@""
-                                                        object:@""
-                                                      userInfo:nil];
+                                                        object:self
+                                                      userInfo:@{@"" :_authResponse}];
 }
 
 - (NSURLRequest *)authorizationURL {

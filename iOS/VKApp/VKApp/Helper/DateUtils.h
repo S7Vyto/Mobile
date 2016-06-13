@@ -10,4 +10,7 @@
 
 @interface DateUtils : NSObject
 
++ (NSTimeInterval)currentUnixTime;
++ (NSString *)dateUnixTime:(NSTimeInterval)timeInterval withDateFormat:(NSString *)dateFormat;
+
 @end

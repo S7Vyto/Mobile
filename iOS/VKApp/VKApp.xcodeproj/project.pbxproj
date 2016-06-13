@@ -11,8 +11,6 @@
 		2211ED971CF4C67F00E29443 /* AuthService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2211ED961CF4C67F00E29443 /* AuthService.m */; };
 		2211ED9A1CF4CEAC00E29443 /* PreferencesService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2211ED991CF4CEAC00E29443 /* PreferencesService.m */; };
 		2211ED9E1CF4D5BA00E29443 /* StoryboardFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2211ED9D1CF4D5BA00E29443 /* StoryboardFactory.m */; };
-		223659C21D0893740018F6B5 /* PhotoEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = 223659C01D0893740018F6B5 /* PhotoEntity.h */; };
-		223659C31D0893740018F6B5 /* PhotoEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 223659C11D0893740018F6B5 /* PhotoEntity.m */; };
 		223659C61D089E7B0018F6B5 /* DateUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 223659C41D089E7B0018F6B5 /* DateUtils.h */; };
 		223659C71D089E7B0018F6B5 /* DateUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 223659C51D089E7B0018F6B5 /* DateUtils.m */; };
 		223659CF1D089FA40018F6B5 /* ThemeService.h in Headers */ = {isa = PBXBuildFile; fileRef = 223659CD1D089FA40018F6B5 /* ThemeService.h */; };
@@ -26,12 +24,23 @@
 		227A2A621CFF56A20029C268 /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 227A2A601CFF56A20029C268 /* NewsViewController.m */; };
 		227A2A651CFF58740029C268 /* NewsDataManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 227A2A631CFF58740029C268 /* NewsDataManager.h */; };
 		227A2A661CFF58740029C268 /* NewsDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 227A2A641CFF58740029C268 /* NewsDataManager.m */; };
-		227A2A6C1CFF632B0029C268 /* NewsEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = 227A2A6A1CFF632B0029C268 /* NewsEntity.h */; };
-		227A2A6D1CFF632B0029C268 /* NewsEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 227A2A6B1CFF632B0029C268 /* NewsEntity.m */; };
 		227A2A751CFF678C0029C268 /* UIViewController+ExtensionContoller.h in Headers */ = {isa = PBXBuildFile; fileRef = 227A2A731CFF678C0029C268 /* UIViewController+ExtensionContoller.h */; };
 		227A2A761CFF678C0029C268 /* UIViewController+ExtensionContoller.m in Sources */ = {isa = PBXBuildFile; fileRef = 227A2A741CFF678C0029C268 /* UIViewController+ExtensionContoller.m */; };
 		228557451CFCA8FC00E919C5 /* ParserUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 228557431CFCA8FC00E919C5 /* ParserUtils.h */; };
 		228557461CFCA8FC00E919C5 /* ParserUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 228557441CFCA8FC00E919C5 /* ParserUtils.m */; };
+		229641321D0ED12C00ADB094 /* AudioViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 229641301D0ED12C00ADB094 /* AudioViewController.h */; };
+		229641331D0ED12C00ADB094 /* AudioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 229641311D0ED12C00ADB094 /* AudioViewController.m */; };
+		229641381D0ED1F400ADB094 /* AudioDataManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 229641361D0ED1F400ADB094 /* AudioDataManager.h */; };
+		229641391D0ED1F400ADB094 /* AudioDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 229641371D0ED1F400ADB094 /* AudioDataManager.m */; };
+		2296413D1D0ED50400ADB094 /* AudioViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 2296413A1D0ED50400ADB094 /* AudioViewCell.h */; };
+		2296413E1D0ED50400ADB094 /* AudioViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2296413B1D0ED50400ADB094 /* AudioViewCell.m */; };
+		2296413F1D0ED50400ADB094 /* AudioViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2296413C1D0ED50400ADB094 /* AudioViewCell.xib */; };
+		229641431D0ED5B300ADB094 /* AudioEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = 229641411D0ED5B300ADB094 /* AudioEntity.h */; };
+		229641441D0ED5B300ADB094 /* AudioEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 229641421D0ED5B300ADB094 /* AudioEntity.m */; };
+		229641471D0EDA4F00ADB094 /* AudioDataOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 229641451D0EDA4F00ADB094 /* AudioDataOperation.h */; };
+		229641481D0EDA4F00ADB094 /* AudioDataOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 229641461D0EDA4F00ADB094 /* AudioDataOperation.m */; };
+		2296414B1D0EF7B900ADB094 /* UITableViewCell+ExtensionCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 229641491D0EF7B900ADB094 /* UITableViewCell+ExtensionCell.h */; };
+		2296414C1D0EF7B900ADB094 /* UITableViewCell+ExtensionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2296414A1D0EF7B900ADB094 /* UITableViewCell+ExtensionCell.m */; };
 		229D39221CF2088F004BECFD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 229D39211CF2088F004BECFD /* main.m */; };
 		229D392B1CF2088F004BECFD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 229D39291CF2088F004BECFD /* Main.storyboard */; };
 		229D392D1CF2088F004BECFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 229D392C1CF2088F004BECFD /* Assets.xcassets */; };
@@ -41,6 +50,14 @@
 		229D39471CF20E6E004BECFD /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 229D39461CF20E6E004BECFD /* LoginController.m */; };
 		229D394B1CF20E9B004BECFD /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 229D394A1CF20E9B004BECFD /* Constants.m */; };
 		229D394F1CF20FFC004BECFD /* NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 229D394E1CF20FFC004BECFD /* NavigationController.m */; };
+		229D60C51D0B357E003ED92A /* AttachmentEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = 229D60C31D0B357E003ED92A /* AttachmentEntity.h */; };
+		229D60C61D0B357E003ED92A /* AttachmentEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 229D60C41D0B357E003ED92A /* AttachmentEntity.m */; };
+		229D60CA1D0B3A26003ED92A /* AttachmentPhotoEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = 229D60C81D0B3A26003ED92A /* AttachmentPhotoEntity.h */; };
+		229D60CB1D0B3A26003ED92A /* AttachmentPhotoEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 229D60C91D0B3A26003ED92A /* AttachmentPhotoEntity.m */; };
+		229D60D01D0B4CF5003ED92A /* PhotoEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = 229D60CE1D0B4CF5003ED92A /* PhotoEntity.h */; };
+		229D60D11D0B4CF5003ED92A /* PhotoEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 229D60CF1D0B4CF5003ED92A /* PhotoEntity.m */; };
+		229D60D41D0B4D0E003ED92A /* NewsEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = 229D60D21D0B4D0E003ED92A /* NewsEntity.h */; };
+		229D60D51D0B4D0E003ED92A /* NewsEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 229D60D31D0B4D0E003ED92A /* NewsEntity.m */; };
 		22B159FB1D0743F500BA2D31 /* NewsDataOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 22B159F91D0743F500BA2D31 /* NewsDataOperation.h */; };
 		22B159FC1D0743F500BA2D31 /* NewsDataOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B159FA1D0743F500BA2D31 /* NewsDataOperation.m */; };
 		22D28C941D09ED89008AB3E2 /* SettingsViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 22D28C921D09ED89008AB3E2 /* SettingsViewController.h */; };
@@ -57,8 +74,6 @@
 		2211ED991CF4CEAC00E29443 /* PreferencesService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PreferencesService.m; path = Services/PreferencesService.m; sourceTree = "<group>"; };
 		2211ED9C1CF4D5BA00E29443 /* StoryboardFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoryboardFactory.h; path = Factories/StoryboardFactory.h; sourceTree = "<group>"; };
 		2211ED9D1CF4D5BA00E29443 /* StoryboardFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StoryboardFactory.m; path = Factories/StoryboardFactory.m; sourceTree = "<group>"; };
-		223659C01D0893740018F6B5 /* PhotoEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotoEntity.h; path = Entities/PhotoEntity.h; sourceTree = "<group>"; };
-		223659C11D0893740018F6B5 /* PhotoEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoEntity.m; path = Entities/PhotoEntity.m; sourceTree = "<group>"; };
 		223659C41D089E7B0018F6B5 /* DateUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DateUtils.h; path = Helper/DateUtils.h; sourceTree = "<group>"; };
 		223659C51D089E7B0018F6B5 /* DateUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DateUtils.m; path = Helper/DateUtils.m; sourceTree = "<group>"; };
 		223659CD1D089FA40018F6B5 /* ThemeService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThemeService.h; path = Services/ThemeService.h; sourceTree = "<group>"; };
@@ -73,12 +88,23 @@
 		227A2A631CFF58740029C268 /* NewsDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewsDataManager.h; path = Models/News/NewsDataManager.h; sourceTree = "<group>"; };
 		227A2A641CFF58740029C268 /* NewsDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewsDataManager.m; path = Models/News/NewsDataManager.m; sourceTree = "<group>"; };
 		227A2A691CFF5C550029C268 /* Delegates.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Delegates.h; path = Delegates/Delegates.h; sourceTree = "<group>"; };
-		227A2A6A1CFF632B0029C268 /* NewsEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewsEntity.h; path = Entities/NewsEntity.h; sourceTree = "<group>"; };
-		227A2A6B1CFF632B0029C268 /* NewsEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewsEntity.m; path = Entities/NewsEntity.m; sourceTree = "<group>"; };
 		227A2A731CFF678C0029C268 /* UIViewController+ExtensionContoller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+ExtensionContoller.h"; path = "Categories/UIViewController+ExtensionContoller.h"; sourceTree = "<group>"; };
 		227A2A741CFF678C0029C268 /* UIViewController+ExtensionContoller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+ExtensionContoller.m"; path = "Categories/UIViewController+ExtensionContoller.m"; sourceTree = "<group>"; };
 		228557431CFCA8FC00E919C5 /* ParserUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParserUtils.h; path = Helper/ParserUtils.h; sourceTree = "<group>"; };
 		228557441CFCA8FC00E919C5 /* ParserUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ParserUtils.m; path = Helper/ParserUtils.m; sourceTree = "<group>"; };
+		229641301D0ED12C00ADB094 /* AudioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioViewController.h; path = Controllers/Audio/AudioViewController.h; sourceTree = "<group>"; };
+		229641311D0ED12C00ADB094 /* AudioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioViewController.m; path = Controllers/Audio/AudioViewController.m; sourceTree = "<group>"; };
+		229641361D0ED1F400ADB094 /* AudioDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioDataManager.h; path = Models/Audio/AudioDataManager.h; sourceTree = "<group>"; };
+		229641371D0ED1F400ADB094 /* AudioDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioDataManager.m; path = Models/Audio/AudioDataManager.m; sourceTree = "<group>"; };
+		2296413A1D0ED50400ADB094 /* AudioViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioViewCell.h; path = Views/Cell/AudioViewCell.h; sourceTree = "<group>"; };
+		2296413B1D0ED50400ADB094 /* AudioViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioViewCell.m; path = Views/Cell/AudioViewCell.m; sourceTree = "<group>"; };
+		2296413C1D0ED50400ADB094 /* AudioViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AudioViewCell.xib; path = Views/Cell/AudioViewCell.xib; sourceTree = "<group>"; };
+		229641411D0ED5B300ADB094 /* AudioEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioEntity.h; path = Entities/Audio/AudioEntity.h; sourceTree = "<group>"; };
+		229641421D0ED5B300ADB094 /* AudioEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioEntity.m; path = Entities/Audio/AudioEntity.m; sourceTree = "<group>"; };
+		229641451D0EDA4F00ADB094 /* AudioDataOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioDataOperation.h; path = Operations/AudioDataOperation.h; sourceTree = "<group>"; };
+		229641461D0EDA4F00ADB094 /* AudioDataOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioDataOperation.m; path = Operations/AudioDataOperation.m; sourceTree = "<group>"; };
+		229641491D0EF7B900ADB094 /* UITableViewCell+ExtensionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UITableViewCell+ExtensionCell.h"; path = "Categories/UITableViewCell+ExtensionCell.h"; sourceTree = "<group>"; };
+		2296414A1D0EF7B900ADB094 /* UITableViewCell+ExtensionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UITableViewCell+ExtensionCell.m"; path = "Categories/UITableViewCell+ExtensionCell.m"; sourceTree = "<group>"; };
 		229D391D1CF2088F004BECFD /* VKApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		229D39211CF2088F004BECFD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		229D392A1CF2088F004BECFD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -94,6 +120,14 @@
 		229D394A1CF20E9B004BECFD /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Constants.m; path = Constants/Constants.m; sourceTree = "<group>"; };
 		229D394D1CF20FFC004BECFD /* NavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NavigationController.h; path = Controllers/Navigation/NavigationController.h; sourceTree = "<group>"; };
 		229D394E1CF20FFC004BECFD /* NavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NavigationController.m; path = Controllers/Navigation/NavigationController.m; sourceTree = "<group>"; };
+		229D60C31D0B357E003ED92A /* AttachmentEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AttachmentEntity.h; path = Entities/Attachments/AttachmentEntity.h; sourceTree = "<group>"; };
+		229D60C41D0B357E003ED92A /* AttachmentEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AttachmentEntity.m; path = Entities/Attachments/AttachmentEntity.m; sourceTree = "<group>"; };
+		229D60C81D0B3A26003ED92A /* AttachmentPhotoEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AttachmentPhotoEntity.h; path = Entities/Attachments/AttachmentPhotoEntity.h; sourceTree = "<group>"; };
+		229D60C91D0B3A26003ED92A /* AttachmentPhotoEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AttachmentPhotoEntity.m; path = Entities/Attachments/AttachmentPhotoEntity.m; sourceTree = "<group>"; };
+		229D60CE1D0B4CF5003ED92A /* PhotoEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotoEntity.h; path = Entities/Photos/PhotoEntity.h; sourceTree = "<group>"; };
+		229D60CF1D0B4CF5003ED92A /* PhotoEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoEntity.m; path = Entities/Photos/PhotoEntity.m; sourceTree = "<group>"; };
+		229D60D21D0B4D0E003ED92A /* NewsEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewsEntity.h; path = Entities/News/NewsEntity.h; sourceTree = "<group>"; };
+		229D60D31D0B4D0E003ED92A /* NewsEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewsEntity.m; path = Entities/News/NewsEntity.m; sourceTree = "<group>"; };
 		22B159F91D0743F500BA2D31 /* NewsDataOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewsDataOperation.h; path = Operations/NewsDataOperation.h; sourceTree = "<group>"; };
 		22B159FA1D0743F500BA2D31 /* NewsDataOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewsDataOperation.m; path = Operations/NewsDataOperation.m; sourceTree = "<group>"; };
 		22D28C921D09ED89008AB3E2 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsViewController.h; path = Controllers/Settings/SettingsViewController.h; sourceTree = "<group>"; };
@@ -144,6 +178,8 @@
 			children = (
 				227A2A731CFF678C0029C268 /* UIViewController+ExtensionContoller.h */,
 				227A2A741CFF678C0029C268 /* UIViewController+ExtensionContoller.m */,
+				229641491D0EF7B900ADB094 /* UITableViewCell+ExtensionCell.h */,
+				2296414A1D0EF7B900ADB094 /* UITableViewCell+ExtensionCell.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -154,6 +190,9 @@
 				223659D81D08A0270018F6B5 /* NewsViewCell.h */,
 				223659D91D08A0270018F6B5 /* NewsViewCell.m */,
 				223659DA1D08A0270018F6B5 /* NewsViewCell.xib */,
+				2296413A1D0ED50400ADB094 /* AudioViewCell.h */,
+				2296413B1D0ED50400ADB094 /* AudioViewCell.m */,
+				2296413C1D0ED50400ADB094 /* AudioViewCell.xib */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -196,10 +235,10 @@
 		227A2A6E1CFF63330029C268 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				227A2A6A1CFF632B0029C268 /* NewsEntity.h */,
-				227A2A6B1CFF632B0029C268 /* NewsEntity.m */,
-				223659C01D0893740018F6B5 /* PhotoEntity.h */,
-				223659C11D0893740018F6B5 /* PhotoEntity.m */,
+				229641401D0ED59600ADB094 /* Audio */,
+				229D60CD1D0B4CE5003ED92A /* Photos */,
+				229D60CC1D0B4CC0003ED92A /* News */,
+				229D60C71D0B3582003ED92A /* Attachments */,
 			);
 			name = Entities;
 			sourceTree = "<group>";
@@ -213,6 +252,33 @@
 				223659C51D089E7B0018F6B5 /* DateUtils.m */,
 			);
 			name = Helper;
+			sourceTree = "<group>";
+		};
+		229641341D0ED13100ADB094 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				229641301D0ED12C00ADB094 /* AudioViewController.h */,
+				229641311D0ED12C00ADB094 /* AudioViewController.m */,
+			);
+			name = Audio;
+			sourceTree = "<group>";
+		};
+		229641351D0ED1D200ADB094 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				229641361D0ED1F400ADB094 /* AudioDataManager.h */,
+				229641371D0ED1F400ADB094 /* AudioDataManager.m */,
+			);
+			name = Audio;
+			sourceTree = "<group>";
+		};
+		229641401D0ED59600ADB094 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				229641411D0ED5B300ADB094 /* AudioEntity.h */,
+				229641421D0ED5B300ADB094 /* AudioEntity.m */,
+			);
+			name = Audio;
 			sourceTree = "<group>";
 		};
 		229D39141CF2088F004BECFD = {
@@ -286,6 +352,7 @@
 		229D393F1CF20DC8004BECFD /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				229641341D0ED13100ADB094 /* Audio */,
 				22D28C911D09ED6A008AB3E2 /* Settings */,
 				227A2A5E1CFF567A0029C268 /* News */,
 				229D394C1CF20FB7004BECFD /* Navigation */,
@@ -306,6 +373,7 @@
 		229D39411CF20DD7004BECFD /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				229641351D0ED1D200ADB094 /* Audio */,
 				227A2A671CFF58780029C268 /* News */,
 			);
 			name = Models;
@@ -338,9 +406,40 @@
 			name = Navigation;
 			sourceTree = "<group>";
 		};
+		229D60C71D0B3582003ED92A /* Attachments */ = {
+			isa = PBXGroup;
+			children = (
+				229D60C31D0B357E003ED92A /* AttachmentEntity.h */,
+				229D60C41D0B357E003ED92A /* AttachmentEntity.m */,
+				229D60C81D0B3A26003ED92A /* AttachmentPhotoEntity.h */,
+				229D60C91D0B3A26003ED92A /* AttachmentPhotoEntity.m */,
+			);
+			name = Attachments;
+			sourceTree = "<group>";
+		};
+		229D60CC1D0B4CC0003ED92A /* News */ = {
+			isa = PBXGroup;
+			children = (
+				229D60D21D0B4D0E003ED92A /* NewsEntity.h */,
+				229D60D31D0B4D0E003ED92A /* NewsEntity.m */,
+			);
+			name = News;
+			sourceTree = "<group>";
+		};
+		229D60CD1D0B4CE5003ED92A /* Photos */ = {
+			isa = PBXGroup;
+			children = (
+				229D60CE1D0B4CF5003ED92A /* PhotoEntity.h */,
+				229D60CF1D0B4CF5003ED92A /* PhotoEntity.m */,
+			);
+			name = Photos;
+			sourceTree = "<group>";
+		};
 		22B159F81D0743CF00BA2D31 /* Operations */ = {
 			isa = PBXGroup;
 			children = (
+				229641451D0EDA4F00ADB094 /* AudioDataOperation.h */,
+				229641461D0EDA4F00ADB094 /* AudioDataOperation.m */,
 				22B159F91D0743F500BA2D31 /* NewsDataOperation.h */,
 				22B159FA1D0743F500BA2D31 /* NewsDataOperation.m */,
 			);
@@ -380,17 +479,25 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				229D60D41D0B4D0E003ED92A /* NewsEntity.h in Headers */,
 				223659C61D089E7B0018F6B5 /* DateUtils.h in Headers */,
-				227A2A6C1CFF632B0029C268 /* NewsEntity.h in Headers */,
+				229D60CA1D0B3A26003ED92A /* AttachmentPhotoEntity.h in Headers */,
 				22D28C941D09ED89008AB3E2 /* SettingsViewController.h in Headers */,
+				229D60C51D0B357E003ED92A /* AttachmentEntity.h in Headers */,
+				229641321D0ED12C00ADB094 /* AudioViewController.h in Headers */,
+				229D60D01D0B4CF5003ED92A /* PhotoEntity.h in Headers */,
+				229641471D0EDA4F00ADB094 /* AudioDataOperation.h in Headers */,
 				223659E11D08A0370018F6B5 /* SpinnerView.h in Headers */,
 				22B159FB1D0743F500BA2D31 /* NewsDataOperation.h in Headers */,
 				227A2A611CFF56A20029C268 /* NewsViewController.h in Headers */,
-				223659C21D0893740018F6B5 /* PhotoEntity.h in Headers */,
 				227A2A651CFF58740029C268 /* NewsDataManager.h in Headers */,
 				227A2A751CFF678C0029C268 /* UIViewController+ExtensionContoller.h in Headers */,
+				229641431D0ED5B300ADB094 /* AudioEntity.h in Headers */,
 				223659CF1D089FA40018F6B5 /* ThemeService.h in Headers */,
+				2296413D1D0ED50400ADB094 /* AudioViewCell.h in Headers */,
+				229641381D0ED1F400ADB094 /* AudioDataManager.h in Headers */,
 				223659DB1D08A0270018F6B5 /* NewsViewCell.h in Headers */,
+				2296414B1D0EF7B900ADB094 /* UITableViewCell+ExtensionCell.h in Headers */,
 				228557451CFCA8FC00E919C5 /* ParserUtils.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -458,6 +565,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				229D39431CF20E09004BECFD /* Login.storyboard in Resources */,
+				2296413F1D0ED50400ADB094 /* AudioViewCell.xib in Resources */,
 				229D39301CF2088F004BECFD /* LaunchScreen.storyboard in Resources */,
 				223659DD1D08A0270018F6B5 /* NewsViewCell.xib in Resources */,
 				229D392D1CF2088F004BECFD /* Assets.xcassets in Resources */,
@@ -520,16 +628,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				227A2A6D1CFF632B0029C268 /* NewsEntity.m in Sources */,
 				229D393B1CF2090F004BECFD /* AppDelegate.m in Sources */,
 				2211ED9E1CF4D5BA00E29443 /* StoryboardFactory.m in Sources */,
 				228557461CFCA8FC00E919C5 /* ParserUtils.m in Sources */,
+				2296413E1D0ED50400ADB094 /* AudioViewCell.m in Sources */,
 				223659D01D089FA40018F6B5 /* ThemeService.m in Sources */,
 				22B159FC1D0743F500BA2D31 /* NewsDataOperation.m in Sources */,
 				22D28C951D09ED89008AB3E2 /* SettingsViewController.m in Sources */,
 				229D39221CF2088F004BECFD /* main.m in Sources */,
 				2211ED9A1CF4CEAC00E29443 /* PreferencesService.m in Sources */,
+				229641441D0ED5B300ADB094 /* AudioEntity.m in Sources */,
 				223659C71D089E7B0018F6B5 /* DateUtils.m in Sources */,
+				229D60CB1D0B3A26003ED92A /* AttachmentPhotoEntity.m in Sources */,
+				229641481D0EDA4F00ADB094 /* AudioDataOperation.m in Sources */,
 				227A2A621CFF56A20029C268 /* NewsViewController.m in Sources */,
 				2211ED971CF4C67F00E29443 /* AuthService.m in Sources */,
 				229D394F1CF20FFC004BECFD /* NavigationController.m in Sources */,
@@ -537,10 +648,15 @@
 				223659DC1D08A0270018F6B5 /* NewsViewCell.m in Sources */,
 				2211ED941CF4C23400E29443 /* NetworkService.m in Sources */,
 				227A2A761CFF678C0029C268 /* UIViewController+ExtensionContoller.m in Sources */,
+				229641331D0ED12C00ADB094 /* AudioViewController.m in Sources */,
+				229D60D51D0B4D0E003ED92A /* NewsEntity.m in Sources */,
+				229641391D0ED1F400ADB094 /* AudioDataManager.m in Sources */,
+				229D60C61D0B357E003ED92A /* AttachmentEntity.m in Sources */,
 				227A2A661CFF58740029C268 /* NewsDataManager.m in Sources */,
 				229D394B1CF20E9B004BECFD /* Constants.m in Sources */,
+				2296414C1D0EF7B900ADB094 /* UITableViewCell+ExtensionCell.m in Sources */,
 				223659E21D08A0370018F6B5 /* SpinnerView.m in Sources */,
-				223659C31D0893740018F6B5 /* PhotoEntity.m in Sources */,
+				229D60D11D0B4CF5003ED92A /* PhotoEntity.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -603,7 +719,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -641,7 +757,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -668,7 +784,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = VKApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Semyon-Vyatkin.VKApp";

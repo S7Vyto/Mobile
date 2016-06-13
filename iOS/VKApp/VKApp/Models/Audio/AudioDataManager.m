@@ -1,32 +1,29 @@
 //
-//  NewsDataManager.m
+//  AudioDataManager.m
 //  VKApp
 //
-//  Created by Semyon Vyatkin on 01/06/16.
+//  Created by Semyon Vyatkin on 13/06/16.
 //  Copyright © 2016 Semyon-Vyatkin. All rights reserved.
 //
 
-#import "NewsDataManager.h"
+#import "AudioDataManager.h"
 #import "NetworkService.h"
 #import "AuthService.h"
-#import "NewsDataOperation.h"
 #import "Constants.h"
+#import "AudioDataOperation.h"
 
-static NSString *const kNewsList = @"wall.get";
-static NSString *const kNewsListById = @"wall.getById";
-static NSString *const kNewsAdd = @"wall.post";
-static NSString *const kNewsEdit = @"wall.edit";
-static NSString *const kNewsDelete = @"wall.delete";
-static NSInteger const kNewsCount = 50;
+static NSString *const kAudioList = @"audio.get";
+static NSString *const kAudioListById = @"audio.getById";
+static NSInteger const kAudioCount = 50;
 
-@interface NewsDataManager ()
+@interface AudioDataManager ()
 
 @property(strong, nonatomic, getter=netService) NetworkService *netService;
 @property(strong, nonatomic) NSOperationQueue *pendingOperations;
 
 @end
 
-@implementation NewsDataManager
+@implementation AudioDataManager
 @synthesize delegate = _delegate, pendingOperations = _pendingOperations;
 
 #pragma mark - ManagerLifeCycle
@@ -34,7 +31,7 @@ static NSInteger const kNewsCount = 50;
     self = [super init];
     if (self) {
         self.pendingOperations = [NSOperationQueue mainQueue];
-        self.pendingOperations.name = @"NewsDataOperation";
+        self.pendingOperations.name = @"AudioDataOperation";
         self.pendingOperations.maxConcurrentOperationCount = 1;
     }
     
@@ -75,22 +72,22 @@ static NSInteger const kNewsCount = 50;
 }
 
 #pragma mark - ManagerMethods
-- (void)fetchNewsWithUserId:(NSInteger)userId {
+- (void)fetchAudioWithUserId:(NSInteger)userId {
     NSString *token = [[AuthService sharedInstance] token];
-    NSString *rawURL = [NSString stringWithFormat:@"%@/%@/%@?owner_id=%li&access_token=%@&count=%li&v=%@", CNSApiHost, CNSApiMethod, kNewsList, (long)userId, token, (long)kNewsCount, CNSApiVersion];
+    NSString *rawURL = [NSString stringWithFormat:@"%@/%@/%@?owner_id=%li&access_token=%@&count=%li&v=%@", CNSApiHost, CNSApiMethod, kAudioList, (long)userId, token, (long)kAudioCount, CNSApiVersion];
     NSURL *URL = [NSURL URLWithString:rawURL];
     [self.netService executeGetRequestWithURL:URL
                                    completion:^(id response) {
                                        if (response != nil) {
-                                           __weak NewsDataManager *weakManager = self;
-                                           __block NewsDataOperation *operation = [[NewsDataOperation alloc] initWithResponse:response];
+                                           __weak AudioDataManager *weakManager = self;
+                                           __block AudioDataOperation *operation = [[AudioDataOperation alloc] initWithResponse:response];
                                            operation.queuePriority = NSOperationQueuePriorityHigh;
                                            operation.qualityOfService = NSOperationQualityOfServiceUserInitiated;
                                            operation.completionBlock = ^{
                                                dispatch_async(dispatch_get_main_queue(), ^{
-                                                   NewsDataManager *strongManager = weakManager;
+                                                   AudioDataManager *strongManager = weakManager;
                                                    if (strongManager.delegate != nil) {
-                                                       [strongManager.delegate didRecievedNews:operation.entityList];
+                                                       [strongManager.delegate didRecievedAudio:operation.entityList];
                                                    }
                                                    
                                                    operation = nil;
@@ -103,26 +100,13 @@ static NSInteger const kNewsCount = 50;
                                    }
                                     exception:^(NSError *exception) {
                                         if (_delegate != nil) {
-                                            [_delegate didRecievedNewsWithError:exception];
+                                            [_delegate didRecievedAudioWithError:exception];
                                         }
-    }];
+                                    }];
 }
 
-- (void)fetchNewsById:(NSInteger)newsId forUserId:(NSInteger)userId {
+- (void)fetchAudioById:(NSInteger)audioId forUserId:(NSInteger)userId {
     
 }
-
-- (void)addNews:(NSString *)message forUserId:(NSInteger)userId {
-    
-}
-
-- (void)editNews:(NSInteger)newsId withMessage:(NSString *)message {
-    
-}
-
--(void)deleteNews:(NSInteger)newsId {
-    
-}
-
 
 @end

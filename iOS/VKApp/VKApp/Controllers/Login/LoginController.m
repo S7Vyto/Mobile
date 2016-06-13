@@ -9,6 +9,7 @@
 #import "LoginController.h"
 #import "AuthService.h"
 #import "AppDelegate.h"
+#import "UIViewController+ExtensionContoller.h"
 
 @interface LoginController () <UIWebViewDelegate>
 
@@ -24,13 +25,13 @@
 #pragma mark - ControllerLifeCycle
 - (void)awakeFromNib {
     [super awakeFromNib];
-    
     self.authService = [AuthService sharedInstance];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setupAppearance];
+    
+    [self setupAppearance];    
     [self setupWebView];
     [self setupAuthService];
 }
@@ -47,10 +48,6 @@
 }
 
 #pragma mark - SetupAppearance
-- (void)setupAppearance {
-    self.automaticallyAdjustsScrollViewInsets = NO;
-}
-
 - (void)setupWebView {
     [_webView setDelegate:self];
     [_webView setBackgroundColor:[UIColor clearColor]];

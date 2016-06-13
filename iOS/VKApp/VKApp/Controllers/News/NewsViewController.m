@@ -10,6 +10,7 @@
 #import "NewsDatamanager.h"
 #import "AuthService.h"
 #import "NewsEntity.h"
+#import "NewsViewCell.h"
 #import "UIViewController+ExtensionContoller.h"
 
 static NSString *const kNewsCellId = @"NewsCell";
@@ -27,9 +28,37 @@ static NSString *const kNewsCellId = @"NewsCell";
 @synthesize newsTableView = _newsTableView, dataManager = _dataManager, authService = _authService, newsData = _newsData;
 
 #pragma mark - ViewControllerLifecycle
-- (void)awakeFromNib {
-    [super awakeFromNib];
+- (void)viewDidLoad {
+    [super viewDidLoad];
     
+    [self setupAppearance];
+    [self setupContent];
+    [self setupNewsTableView];
+    [self fetchUserNews];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.dataManager resumeOperations];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];    
+    [self.dataManager suspendOperations];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+}
+
+- (void)dealloc {
+    _newsTableView.delegate = nil;
+    _newsTableView.dataSource = nil;
+    _dataManager.delegate = nil;
+}
+
+#pragma mark - SetupContent
+- (void)setupContent {
     self.newsData = @[];
     
     self.dataManager = [NewsDataManager new];
@@ -38,37 +67,27 @@ static NSString *const kNewsCellId = @"NewsCell";
     self.authService = [AuthService sharedInstance];
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    [self setupAppearance];
-    [self setupNewsTableView];
-    [self fetchUserNews];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
-- (void)dealloc {
-    _dataManager.delegate = nil;
-}
-
 #pragma mark - SetupAppearance
 - (void)setupNewsTableView {
     _newsTableView.dataSource = self;
     _newsTableView.delegate = self;
     
-    _newsTableView.contentInset = UIEdgeInsetsMake(-66.0, 0, 0, 0);
+    _newsTableView.backgroundView = nil;
+    _newsTableView.backgroundColor = [UIColor clearColor];
+    
+    _newsTableView.rowHeight = 85.0;
+    _newsTableView.estimatedRowHeight = UITableViewAutomaticDimension;
+    
+    _newsTableView.contentInset = UIEdgeInsetsZero;
     _newsTableView.separatorInset = UIEdgeInsetsZero;
+    _newsTableView.separatorColor = [UIColor clearColor];
     
-    _newsTableView.estimatedRowHeight = 85.0;
-    _newsTableView.rowHeight = UITableViewAutomaticDimension;
+    UINib *nib = [UINib nibWithNibName:@"NewsViewCell"
+                                bundle:[NSBundle mainBundle]];
     
-    [_newsTableView registerClass:[UITableViewCell class]
-           forCellReuseIdentifier:kNewsCellId];
+    [_newsTableView registerNib:nib
+         forCellReuseIdentifier:kNewsCellId];
 }
-
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -79,9 +98,13 @@ static NSString *const kNewsCellId = @"NewsCell";
     return [_newsData count];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return UITableViewAutomaticDimension;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kNewsCellId
-                                                            forIndexPath:indexPath];
+    NewsViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kNewsCellId
+                                                         forIndexPath:indexPath];
     
     NewsEntity *entity = _newsData[indexPath.row];
     cell.textLabel.text = entity.text;
@@ -89,6 +112,7 @@ static NSString *const kNewsCellId = @"NewsCell";
     return cell;
 }
 
+#pragma mark - NewsControllerMethods
 - (void)fetchUserNews {
     [_dataManager fetchNewsWithUserId:[_authService userId]];
 }
@@ -96,7 +120,7 @@ static NSString *const kNewsCellId = @"NewsCell";
 #pragma mark - NewsDataManagerDelegate
 - (void)didRecievedNews:(NSArray<NewsEntity *> *)newsData {
     [self setNewsData:newsData];
-    [_newsTableView reloadData];
+    [self.newsTableView reloadData];
 }
 
 - (void)didRecievedNewsWithError:(NSError *)error {

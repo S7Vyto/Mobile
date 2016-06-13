@@ -42,7 +42,6 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="0.12941176470588234" green="0.16078431372549018" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="GJM-o7-HUs" firstAttribute="top" secondItem="Ru2-M8-tp8" secondAttribute="bottom" id="BxG-FJ-O2A"/>
                             <constraint firstItem="Ru2-M8-tp8" firstAttribute="top" secondItem="uuz-h6-Fk1" secondAttribute="bottom" id="a0d-Ch-RmS"/>
@@ -96,7 +95,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="nPx-Ls-Gn2">
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingCell" id="2Lb-qg-LTV">
                                         <rect key="frame" x="0.0" y="114" width="600" height="44"/>
@@ -129,10 +128,10 @@
             </objects>
             <point key="canvasLocation" x="-235" y="1070"/>
         </scene>
-        <!--View Controller-->
+        <!--Audio View Controller-->
         <scene sceneID="Ln1-Ai-9Xk">
             <objects>
-                <viewController storyboardIdentifier="AudioController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ubT-f3-RvS" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AudioController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ubT-f3-RvS" customClass="AudioViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Mxe-IS-n2c"/>
                         <viewControllerLayoutGuide type="bottom" id="JgO-jD-qvQ"/>
@@ -140,11 +139,26 @@
                     <view key="view" contentMode="scaleToFill" id="hW9-Ct-vz3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="white" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UOs-UU-XaS">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="UOs-UU-XaS" firstAttribute="top" secondItem="Mxe-IS-n2c" secondAttribute="bottom" id="2i4-Tr-UBI"/>
+                            <constraint firstItem="UOs-UU-XaS" firstAttribute="leading" secondItem="hW9-Ct-vz3" secondAttribute="leading" id="5wn-h0-NAU"/>
+                            <constraint firstAttribute="trailing" secondItem="UOs-UU-XaS" secondAttribute="trailing" id="J5c-Sf-AI6"/>
+                            <constraint firstItem="JgO-jD-qvQ" firstAttribute="top" secondItem="UOs-UU-XaS" secondAttribute="bottom" id="lNH-by-8EZ"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="audio" id="8pk-sa-FXc">
                         <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="audioTableView" destination="UOs-UU-XaS" id="bRw-8e-80M"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="whJ-VN-fK8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -161,7 +175,6 @@
                     <view key="view" contentMode="scaleToFill" id="mGe-1w-mJB">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.12941176470588234" green="0.16078431372549018" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="photos" id="wtp-2b-dOe">
                         <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>

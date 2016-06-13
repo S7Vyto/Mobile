@@ -9,6 +9,7 @@
 #import "NavigationController.h"
 #import "AppDelegate.h"
 #import "AuthService.h"
+#import "UIViewController+ExtensionContoller.h"
 
 @interface NavigationController ()
 
@@ -18,7 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self setupAppearance];
 }
 
 - (void)didReceiveMemoryWarning {
