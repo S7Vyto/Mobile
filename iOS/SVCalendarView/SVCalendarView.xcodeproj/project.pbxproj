@@ -1,0 +1,467 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2225DDF81DB81D4A00C232DC /* SVCalendarConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2225DDF71DB81D4A00C232DC /* SVCalendarConfiguration.swift */; };
+		2225DDFB1DB81D5400C232DC /* SVCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2225DDF91DB81D5400C232DC /* SVCalendarViewController.swift */; };
+		2225DDFC1DB81D5400C232DC /* SVCalendarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2225DDFA1DB81D5400C232DC /* SVCalendarViewController.xib */; };
+		2225DDFE1DB81D5D00C232DC /* SVCalendarFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2225DDFD1DB81D5D00C232DC /* SVCalendarFlowLayout.swift */; };
+		2225DE011DB81D6F00C232DC /* SVCalendarDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2225DE001DB81D6F00C232DC /* SVCalendarDate.swift */; };
+		2225DE041DB81D7A00C232DC /* SVCalendarManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2225DE021DB81D7A00C232DC /* SVCalendarManger.swift */; };
+		2225DE051DB81D7A00C232DC /* SVCalendarService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2225DE031DB81D7A00C232DC /* SVCalendarService.swift */; };
+		2225DE071DB81D8500C232DC /* SVCalendarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2225DE061DB81D8500C232DC /* SVCalendarStyle.swift */; };
+		2225DE0B1DB81DA000C232DC /* SVCalendarViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2225DE091DB81DA000C232DC /* SVCalendarViewCell.swift */; };
+		2225DE0C1DB81DA000C232DC /* SVCalendarViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2225DE0A1DB81DA000C232DC /* SVCalendarViewCell.xib */; };
+		222A49FD1DB8222400ECD849 /* SVCalendarSwitcherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222A49FB1DB8222400ECD849 /* SVCalendarSwitcherViewController.swift */; };
+		222A49FE1DB8222400ECD849 /* SVCalendarSwitcherViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 222A49FC1DB8222400ECD849 /* SVCalendarSwitcherViewController.xib */; };
+		22603A571DB6A5F900AD1673 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22603A561DB6A5F900AD1673 /* AppDelegate.swift */; };
+		22603A591DB6A5F900AD1673 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22603A581DB6A5F900AD1673 /* ViewController.swift */; };
+		22603A5C1DB6A5F900AD1673 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22603A5A1DB6A5F900AD1673 /* Main.storyboard */; };
+		22603A5E1DB6A5F900AD1673 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22603A5D1DB6A5F900AD1673 /* Assets.xcassets */; };
+		22603A611DB6A5F900AD1673 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22603A5F1DB6A5F900AD1673 /* LaunchScreen.storyboard */; };
+		22F11E5E1DBC1F9500CF73BE /* SVCalendarComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F11E5D1DBC1F9500CF73BE /* SVCalendarComponents.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2225DDF71DB81D4A00C232DC /* SVCalendarConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SVCalendarConfiguration.swift; path = Calendar/Configurations/SVCalendarConfiguration.swift; sourceTree = "<group>"; };
+		2225DDF91DB81D5400C232DC /* SVCalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SVCalendarViewController.swift; path = Calendar/Controllers/SVCalendarViewController.swift; sourceTree = "<group>"; };
+		2225DDFA1DB81D5400C232DC /* SVCalendarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SVCalendarViewController.xib; path = Calendar/Controllers/SVCalendarViewController.xib; sourceTree = "<group>"; };
+		2225DDFD1DB81D5D00C232DC /* SVCalendarFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SVCalendarFlowLayout.swift; path = Calendar/Layouts/SVCalendarFlowLayout.swift; sourceTree = "<group>"; };
+		2225DE001DB81D6F00C232DC /* SVCalendarDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SVCalendarDate.swift; path = Calendar/Models/SVCalendarDate.swift; sourceTree = "<group>"; };
+		2225DE021DB81D7A00C232DC /* SVCalendarManger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SVCalendarManger.swift; path = Calendar/Services/SVCalendarManger.swift; sourceTree = "<group>"; };
+		2225DE031DB81D7A00C232DC /* SVCalendarService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SVCalendarService.swift; path = Calendar/Services/SVCalendarService.swift; sourceTree = "<group>"; };
+		2225DE061DB81D8500C232DC /* SVCalendarStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SVCalendarStyle.swift; path = Calendar/Styles/SVCalendarStyle.swift; sourceTree = "<group>"; };
+		2225DE091DB81DA000C232DC /* SVCalendarViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SVCalendarViewCell.swift; path = Calendar/Views/SVCalendarViewCell.swift; sourceTree = "<group>"; };
+		2225DE0A1DB81DA000C232DC /* SVCalendarViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SVCalendarViewCell.xib; path = Calendar/Views/SVCalendarViewCell.xib; sourceTree = "<group>"; };
+		222A49FB1DB8222400ECD849 /* SVCalendarSwitcherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SVCalendarSwitcherViewController.swift; path = Calendar/Controllers/SVCalendarSwitcherViewController.swift; sourceTree = "<group>"; };
+		222A49FC1DB8222400ECD849 /* SVCalendarSwitcherViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SVCalendarSwitcherViewController.xib; path = Calendar/Controllers/SVCalendarSwitcherViewController.xib; sourceTree = "<group>"; };
+		22603A531DB6A5F900AD1673 /* SVCalendarView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SVCalendarView.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		22603A561DB6A5F900AD1673 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		22603A581DB6A5F900AD1673 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		22603A5B1DB6A5F900AD1673 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		22603A5D1DB6A5F900AD1673 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		22603A601DB6A5F900AD1673 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		22603A621DB6A5F900AD1673 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		22F11E5D1DBC1F9500CF73BE /* SVCalendarComponents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SVCalendarComponents.swift; path = Calendar/Components/SVCalendarComponents.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		22603A501DB6A5F900AD1673 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2225DDF01DB8157500C232DC /* Configurations */ = {
+			isa = PBXGroup;
+			children = (
+				2225DDF71DB81D4A00C232DC /* SVCalendarConfiguration.swift */,
+			);
+			name = Configurations;
+			sourceTree = "<group>";
+		};
+		2225DDF11DB8158E00C232DC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2225DE091DB81DA000C232DC /* SVCalendarViewCell.swift */,
+				2225DE0A1DB81DA000C232DC /* SVCalendarViewCell.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		2225DDF21DB8159B00C232DC /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				222A49FB1DB8222400ECD849 /* SVCalendarSwitcherViewController.swift */,
+				222A49FC1DB8222400ECD849 /* SVCalendarSwitcherViewController.xib */,
+				2225DDF91DB81D5400C232DC /* SVCalendarViewController.swift */,
+				2225DDFA1DB81D5400C232DC /* SVCalendarViewController.xib */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		2225DDF31DB815A700C232DC /* Layouts */ = {
+			isa = PBXGroup;
+			children = (
+				2225DDFD1DB81D5D00C232DC /* SVCalendarFlowLayout.swift */,
+			);
+			name = Layouts;
+			sourceTree = "<group>";
+		};
+		2225DDF41DB815B100C232DC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2225DE001DB81D6F00C232DC /* SVCalendarDate.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		2225DDF51DB81D2D00C232DC /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				2225DE021DB81D7A00C232DC /* SVCalendarManger.swift */,
+				2225DE031DB81D7A00C232DC /* SVCalendarService.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		2225DDF61DB81D3200C232DC /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				2225DE061DB81D8500C232DC /* SVCalendarStyle.swift */,
+			);
+			name = Styles;
+			sourceTree = "<group>";
+		};
+		22603A4A1DB6A5F900AD1673 = {
+			isa = PBXGroup;
+			children = (
+				22603A551DB6A5F900AD1673 /* SVCalendarView */,
+				22603A541DB6A5F900AD1673 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		22603A541DB6A5F900AD1673 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				22603A531DB6A5F900AD1673 /* SVCalendarView.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		22603A551DB6A5F900AD1673 /* SVCalendarView */ = {
+			isa = PBXGroup;
+			children = (
+				22603A681DB6A64300AD1673 /* Calendar */,
+				22603A711DB6A79300AD1673 /* Controllers */,
+				22603A6F1DB6A76300AD1673 /* Storyboards */,
+				22603A701DB6A77A00AD1673 /* System */,
+			);
+			path = SVCalendarView;
+			sourceTree = "<group>";
+		};
+		22603A681DB6A64300AD1673 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				22F11E5C1DBC1F7600CF73BE /* Components */,
+				2225DDF01DB8157500C232DC /* Configurations */,
+				2225DDF21DB8159B00C232DC /* Controllers */,
+				2225DDF31DB815A700C232DC /* Layouts */,
+				2225DDF41DB815B100C232DC /* Models */,
+				2225DDF51DB81D2D00C232DC /* Services */,
+				2225DDF61DB81D3200C232DC /* Styles */,
+				2225DDF11DB8158E00C232DC /* Views */,
+			);
+			name = Calendar;
+			sourceTree = "<group>";
+		};
+		22603A6F1DB6A76300AD1673 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				22603A5A1DB6A5F900AD1673 /* Main.storyboard */,
+				22603A5F1DB6A5F900AD1673 /* LaunchScreen.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		22603A701DB6A77A00AD1673 /* System */ = {
+			isa = PBXGroup;
+			children = (
+				22603A561DB6A5F900AD1673 /* AppDelegate.swift */,
+				22603A5D1DB6A5F900AD1673 /* Assets.xcassets */,
+				22603A621DB6A5F900AD1673 /* Info.plist */,
+			);
+			name = System;
+			sourceTree = "<group>";
+		};
+		22603A711DB6A79300AD1673 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				22603A581DB6A5F900AD1673 /* ViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		22F11E5C1DBC1F7600CF73BE /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				22F11E5D1DBC1F9500CF73BE /* SVCalendarComponents.swift */,
+			);
+			name = Components;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		22603A521DB6A5F900AD1673 /* SVCalendarView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 22603A651DB6A5F900AD1673 /* Build configuration list for PBXNativeTarget "SVCalendarView" */;
+			buildPhases = (
+				22603A4F1DB6A5F900AD1673 /* Sources */,
+				22603A501DB6A5F900AD1673 /* Frameworks */,
+				22603A511DB6A5F900AD1673 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SVCalendarView;
+			productName = SVCalendarView;
+			productReference = 22603A531DB6A5F900AD1673 /* SVCalendarView.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		22603A4B1DB6A5F900AD1673 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = SV;
+				LastSwiftUpdateCheck = 0800;
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = "Semyon Vyatkin";
+				TargetAttributes = {
+					22603A521DB6A5F900AD1673 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = UWWE7R5BZG;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 22603A4E1DB6A5F900AD1673 /* Build configuration list for PBXProject "SVCalendarView" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 22603A4A1DB6A5F900AD1673;
+			productRefGroup = 22603A541DB6A5F900AD1673 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				22603A521DB6A5F900AD1673 /* SVCalendarView */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		22603A511DB6A5F900AD1673 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				222A49FE1DB8222400ECD849 /* SVCalendarSwitcherViewController.xib in Resources */,
+				22603A611DB6A5F900AD1673 /* LaunchScreen.storyboard in Resources */,
+				2225DE0C1DB81DA000C232DC /* SVCalendarViewCell.xib in Resources */,
+				22603A5E1DB6A5F900AD1673 /* Assets.xcassets in Resources */,
+				22603A5C1DB6A5F900AD1673 /* Main.storyboard in Resources */,
+				2225DDFC1DB81D5400C232DC /* SVCalendarViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		22603A4F1DB6A5F900AD1673 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22603A591DB6A5F900AD1673 /* ViewController.swift in Sources */,
+				2225DE071DB81D8500C232DC /* SVCalendarStyle.swift in Sources */,
+				22F11E5E1DBC1F9500CF73BE /* SVCalendarComponents.swift in Sources */,
+				2225DE041DB81D7A00C232DC /* SVCalendarManger.swift in Sources */,
+				2225DE0B1DB81DA000C232DC /* SVCalendarViewCell.swift in Sources */,
+				2225DDF81DB81D4A00C232DC /* SVCalendarConfiguration.swift in Sources */,
+				222A49FD1DB8222400ECD849 /* SVCalendarSwitcherViewController.swift in Sources */,
+				22603A571DB6A5F900AD1673 /* AppDelegate.swift in Sources */,
+				2225DDFB1DB81D5400C232DC /* SVCalendarViewController.swift in Sources */,
+				2225DE011DB81D6F00C232DC /* SVCalendarDate.swift in Sources */,
+				2225DE051DB81D7A00C232DC /* SVCalendarService.swift in Sources */,
+				2225DDFE1DB81D5D00C232DC /* SVCalendarFlowLayout.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		22603A5A1DB6A5F900AD1673 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				22603A5B1DB6A5F900AD1673 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		22603A5F1DB6A5F900AD1673 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				22603A601DB6A5F900AD1673 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		22603A631DB6A5F900AD1673 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		22603A641DB6A5F900AD1673 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		22603A661DB6A5F900AD1673 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = UWWE7R5BZG;
+				INFOPLIST_FILE = SVCalendarView/Info.plist;
+				INSTALL_OWNER = "Semyon Vyatkin";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Semyon-Vyatkin.SVCalendarView";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		22603A671DB6A5F900AD1673 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = UWWE7R5BZG;
+				INFOPLIST_FILE = SVCalendarView/Info.plist;
+				INSTALL_OWNER = "Semyon Vyatkin";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Semyon-Vyatkin.SVCalendarView";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		22603A4E1DB6A5F900AD1673 /* Build configuration list for PBXProject "SVCalendarView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				22603A631DB6A5F900AD1673 /* Debug */,
+				22603A641DB6A5F900AD1673 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		22603A651DB6A5F900AD1673 /* Build configuration list for PBXNativeTarget "SVCalendarView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				22603A661DB6A5F900AD1673 /* Debug */,
+				22603A671DB6A5F900AD1673 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 22603A4B1DB6A5F900AD1673 /* Project object */;
+}
