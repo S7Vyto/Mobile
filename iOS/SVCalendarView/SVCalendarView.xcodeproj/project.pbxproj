@@ -19,6 +19,10 @@
 		2225DE0C1DB81DA000C232DC /* SVCalendarViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2225DE0A1DB81DA000C232DC /* SVCalendarViewCell.xib */; };
 		222A49FD1DB8222400ECD849 /* SVCalendarSwitcherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222A49FB1DB8222400ECD849 /* SVCalendarSwitcherViewController.swift */; };
 		222A49FE1DB8222400ECD849 /* SVCalendarSwitcherViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 222A49FC1DB8222400ECD849 /* SVCalendarSwitcherViewController.xib */; };
+		222C90DC1DCC9B0800BA3509 /* SVCalendarHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222C90DA1DCC9B0800BA3509 /* SVCalendarHeaderView.swift */; };
+		222C90DD1DCC9B0800BA3509 /* SVCalendarHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 222C90DB1DCC9B0800BA3509 /* SVCalendarHeaderView.xib */; };
+		222C90E01DCC9B2500BA3509 /* SVCalendarTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222C90DE1DCC9B2500BA3509 /* SVCalendarTimeView.swift */; };
+		222C90E11DCC9B2500BA3509 /* SVCalendarTimeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 222C90DF1DCC9B2500BA3509 /* SVCalendarTimeView.xib */; };
 		22603A571DB6A5F900AD1673 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22603A561DB6A5F900AD1673 /* AppDelegate.swift */; };
 		22603A591DB6A5F900AD1673 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22603A581DB6A5F900AD1673 /* ViewController.swift */; };
 		22603A5C1DB6A5F900AD1673 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22603A5A1DB6A5F900AD1673 /* Main.storyboard */; };
@@ -40,6 +44,10 @@
 		2225DE0A1DB81DA000C232DC /* SVCalendarViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SVCalendarViewCell.xib; path = Calendar/Views/SVCalendarViewCell.xib; sourceTree = "<group>"; };
 		222A49FB1DB8222400ECD849 /* SVCalendarSwitcherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SVCalendarSwitcherViewController.swift; path = Calendar/Controllers/SVCalendarSwitcherViewController.swift; sourceTree = "<group>"; };
 		222A49FC1DB8222400ECD849 /* SVCalendarSwitcherViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SVCalendarSwitcherViewController.xib; path = Calendar/Controllers/SVCalendarSwitcherViewController.xib; sourceTree = "<group>"; };
+		222C90DA1DCC9B0800BA3509 /* SVCalendarHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SVCalendarHeaderView.swift; path = Calendar/Views/SVCalendarHeaderView.swift; sourceTree = "<group>"; };
+		222C90DB1DCC9B0800BA3509 /* SVCalendarHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SVCalendarHeaderView.xib; path = Calendar/Views/SVCalendarHeaderView.xib; sourceTree = "<group>"; };
+		222C90DE1DCC9B2500BA3509 /* SVCalendarTimeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SVCalendarTimeView.swift; path = Calendar/Views/SVCalendarTimeView.swift; sourceTree = "<group>"; };
+		222C90DF1DCC9B2500BA3509 /* SVCalendarTimeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SVCalendarTimeView.xib; path = Calendar/Views/SVCalendarTimeView.xib; sourceTree = "<group>"; };
 		22603A531DB6A5F900AD1673 /* SVCalendarView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SVCalendarView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22603A561DB6A5F900AD1673 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		22603A581DB6A5F900AD1673 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +82,10 @@
 			children = (
 				2225DE091DB81DA000C232DC /* SVCalendarViewCell.swift */,
 				2225DE0A1DB81DA000C232DC /* SVCalendarViewCell.xib */,
+				222C90DA1DCC9B0800BA3509 /* SVCalendarHeaderView.swift */,
+				222C90DB1DCC9B0800BA3509 /* SVCalendarHeaderView.xib */,
+				222C90DE1DCC9B2500BA3509 /* SVCalendarTimeView.swift */,
+				222C90DF1DCC9B2500BA3509 /* SVCalendarTimeView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -263,6 +275,8 @@
 				222A49FE1DB8222400ECD849 /* SVCalendarSwitcherViewController.xib in Resources */,
 				22603A611DB6A5F900AD1673 /* LaunchScreen.storyboard in Resources */,
 				2225DE0C1DB81DA000C232DC /* SVCalendarViewCell.xib in Resources */,
+				222C90DD1DCC9B0800BA3509 /* SVCalendarHeaderView.xib in Resources */,
+				222C90E11DCC9B2500BA3509 /* SVCalendarTimeView.xib in Resources */,
 				22603A5E1DB6A5F900AD1673 /* Assets.xcassets in Resources */,
 				22603A5C1DB6A5F900AD1673 /* Main.storyboard in Resources */,
 				2225DDFC1DB81D5400C232DC /* SVCalendarViewController.xib in Resources */,
@@ -278,10 +292,12 @@
 			files = (
 				22603A591DB6A5F900AD1673 /* ViewController.swift in Sources */,
 				2225DE071DB81D8500C232DC /* SVCalendarStyle.swift in Sources */,
+				222C90E01DCC9B2500BA3509 /* SVCalendarTimeView.swift in Sources */,
 				22F11E5E1DBC1F9500CF73BE /* SVCalendarComponents.swift in Sources */,
 				2225DE041DB81D7A00C232DC /* SVCalendarManger.swift in Sources */,
 				2225DE0B1DB81DA000C232DC /* SVCalendarViewCell.swift in Sources */,
 				2225DDF81DB81D4A00C232DC /* SVCalendarConfiguration.swift in Sources */,
+				222C90DC1DCC9B0800BA3509 /* SVCalendarHeaderView.swift in Sources */,
 				222A49FD1DB8222400ECD849 /* SVCalendarSwitcherViewController.swift in Sources */,
 				22603A571DB6A5F900AD1673 /* AppDelegate.swift in Sources */,
 				2225DDFB1DB81D5400C232DC /* SVCalendarViewController.swift in Sources */,

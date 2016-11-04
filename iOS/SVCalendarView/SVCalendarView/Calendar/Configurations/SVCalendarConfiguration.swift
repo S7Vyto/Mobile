@@ -31,4 +31,8 @@ public class SVCalendarConfiguration {
     var types = SVCalendarType.testTypes
     var minYear: Int = 2000
     var maxYear: Int = 2020
+    
+    var isHeaderSection1Visible = true
+    var isHeaderSection2Visible = false
+    var isTimeSectionVisible = true
 }

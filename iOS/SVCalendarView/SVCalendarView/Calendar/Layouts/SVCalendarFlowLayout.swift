@@ -8,7 +8,9 @@
 
 import UIKit
 
-public let SVCalendarHeaderView = "CalendarHeaderView"
+public let SVCalendarHeaderSection1 = "CalendarHeaderSection1"
+public let SVCalendarHeaderSection2 = "CalendarHeaderSection2"
+public let SVCalendarTimeSection = "CalendarTimeSection"
 
 enum SVCalendarFlowLayoutDirection {
     case vertical, horizontal
@@ -17,12 +19,12 @@ enum SVCalendarFlowLayoutDirection {
 class SVCalendarFlowLayout: UICollectionViewFlowLayout {
     fileprivate var contentWidth: CGFloat {
         let insets = collectionView!.contentInset
-        return collectionView!.bounds.width - (insets.left + insets.right)
+        return collectionView!.bounds.width - (insets.left + insets.right) - timeWidth
     }
     
     fileprivate var contentHeight: CGFloat {
         let insets = collectionView!.contentInset
-        return collectionView!.bounds.height - (insets.top + insets.bottom)
+        return collectionView!.bounds.height - (insets.top + insets.bottom) - headerHeight
     }
     
     fileprivate let direction: SVCalendarFlowLayoutDirection!
@@ -31,13 +33,23 @@ class SVCalendarFlowLayout: UICollectionViewFlowLayout {
     fileprivate var width: CGFloat = 0.0
     fileprivate var height: CGFloat = 0.0
     
-    var isAutoResizeCell: Bool = false
+    var isAutoResizeCell = false
+    var isHeader1Visible = false
+    var isHeader2Visible = false
+    var isTimeVisible = false
     
     var numberOfColumns: Int?
     var numberOfRows: Int?
     
+    var headerWidth: CGFloat = 0.0
+    var headerHeight: CGFloat = 0.0
+    
+    var timeWidth: CGFloat = 0.0
+    var timeHeight: CGFloat = 0.0
+    
     var columnWidth: CGFloat = 50.0
     var columnHeight: CGFloat = 50.0
+    var columnOffset: CGFloat = 0.0
     var cellPadding: CGFloat = 5.0
     
     // MARK: - FlowLayout LifeCycle
@@ -59,6 +71,7 @@ class SVCalendarFlowLayout: UICollectionViewFlowLayout {
             var index = 0
             var xOffset = [CGFloat]()
             var yOffset = [CGFloat]()
+            var columnContent: CGFloat = 0.0
             
             if direction == .vertical {
                 width = contentWidth
@@ -67,17 +80,45 @@ class SVCalendarFlowLayout: UICollectionViewFlowLayout {
                     numberOfColumns = Int(width/columnWidth)
                 }
                 
-                if isAutoResizeCell {
-                    columnWidth = (contentWidth - CGFloat(numberOfColumns! - 1) * cellPadding) / CGFloat(numberOfColumns!)
-                    columnHeight = columnWidth
+                if isHeader1Visible {
+                    headerWidth = contentWidth / CGFloat(numberOfColumns!)
+                    headerHeight = 45.0                                        
                 }
                 
-                let columnContent = CGFloat(numberOfColumns!) * (columnWidth - 2 * cellPadding)
-                let columnOffset = (contentWidth - columnContent) / CGFloat(numberOfColumns! - 1) + 2.5
-                                
+                if isHeader2Visible {
+                    // TODO: Calculate secondary header
+                }
+                
+                if isTimeVisible {
+                    timeWidth = 65.0
+                    timeHeight = columnHeight
+                }
+                
+                if numberOfColumns == 1 {
+                    if isAutoResizeCell {
+                        columnWidth = contentWidth
+                        
+                        columnContent = CGFloat(numberOfColumns!) * (columnWidth - 2 * cellPadding)
+                        columnOffset = contentWidth - columnContent
+                    }
+                }
+                else {
+                    if isAutoResizeCell {
+                        columnWidth = (contentWidth - CGFloat(numberOfColumns! - 1) * cellPadding) / CGFloat(numberOfColumns!)
+                        columnHeight = columnWidth
+                        
+                        if numberOfRows != nil {
+                            columnHeight = contentHeight / CGFloat(numberOfRows!)
+                        }
+                    }
+                    
+                    columnContent = CGFloat(numberOfColumns!) * (columnWidth - 2 * cellPadding)
+                    columnOffset = (contentWidth - columnContent) / CGFloat(numberOfColumns! - 1)
+                }
+                
                 for column in 0 ..< numberOfColumns! {
-                    xOffset += [columnWidth * CGFloat(column) + columnOffset]
-                    yOffset += [0]
+                    xOffset += [columnWidth * CGFloat(column) + columnOffset + timeWidth]
+                    yOffset += [headerHeight]
                 }
             }
             else {
@@ -111,7 +152,7 @@ class SVCalendarFlowLayout: UICollectionViewFlowLayout {
                     else {
                         attributes.frame = CGRect(x: xOffset[item], y: yOffset[0], width: itemWidth, height: itemHeight)
                         width = max(width, attributes.frame.origin.x + itemWidth)
-                        xOffset += [xOffset[index] + itemWidth + 5.0]
+                        xOffset += [xOffset[index] + itemWidth + timeWidth + 5.0]
                         index += 1
                     }
                     
@@ -139,6 +180,113 @@ class SVCalendarFlowLayout: UICollectionViewFlowLayout {
             attrs.append(attr)
         }
         
+        if isHeader1Visible {
+            let indexPaths = headerView1Paths()
+            for indexPath in indexPaths {
+                guard let attr = self.layoutAttributesForSupplementaryView(ofKind: SVCalendarHeaderSection1, at: indexPath) else {
+                    continue
+                }
+                
+                attrs.append(attr)
+            }
+        }
+        
+        if isHeader2Visible {
+            let indexPaths = headerView2Paths()
+            for indexPath in indexPaths {
+                guard let attr = self.layoutAttributesForSupplementaryView(ofKind: SVCalendarHeaderSection2, at: indexPath) else {
+                    continue
+                }
+                
+                attrs.append(attr)
+            }
+        }
+        
+        if isTimeVisible {
+            let indexPaths = timeViewPaths()
+            for indexPath in indexPaths {
+                guard let attr = self.layoutAttributesForSupplementaryView(ofKind: SVCalendarTimeSection, at: indexPath) else {
+                    continue
+                }
+                
+                guard attr.frame.intersects(rect) else {
+                    continue
+                }
+                
+                attrs.append(attr)
+            }
+        }
+        
         return attrs
+    }
+    
+//    override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+//        return nil
+//    }
+//    
+    override func layoutAttributesForSupplementaryView(ofKind elementKind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+        let attrs = UICollectionViewLayoutAttributes(forSupplementaryViewOfKind: elementKind, with: indexPath)        
+        
+        switch elementKind {
+        case SVCalendarHeaderSection1:
+            attrs.frame = CGRect(x: CGFloat(indexPath.item) * headerWidth, y: self.collectionView!.contentOffset.y, width: headerWidth, height: headerHeight)
+            attrs.zIndex = 1024
+            break
+            
+        case SVCalendarHeaderSection2:
+            attrs.frame = CGRect(x: 0.0, y: self.collectionView!.contentOffset.y + headerHeight, width: self.collectionView!.bounds.width, height: headerHeight)
+            attrs.zIndex = 1023
+            break
+            
+        case SVCalendarTimeSection:
+            attrs.frame = CGRect(x: 0.0, y: CGFloat(indexPath.row) * timeHeight + timeHeight, width: timeWidth, height: timeHeight)
+            attrs.zIndex = 1022
+            break
+            
+        default:
+            break
+        }
+        
+        return attrs
+    }
+    
+    // MARK: - Layout Methods
+    func update() {
+        self.cache.removeAll()
+        self.invalidateLayout()        
+    }
+    
+    fileprivate func headerView1Paths() -> [IndexPath] {
+        guard numberOfColumns != nil else {
+            return []
+        }
+        
+        var indexPaths = [IndexPath]()
+        for i in 0 ..< numberOfColumns! {
+            indexPaths.append(IndexPath(item: i, section: 0))
+        }
+        
+        return indexPaths
+    }
+    
+    fileprivate func headerView2Paths() -> [IndexPath] {
+        guard numberOfColumns != nil else {
+            return []
+        }
+        
+        return [IndexPath(item: numberOfColumns! + 1, section: 0)]
+    }
+    
+    fileprivate func timeViewPaths() -> [IndexPath] {
+        guard numberOfRows != nil else {
+            return []
+        }
+        
+        var indexPaths = [IndexPath]()
+        for i in 0 ..< numberOfRows! {
+            indexPaths.append(IndexPath(row: i, section: 0))
+        }
+        
+        return indexPaths
     }
 }

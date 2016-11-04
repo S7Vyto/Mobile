@@ -2,17 +2,23 @@
 //  SVCalendarViewCell.swift
 //  SVCalendarView
 //
-//  Created by Sam on 18/10/2016.
+//  Created by Semyon Vyatkin on 18/10/2016.
 //  Copyright © 2016 Semyon Vyatkin. All rights reserved.
 //
 
 import UIKit
 
-class SVCalendarViewCell: UICollectionViewCell {
+class SVCalendarViewCell: UICollectionViewCell {    
     fileprivate var model: SVCalendarDate!
     
     class var identifier: String {
         return NSStringFromClass(SVCalendarViewCell.self).replacingOccurrences(of: "SVCalendarView.", with: "")
+    }
+    
+    override var bounds: CGRect {
+        didSet {
+            self.contentView.frame = self.bounds
+        }
     }
     
     // MARK: - Cell LifeCycle
@@ -22,7 +28,7 @@ class SVCalendarViewCell: UICollectionViewCell {
     }
     
     func configCell(with model: SVCalendarDate) {
-        clearCellContent()
+//        clearCellContent()
         self.model = model
         
         switch model.type {
@@ -54,53 +60,46 @@ class SVCalendarViewCell: UICollectionViewCell {
     }
     
     fileprivate func configAppearance() {
-        self.layer.backgroundColor = UIColor.purple.cgColor
+        self.layer.backgroundColor = UIColor.lightGray.cgColor
+        self.contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        self.contentView.autoresizesSubviews = true
     }
 
-    fileprivate func configDayCell() {
+    fileprivate func configValueLabel() {
+        guard let valueLabel = self.contentView.viewWithTag(SVCalendarComponentTag) as? UILabel else {
+            let valueLabel = SVCalendarComponents.cellLabel(with: model.title).value() as! UILabel
+            
+            self.contentView.addSubview(valueLabel)
+            
+            let vertConst = NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[valueLabel]-0-|", options: [], metrics: nil, views: ["valueLabel" : valueLabel])
+            let horizConst = NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[valueLabel]-0-|", options: [], metrics: nil, views: ["valueLabel" : valueLabel])
+            
+            self.contentView.addConstraints(vertConst)
+            self.contentView.addConstraints(horizConst)
+            
+            return
+        }
         
+        valueLabel.text = model.title
+    }
+    
+    fileprivate func configDayCell() {
+        configValueLabel()
     }
     
     fileprivate func configWeekCell() {
-        
+        configValueLabel()
     }
     
     fileprivate func configMonthCell() {
-       let valueLabel = SVCalendarComponents.cellLabel(with: model.title).value() as! UILabel
-        
-        self.contentView.addSubview(valueLabel)
-        self.contentView.bringSubview(toFront: valueLabel)
-        
-        let vertConst = NSLayoutConstraint.constraints(withVisualFormat: "V:|-2-[valueLabel]-2-|", options: [], metrics: nil, views: ["valueLabel" : valueLabel])
-        let horizConst = NSLayoutConstraint.constraints(withVisualFormat: "H:|-2-[valueLabel]-2-|", options: [], metrics: nil, views: ["valueLabel" : valueLabel])
-        
-        self.contentView.addConstraints(vertConst)
-        self.contentView.addConstraints(horizConst)
+       configValueLabel()
     }
     
     fileprivate func configQuarterCell() {
-        let valueLabel = SVCalendarComponents.cellLabel(with: model.title).value() as! UILabel
-        
-        self.contentView.addSubview(valueLabel)
-        self.contentView.bringSubview(toFront: valueLabel)
-        
-        let vertConst = NSLayoutConstraint.constraints(withVisualFormat: "V:|-2-[valueLabel]-2-|", options: [], metrics: nil, views: ["valueLabel" : valueLabel])
-        let horizConst = NSLayoutConstraint.constraints(withVisualFormat: "H:|-2-[valueLabel]-2-|", options: [], metrics: nil, views: ["valueLabel" : valueLabel])
-        
-        self.contentView.addConstraints(vertConst)
-        self.contentView.addConstraints(horizConst)
+        configValueLabel()
     }
     
     fileprivate func configYearCell() {
-        let valueLabel = SVCalendarComponents.cellLabel(with: model.title).value() as! UILabel
-        
-        self.contentView.addSubview(valueLabel)
-        self.contentView.bringSubview(toFront: valueLabel)
-        
-        let vertConst = NSLayoutConstraint.constraints(withVisualFormat: "V:|-2-[valueLabel]-2-|", options: [], metrics: nil, views: ["valueLabel" : valueLabel])
-        let horizConst = NSLayoutConstraint.constraints(withVisualFormat: "H:|-2-[valueLabel]-2-|", options: [], metrics: nil, views: ["valueLabel" : valueLabel])
-        
-        self.contentView.addConstraints(vertConst)
-        self.contentView.addConstraints(horizConst)
+        configValueLabel()
     }
 }

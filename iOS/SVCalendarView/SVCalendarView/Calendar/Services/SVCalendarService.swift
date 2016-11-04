@@ -249,9 +249,11 @@ class SVCalendarService {
     }
     
     fileprivate func configMonthDates() -> [SVCalendarDate] {
-        let daysInWeek = 7
         let beginMonthDate = monthBeginDate(from: visibleDate)
         let endMonthDate = monthEndDate(from: beginMonthDate)
+        
+        let daysInWeek = 7
+        let weeksInMonth = calendar.range(of: .weekOfMonth, in: .month, for: beginMonthDate)
         
         let beginMonthComponents = calendar.dateComponents(components, from: beginMonthDate)
         let endMonthComponents = calendar.dateComponents(components, from: endMonthDate)
@@ -272,6 +274,10 @@ class SVCalendarService {
         }
         else {
             endDate = endMonthDate
+        }
+        
+        if weeksInMonth!.count < 6 {
+            endDate = calendar.date(byAdding: .day, value: daysInWeek, to: endDate!)
         }
         
         guard startDate != nil && endDate != nil else {
