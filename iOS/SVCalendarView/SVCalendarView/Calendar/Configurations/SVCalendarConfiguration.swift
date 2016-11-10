@@ -32,6 +32,7 @@ public class SVCalendarConfiguration {
     var minYear: Int = 2000
     var maxYear: Int = 2020
     
+    var isSwitcherVisible = true
     var isHeaderSection1Visible = true
     var isHeaderSection2Visible = false
     var isTimeSectionVisible = true

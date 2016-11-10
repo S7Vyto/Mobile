@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SVCalendarViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class SVCalendarViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, SVCalendarSwitcherDelegate {
     @IBOutlet weak fileprivate var calendarCollectionView: UICollectionView!
     
     fileprivate let calendarService = SVCalendarService(types: SVCalendarConfiguration.shared.types)
@@ -110,15 +110,43 @@ class SVCalendarViewController: UIViewController, UICollectionViewDataSource, UI
     }
     
     fileprivate func configCalendarSwitcher() {
-        
+        if calendarConfig.isSwitcherVisible {
+            let switcher = SVCalendarSwitcherViewController(types: calendarConfig.types)
+            switcher.delegate = self
+            switcher.selectedIndex = 0
+            
+            self.addChildViewController(switcher)
+            self.view.addSubview(switcher.view)
+            switcher.didMove(toParentViewController: self)
+            
+            let topConst = NSLayoutConstraint(item: switcher.view, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1.0, constant: 0.0)
+            let leadingConst = NSLayoutConstraint(item: switcher.view, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1.0, constant: 0.0)
+            let trailingConst = NSLayoutConstraint(item: self.view, attribute: .trailing, relatedBy: .equal, toItem: switcher.view, attribute: .trailing, multiplier: 1.0, constant: 0.0)
+            let heightConst = NSLayoutConstraint(item: switcher.view, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1.0, constant: 45.0)
+            
+            self.view.addConstraints([topConst, leadingConst, trailingConst, heightConst])
+            self.updateCalendarCollectioViewConstraints(anchor: switcher.view)
+        }
     }
     
     // MARK: - Calendar Methods
-    fileprivate func didChangeCalendarView(_ sender: UISegmentedControl) {
+    fileprivate func updateCalendarCollectioViewConstraints(anchor: UIView?) {
+        for constraint in self.view.constraints {
+            if constraint.identifier == "CalendarContentTopConstraint" {
+                self.view.removeConstraint(constraint)
+                break
+            }
+        }
         
+        if anchor != nil {
+            self.view.addConstraint(NSLayoutConstraint(item: calendarCollectionView, attribute: .top, relatedBy: .equal, toItem: anchor, attribute: .bottom, multiplier: 1.0, constant: 0.0))
+        }
     }
     
     // MARK: - Calendar Switcher
+    func didSelectSectionWithType(_ type: SVCalendarType) {
+        configCalendarLayout(for: type)
+    }
     
     // MARK: - Collection DataSource
     func numberOfSections(in collectionView: UICollectionView) -> Int {

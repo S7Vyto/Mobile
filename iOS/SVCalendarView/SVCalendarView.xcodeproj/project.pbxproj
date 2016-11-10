@@ -18,7 +18,6 @@
 		2225DE0B1DB81DA000C232DC /* SVCalendarViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2225DE091DB81DA000C232DC /* SVCalendarViewCell.swift */; };
 		2225DE0C1DB81DA000C232DC /* SVCalendarViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2225DE0A1DB81DA000C232DC /* SVCalendarViewCell.xib */; };
 		222A49FD1DB8222400ECD849 /* SVCalendarSwitcherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222A49FB1DB8222400ECD849 /* SVCalendarSwitcherViewController.swift */; };
-		222A49FE1DB8222400ECD849 /* SVCalendarSwitcherViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 222A49FC1DB8222400ECD849 /* SVCalendarSwitcherViewController.xib */; };
 		222C90DC1DCC9B0800BA3509 /* SVCalendarHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222C90DA1DCC9B0800BA3509 /* SVCalendarHeaderView.swift */; };
 		222C90DD1DCC9B0800BA3509 /* SVCalendarHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 222C90DB1DCC9B0800BA3509 /* SVCalendarHeaderView.xib */; };
 		222C90E01DCC9B2500BA3509 /* SVCalendarTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222C90DE1DCC9B2500BA3509 /* SVCalendarTimeView.swift */; };
@@ -43,7 +42,6 @@
 		2225DE091DB81DA000C232DC /* SVCalendarViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SVCalendarViewCell.swift; path = Calendar/Views/SVCalendarViewCell.swift; sourceTree = "<group>"; };
 		2225DE0A1DB81DA000C232DC /* SVCalendarViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SVCalendarViewCell.xib; path = Calendar/Views/SVCalendarViewCell.xib; sourceTree = "<group>"; };
 		222A49FB1DB8222400ECD849 /* SVCalendarSwitcherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SVCalendarSwitcherViewController.swift; path = Calendar/Controllers/SVCalendarSwitcherViewController.swift; sourceTree = "<group>"; };
-		222A49FC1DB8222400ECD849 /* SVCalendarSwitcherViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SVCalendarSwitcherViewController.xib; path = Calendar/Controllers/SVCalendarSwitcherViewController.xib; sourceTree = "<group>"; };
 		222C90DA1DCC9B0800BA3509 /* SVCalendarHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SVCalendarHeaderView.swift; path = Calendar/Views/SVCalendarHeaderView.swift; sourceTree = "<group>"; };
 		222C90DB1DCC9B0800BA3509 /* SVCalendarHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SVCalendarHeaderView.xib; path = Calendar/Views/SVCalendarHeaderView.xib; sourceTree = "<group>"; };
 		222C90DE1DCC9B2500BA3509 /* SVCalendarTimeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SVCalendarTimeView.swift; path = Calendar/Views/SVCalendarTimeView.swift; sourceTree = "<group>"; };
@@ -94,7 +92,6 @@
 			isa = PBXGroup;
 			children = (
 				222A49FB1DB8222400ECD849 /* SVCalendarSwitcherViewController.swift */,
-				222A49FC1DB8222400ECD849 /* SVCalendarSwitcherViewController.xib */,
 				2225DDF91DB81D5400C232DC /* SVCalendarViewController.swift */,
 				2225DDFA1DB81D5400C232DC /* SVCalendarViewController.xib */,
 			);
@@ -272,7 +269,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				222A49FE1DB8222400ECD849 /* SVCalendarSwitcherViewController.xib in Resources */,
 				22603A611DB6A5F900AD1673 /* LaunchScreen.storyboard in Resources */,
 				2225DE0C1DB81DA000C232DC /* SVCalendarViewCell.xib in Resources */,
 				222C90DD1DCC9B0800BA3509 /* SVCalendarHeaderView.xib in Resources */,
@@ -432,7 +428,7 @@
 				DEVELOPMENT_TEAM = UWWE7R5BZG;
 				INFOPLIST_FILE = SVCalendarView/Info.plist;
 				INSTALL_OWNER = "Semyon Vyatkin";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Semyon-Vyatkin.SVCalendarView";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -448,7 +444,7 @@
 				DEVELOPMENT_TEAM = UWWE7R5BZG;
 				INFOPLIST_FILE = SVCalendarView/Info.plist;
 				INSTALL_OWNER = "Semyon Vyatkin";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Semyon-Vyatkin.SVCalendarView";
 				PRODUCT_NAME = "$(TARGET_NAME)";
