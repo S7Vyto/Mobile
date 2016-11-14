@@ -10,6 +10,7 @@ import UIKit
 
 class SVCalendarViewCell: UICollectionViewCell {    
     fileprivate var model: SVCalendarDate!
+    fileprivate let style = SVCalendarConfiguration.shared.styles.calendar
     
     class var identifier: String {
         return NSStringFromClass(SVCalendarViewCell.self).replacingOccurrences(of: "SVCalendarView.", with: "")
@@ -60,7 +61,8 @@ class SVCalendarViewCell: UICollectionViewCell {
     }
     
     fileprivate func configAppearance() {
-        self.layer.backgroundColor = UIColor.lightGray.cgColor
+        self.layer.backgroundColor = style.button.normalColor?.cgColor
+            
         self.contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         self.contentView.autoresizesSubviews = true
     }

@@ -9,23 +9,28 @@
 import UIKit
 
 protocol SVCalendarSwitcherDelegate: class {
-    func didSelectSectionWithType(_ type: SVCalendarType)
+    func didSelectType(_ type: SVCalendarType)
 }
 
 class SVCalendarSwitcherViewController: UIViewController {
-    fileprivate lazy var calendarSegmentControl: UISegmentedControl = {
-        let segment = UISegmentedControl(frame: CGRect.zero)
-        segment.translatesAutoresizingMaskIntoConstraints = false
+    fileprivate lazy var stackViewContainer: UIStackView = {
+        let control = UIStackView(frame: CGRect.zero)
+        control.translatesAutoresizingMaskIntoConstraints = false
+        control.alignment = .fill
+        control.axis = .horizontal
+        control.spacing = 1.0
+        control.distribution = .fillEqually
         
-        return segment
+        return control
     }()
     
     fileprivate let types: [SVCalendarType]
+    fileprivate let style = SVCalendarConfiguration.shared.styles.switcher
     
     weak var delegate: SVCalendarSwitcherDelegate?
     var selectedIndex = 0 {
         didSet {
-            calendarSegmentControl.selectedSegmentIndex = selectedIndex
+            
         }
     }
     
@@ -42,8 +47,8 @@ class SVCalendarSwitcherViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configAppearance()
-        configCalendarSegment()
-        configCalendarSegmentContent()
+        configStackViewContainer()
+        configStackViewContent()
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,56 +59,101 @@ class SVCalendarSwitcherViewController: UIViewController {
     fileprivate func configAppearance() {
         self.edgesForExtendedLayout = []
         self.view.translatesAutoresizingMaskIntoConstraints = false
-        self.view.backgroundColor = UIColor.purple        
+        self.view.backgroundColor = style.background.normalColor
     }
     
-    fileprivate func configCalendarSegment() {
-        self.view.addSubview(calendarSegmentControl)
-        self.view.bringSubview(toFront: calendarSegmentControl)
+    fileprivate func configStackViewContainer() {
+        self.view.addSubview(stackViewContainer)
+        self.view.bringSubview(toFront: stackViewContainer)
         
         let bindingViews = [
-            "calendarSegmentControl" : calendarSegmentControl
+            "stackViewContainer" : stackViewContainer
         ]
         
-        let vertConst = NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[calendarSegmentControl]-0-|", options: [], metrics: nil, views: bindingViews)
-        let horizConst = NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[calendarSegmentControl]-0-|", options: [], metrics: nil, views: bindingViews)
+        let vertConst = NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[stackViewContainer]-0-|", options: [], metrics: nil, views: bindingViews)
+        let horizConst = NSLayoutConstraint.constraints(withVisualFormat: "H:|-2-[stackViewContainer]-2-|", options: [], metrics: nil, views: bindingViews)
         
         self.view.addConstraints(vertConst)
         self.view.addConstraints(horizConst)
     }
     
-    fileprivate func configCalendarSegmentContent() {
+    fileprivate func configStackViewContent() {
         var index = 0
         for type in types {
             var title = ""
             
             switch type {
             case SVCalendarType.day:
-                title = "День"
+                title = "DAY"
                 break
             
             case SVCalendarType.week:
-                title = "Неделя"
+                title = "WEEK"
                 break
                 
             case SVCalendarType.month:
-                title = "Месяц"
+                title = "MONTH"
                 break
                 
             case SVCalendarType.quarter:
-                title = "Квартал"
+                title = "QUARTER"
                 break
                 
             case SVCalendarType.year:
-                title = "Год"
+                title = "YEAR"
                 break
                 
             default:
                 break
             }
             
-            calendarSegmentControl.insertSegment(withTitle: title, at: index, animated: true)
+            let switcher = SVCalendarComponents.switcherButton(with: title).value() as! UIButton
+            switcher.tag = index
+            switcher.isSelected = index == 0
+            switcher.addTarget(self, action: #selector(didChangeValue(_:)), for: .touchUpInside)
+            
+            stackViewContainer.addArrangedSubview(switcher)
             index += 1
+        }
+    }    
+    
+    // MARK: - Switcher Methods
+    func didChangeValue(_ sender: UIButton) {
+        selectSwitcherButton(sender)
+        
+        var type: SVCalendarType
+        switch sender.tag {
+        case 0:
+            type = .day
+            break
+            
+        case 1:
+            type = .week
+            break
+            
+        case 2:
+            type = .month
+            break
+            
+        case 3:
+            type = .quarter
+            break
+            
+        case 4:
+            type = .year
+            break
+            
+        default:
+            type = .month
+            break
+        }
+        
+        delegate?.didSelectType(type)
+    }
+    
+    fileprivate func selectSwitcherButton(_ selectedButton: UIButton) {
+        for unselectedButton in stackViewContainer.arrangedSubviews as! [UIButton] {
+            unselectedButton.isSelected = unselectedButton.tag == selectedButton.tag
         }
     }
 }

@@ -1,28 +1,25 @@
 //
 //  ViewController.swift
-//  SVCalendarView
+//  SVToDoList
 //
-//  Created by Semyon Vyatkin on 18/10/2016.
+//  Created by Sam on 14/11/2016.
 //  Copyright © 2016 Semyon Vyatkin. All rights reserved.
 //
 
 import UIKit
 
 class ViewController: UIViewController {
-    fileprivate var calendarController: SVCalendarViewController?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.edgesForExtendedLayout = []
-        self.automaticallyAdjustsScrollViewInsets = false
-        
-        calendarController = SVCalendarManager.addCalendarTo(parentController: self, withConstraints: nil)
+        // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
+
 }
 

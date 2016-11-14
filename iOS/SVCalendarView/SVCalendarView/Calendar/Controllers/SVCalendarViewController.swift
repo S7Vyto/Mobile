@@ -11,10 +11,15 @@ import UIKit
 class SVCalendarViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, SVCalendarSwitcherDelegate {
     @IBOutlet weak fileprivate var calendarCollectionView: UICollectionView!
     
-    fileprivate let calendarService = SVCalendarService(types: SVCalendarConfiguration.shared.types)
-    fileprivate let calendarLayout = SVCalendarFlowLayout(direction: SVCalendarFlowLayoutDirection.vertical)
-    fileprivate let calendarConfig = SVCalendarConfiguration.shared
-    fileprivate let calendarStyle = SVCalendarStyle.classic
+    fileprivate let service = SVCalendarService(types: SVCalendarConfiguration.shared.types)
+    fileprivate let layout = SVCalendarFlowLayout(direction: SVCalendarFlowLayoutDirection.vertical)
+    fileprivate let config = SVCalendarConfiguration.shared
+    
+    fileprivate let containerStyle = SVCalendarConfiguration.shared.styles.container
+    fileprivate let calendarStyle = SVCalendarConfiguration.shared.styles.calendar
+    
+    fileprivate var dates = [SVCalendarDate]()
+    fileprivate var headerTitles = [String]()
 
     // MARK: - Controller LifeCycle
     override func viewDidLoad() {
@@ -34,39 +39,43 @@ class SVCalendarViewController: UIViewController, UICollectionViewDataSource, UI
     }
     
     fileprivate func configParentView() {
-        self.view.translatesAutoresizingMaskIntoConstraints = false
+        self.automaticallyAdjustsScrollViewInsets = false
         self.edgesForExtendedLayout = []
+        
+        self.view.translatesAutoresizingMaskIntoConstraints = false
+        self.view.backgroundColor = containerStyle.background.normalColor
     }
     
     fileprivate func configCalendarLayout(for type: SVCalendarType) {
-        calendarLayout.isHeader1Visible = calendarConfig.isHeaderSection1Visible
-        calendarLayout.isHeader2Visible = calendarConfig.isHeaderSection2Visible
-        calendarLayout.isTimeVisible = calendarConfig.isTimeSectionVisible
+        layout.clear()
+        layout.isHeader1Visible = config.isHeaderSection1Visible
+        layout.isHeader2Visible = config.isHeaderSection2Visible
+        layout.isTimeVisible = config.isTimeSectionVisible
         
-        calendarLayout.isAutoResizeCell = true
-        calendarLayout.cellPadding = 0
+        layout.isAutoResizeCell = true
+        layout.cellPadding = 0
         
         switch type {
         case SVCalendarType.day:
-            calendarLayout.columnHeight = 45
+            layout.columnHeight = 45
             
-            calendarLayout.numberOfColumns = 1
-            calendarLayout.numberOfRows = 25
+            layout.numberOfColumns = 1
+            layout.numberOfRows = 25
             break
             
         case SVCalendarType.week:
-            calendarLayout.columnHeight = 45
+            layout.columnHeight = 45
             
-            calendarLayout.numberOfColumns = 7
-            calendarLayout.numberOfRows = 25
+            layout.numberOfColumns = 7
+            layout.numberOfRows = 25
             break
             
         case SVCalendarType.month:
-            calendarLayout.isHeader2Visible = false
-            calendarLayout.isTimeVisible = false
+            layout.isHeader2Visible = false
+            layout.isTimeVisible = false
             
-            calendarLayout.numberOfColumns = 7
-            calendarLayout.numberOfRows = 6
+            layout.numberOfColumns = 7
+            layout.numberOfRows = 6
             break
             
         case SVCalendarType.quarter:
@@ -78,31 +87,34 @@ class SVCalendarViewController: UIViewController, UICollectionViewDataSource, UI
         default:
             break
         }
+        
+        layout.update()
     }
     
     fileprivate func configCalendarView() {
+        updateCalendarData(for: .month)
         configCalendarLayout(for: .month)
         
-        calendarCollectionView.backgroundColor = UIColor.clear
+        calendarCollectionView.backgroundColor = calendarStyle.background.normalColor
         calendarCollectionView.dataSource = self
         calendarCollectionView.delegate = self
-        calendarCollectionView.collectionViewLayout = calendarLayout
+        calendarCollectionView.collectionViewLayout = layout
         calendarCollectionView.register(UINib(nibName: SVCalendarViewCell.identifier, bundle: Bundle.main),
                                         forCellWithReuseIdentifier: SVCalendarViewCell.identifier)
         
-        if calendarConfig.isHeaderSection1Visible {
+        if config.isHeaderSection1Visible {
             calendarCollectionView.register(UINib(nibName: SVCalendarHeaderView.identifier, bundle: Bundle.main),
                                             forSupplementaryViewOfKind: SVCalendarHeaderSection1,
                                             withReuseIdentifier: SVCalendarHeaderView.identifier)
         }
         
-        if calendarConfig.isHeaderSection2Visible {
+        if config.isHeaderSection2Visible {
             calendarCollectionView.register(UINib(nibName: SVCalendarHeaderView.identifier, bundle: Bundle.main),
                                             forSupplementaryViewOfKind: SVCalendarHeaderSection2,
                                             withReuseIdentifier: SVCalendarHeaderView.identifier)
         }
         
-        if calendarConfig.isTimeSectionVisible {
+        if config.isTimeSectionVisible {
             calendarCollectionView.register(UINib(nibName: SVCalendarTimeView.identifier, bundle: Bundle.main),
                                             forSupplementaryViewOfKind: SVCalendarTimeSection,
                                             withReuseIdentifier: SVCalendarTimeView.identifier)
@@ -110,8 +122,8 @@ class SVCalendarViewController: UIViewController, UICollectionViewDataSource, UI
     }
     
     fileprivate func configCalendarSwitcher() {
-        if calendarConfig.isSwitcherVisible {
-            let switcher = SVCalendarSwitcherViewController(types: calendarConfig.types)
+        if config.isSwitcherVisible {
+            let switcher = SVCalendarSwitcherViewController(types: config.types)
             switcher.delegate = self
             switcher.selectedIndex = 0
             
@@ -119,10 +131,10 @@ class SVCalendarViewController: UIViewController, UICollectionViewDataSource, UI
             self.view.addSubview(switcher.view)
             switcher.didMove(toParentViewController: self)
             
-            let topConst = NSLayoutConstraint(item: switcher.view, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1.0, constant: 0.0)
+            let topConst = NSLayoutConstraint(item: switcher.view, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1.0, constant: 5.0)
             let leadingConst = NSLayoutConstraint(item: switcher.view, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1.0, constant: 0.0)
             let trailingConst = NSLayoutConstraint(item: self.view, attribute: .trailing, relatedBy: .equal, toItem: switcher.view, attribute: .trailing, multiplier: 1.0, constant: 0.0)
-            let heightConst = NSLayoutConstraint(item: switcher.view, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1.0, constant: 45.0)
+            let heightConst = NSLayoutConstraint(item: switcher.view, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1.0, constant: 35.0)
             
             self.view.addConstraints([topConst, leadingConst, trailingConst, heightConst])
             self.updateCalendarCollectioViewConstraints(anchor: switcher.view)
@@ -130,6 +142,11 @@ class SVCalendarViewController: UIViewController, UICollectionViewDataSource, UI
     }
     
     // MARK: - Calendar Methods
+    fileprivate func updateCalendarData(for type: SVCalendarType) {
+        dates = service.dates(for: type)
+        headerTitles = service.titles(for: type)
+    }
+    
     fileprivate func updateCalendarCollectioViewConstraints(anchor: UIView?) {
         for constraint in self.view.constraints {
             if constraint.identifier == "CalendarContentTopConstraint" {
@@ -144,8 +161,10 @@ class SVCalendarViewController: UIViewController, UICollectionViewDataSource, UI
     }
     
     // MARK: - Calendar Switcher
-    func didSelectSectionWithType(_ type: SVCalendarType) {
+    func didSelectType(_ type: SVCalendarType) {
+        updateCalendarData(for: type)
         configCalendarLayout(for: type)
+        calendarCollectionView.reloadData()
     }
     
     // MARK: - Collection DataSource
@@ -154,16 +173,29 @@ class SVCalendarViewController: UIViewController, UICollectionViewDataSource, UI
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return calendarService.dates(for: .month).count
+        return dates.count
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
         switch kind {
         case SVCalendarHeaderSection1:
+            let index = indexPath.item + 1
+            var title: String?
             let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
                                                                              withReuseIdentifier: SVCalendarHeaderView.identifier,
-                                                                             for: indexPath)
+                                                                             for: indexPath) as! SVCalendarHeaderView
+            if headerTitles.count == 0 {
+                title = "-"
+            }
+            else if index >= headerTitles.count {
+                title = headerTitles[0]
+            }
+            else {
+                title = headerTitles[index]
+            }
+            
+            headerView.title = title
             
             return headerView
             
@@ -192,7 +224,7 @@ class SVCalendarViewController: UIViewController, UICollectionViewDataSource, UI
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SVCalendarViewCell.identifier, for: indexPath) as! SVCalendarViewCell
-        let model = calendarService.dates(for: .month)[indexPath.item]
+        let model = dates[indexPath.item]
         
         cell.configCell(with: model)
         

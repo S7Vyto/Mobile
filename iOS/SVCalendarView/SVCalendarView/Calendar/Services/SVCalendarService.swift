@@ -49,6 +49,7 @@ class SVCalendarService {
     
     fileprivate var visibleDate: Date!
     fileprivate var calendarDates = [SVCalendarType : [SVCalendarDate]]()
+    fileprivate var calendarTitles = [SVCalendarType : [String]]()
     
     var selectedDate: Date?
     
@@ -58,6 +59,7 @@ class SVCalendarService {
         self.visibleDate = currentDate
         
         updateCalendarDates()
+        updateCaledarTitles()
     }
     
     deinit {
@@ -66,8 +68,6 @@ class SVCalendarService {
     
     // MARK: - Calendar Methods
     fileprivate func updateCalendarDates() {
-        removeAllDates()
-        
         if types.contains(SVCalendarType.all) {
             calendarDates[.year] = configYearDates()
             calendarDates[.quarter] = configQuarterDates()
@@ -95,6 +95,37 @@ class SVCalendarService {
         
         if types.contains(SVCalendarType.day) {
             calendarDates[.day] = configDayDates()
+        }
+    }
+    
+    func updateCaledarTitles() {
+        if types.contains(SVCalendarType.all) {
+            calendarTitles[.year] = calendar.shortMonthSymbols
+            calendarTitles[.quarter] = calendar.shortQuarterSymbols
+            calendarTitles[.month] = calendar.shortWeekdaySymbols
+            calendarTitles[.week] = calendar.shortWeekdaySymbols
+            calendarTitles[.day] = calendar.shortWeekdaySymbols
+            return
+        }
+        
+        if types.contains(SVCalendarType.quarter) {
+            calendarTitles[.year] = calendar.shortMonthSymbols
+        }
+        
+        if types.contains(SVCalendarType.quarter) {
+            calendarTitles[.quarter] = calendar.shortMonthSymbols
+        }
+        
+        if types.contains(SVCalendarType.month) {
+            calendarTitles[.month] = calendar.shortWeekdaySymbols
+        }
+        
+        if types.contains(SVCalendarType.week) {
+            calendarTitles[.week] = calendar.shortWeekdaySymbols
+        }
+        
+        if types.contains(SVCalendarType.day) {
+            calendarTitles[.day] = calendar.shortWeekdaySymbols
         }
     }
     
@@ -127,7 +158,10 @@ class SVCalendarService {
         }
         
         visibleDate = calendar.date(from: dateComponents)!
+        
+        removeAllDates()
         updateCalendarDates()
+        updateCaledarTitles()
     }
     
     func dates(for type: SVCalendarType) -> [SVCalendarDate] {
@@ -138,12 +172,21 @@ class SVCalendarService {
         return dates
     }
     
+    func titles(for type: SVCalendarType) -> [String] {
+        guard let titles = calendarTitles[type] else {
+            return []
+        }
+        
+        return titles
+    }
+    
     func dateComponents(from date: Date) -> DateComponents {
         return calendar.dateComponents(components, from: date)
     }
     
     fileprivate func removeAllDates() {
         calendarDates.removeAll()
+        calendarTitles.removeAll()
     }
     
     // MARK: - Year Dates
@@ -423,7 +466,7 @@ class SVCalendarService {
                                         type: .day))
             
             calendarComponents.hour! += 1
-            beginDayDate = calendar.date(from: calendarComponents)!
+            beginDayDate = calendar.date(from: calendarComponents)!            
         }
         
         return dates

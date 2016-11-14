@@ -28,7 +28,7 @@ class SVCalendarFlowLayout: UICollectionViewFlowLayout {
     }
     
     fileprivate let direction: SVCalendarFlowLayoutDirection!
-    fileprivate var cache = [UICollectionViewLayoutAttributes]()
+    fileprivate var cache =  [IndexPath : UICollectionViewLayoutAttributes]()
     
     fileprivate var width: CGFloat = 0.0
     fileprivate var height: CGFloat = 0.0
@@ -156,7 +156,7 @@ class SVCalendarFlowLayout: UICollectionViewFlowLayout {
                         index += 1
                     }
                     
-                    cache.append(attributes)
+                    cache[indexPath] = attributes
                 }
             }
         }
@@ -173,11 +173,11 @@ class SVCalendarFlowLayout: UICollectionViewFlowLayout {
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         var attrs = [UICollectionViewLayoutAttributes]()
         for attr in cache {
-            guard attr.frame.intersects(rect) else {
+            guard attr.value.frame.intersects(rect) else {
                 continue
             }
             
-            attrs.append(attr)
+            attrs.append(attr.value)
         }
         
         if isHeader1Visible {
@@ -192,7 +192,13 @@ class SVCalendarFlowLayout: UICollectionViewFlowLayout {
         }
         
         if isHeader2Visible {
-            let indexPaths = headerView2Paths()
+            var index = -1
+            
+            if isHeader1Visible {
+                index = headerView1Paths().count
+            }
+            
+            let indexPaths = headerView2Paths(startIndex: index)
             for indexPath in indexPaths {
                 guard let attr = self.layoutAttributesForSupplementaryView(ofKind: SVCalendarHeaderSection2, at: indexPath) else {
                     continue
@@ -220,16 +226,16 @@ class SVCalendarFlowLayout: UICollectionViewFlowLayout {
         return attrs
     }
     
-//    override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
-//        return nil
-//    }
-//    
+    override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+        return cache[indexPath]
+    }
+    
     override func layoutAttributesForSupplementaryView(ofKind elementKind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
         let attrs = UICollectionViewLayoutAttributes(forSupplementaryViewOfKind: elementKind, with: indexPath)        
         
         switch elementKind {
         case SVCalendarHeaderSection1:
-            attrs.frame = CGRect(x: CGFloat(indexPath.item) * headerWidth, y: self.collectionView!.contentOffset.y, width: headerWidth, height: headerHeight)
+            attrs.frame = CGRect(x: CGFloat(indexPath.item) * headerWidth + timeWidth, y: self.collectionView!.contentOffset.y, width: headerWidth - timeWidth, height: headerHeight)
             attrs.zIndex = 1024
             break
             
@@ -239,7 +245,7 @@ class SVCalendarFlowLayout: UICollectionViewFlowLayout {
             break
             
         case SVCalendarTimeSection:
-            attrs.frame = CGRect(x: 0.0, y: CGFloat(indexPath.row) * timeHeight + timeHeight, width: timeWidth, height: timeHeight)
+            attrs.frame = CGRect(x: 0.0, y: CGFloat(indexPath.row) * timeHeight + headerHeight, width: timeWidth, height: timeHeight)
             attrs.zIndex = 1022
             break
             
@@ -251,7 +257,22 @@ class SVCalendarFlowLayout: UICollectionViewFlowLayout {
     }
     
     // MARK: - Layout Methods
-    func update() {
+    func clear() {
+        self.width = 0
+        self.height = 0
+        
+        self.headerWidth = 0.0
+        self.headerHeight = 0.0
+        
+        self.timeWidth = 0.0
+        self.timeHeight = 0.0
+        
+        self.columnWidth = 50.0
+        self.columnHeight = 50.0
+        self.columnOffset = 0.0
+    }
+    
+    func update() {        
         self.cache.removeAll()
         self.invalidateLayout()        
     }
@@ -269,12 +290,17 @@ class SVCalendarFlowLayout: UICollectionViewFlowLayout {
         return indexPaths
     }
     
-    fileprivate func headerView2Paths() -> [IndexPath] {
+    fileprivate func headerView2Paths(startIndex: Int) -> [IndexPath] {
         guard numberOfColumns != nil else {
             return []
         }
         
-        return [IndexPath(item: numberOfColumns! + 1, section: 0)]
+        var indexPaths = [IndexPath]()
+        for i in 0 ..< numberOfColumns! {
+            indexPaths.append(IndexPath(item: startIndex + i, section: 0))
+        }
+        
+        return indexPaths
     }
     
     fileprivate func timeViewPaths() -> [IndexPath] {

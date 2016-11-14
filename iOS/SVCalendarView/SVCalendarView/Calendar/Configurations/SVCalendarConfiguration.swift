@@ -22,16 +22,29 @@ struct SVCalendarType: OptionSet, Hashable {
     static let year = SVCalendarType(rawValue: 1 << 4)
     
     static let defaultTypes = [SVCalendarType.day, SVCalendarType.month, SVCalendarType.year]
-    static let testTypes = [SVCalendarType.day, SVCalendarType.week, SVCalendarType.month, SVCalendarType.quarter, SVCalendarType.year]
+    static let testTypes = [SVCalendarType.day, SVCalendarType.week, SVCalendarType.month, SVCalendarType.year]
 }
 
 public class SVCalendarConfiguration {
     static let shared = SVCalendarConfiguration()
     
+    struct Style {
+        var container = SVCalendarStyle(for: .container)
+        var calendar = SVCalendarStyle(for: .calendar)
+        var navigation = SVCalendarStyle(for: .navigation)
+        var switcher = SVCalendarStyle(for: .switcher)
+        var header1 = SVCalendarStyle(for: .header1)
+        var header2 = SVCalendarStyle(for: .header2)
+        var time = SVCalendarStyle(for: .time)
+    }
+    
     var types = SVCalendarType.testTypes
     var minYear: Int = 2000
     var maxYear: Int = 2020
     
+    var styles = Style()
+    
+    var isStyleDefault = true
     var isSwitcherVisible = true
     var isHeaderSection1Visible = true
     var isHeaderSection2Visible = false

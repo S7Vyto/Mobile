@@ -22,11 +22,13 @@
 		222C90DD1DCC9B0800BA3509 /* SVCalendarHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 222C90DB1DCC9B0800BA3509 /* SVCalendarHeaderView.xib */; };
 		222C90E01DCC9B2500BA3509 /* SVCalendarTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222C90DE1DCC9B2500BA3509 /* SVCalendarTimeView.swift */; };
 		222C90E11DCC9B2500BA3509 /* SVCalendarTimeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 222C90DF1DCC9B2500BA3509 /* SVCalendarTimeView.xib */; };
+		225C8C761DD7B5530023DA6A /* SVColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225C8C751DD7B5530023DA6A /* SVColorExtension.swift */; };
 		22603A571DB6A5F900AD1673 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22603A561DB6A5F900AD1673 /* AppDelegate.swift */; };
 		22603A591DB6A5F900AD1673 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22603A581DB6A5F900AD1673 /* ViewController.swift */; };
 		22603A5C1DB6A5F900AD1673 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22603A5A1DB6A5F900AD1673 /* Main.storyboard */; };
 		22603A5E1DB6A5F900AD1673 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22603A5D1DB6A5F900AD1673 /* Assets.xcassets */; };
 		22603A611DB6A5F900AD1673 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22603A5F1DB6A5F900AD1673 /* LaunchScreen.storyboard */; };
+		2295EA3F1DDA53B5007F7B91 /* SVCalendarSwitcherButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2295EA3E1DDA53B5007F7B91 /* SVCalendarSwitcherButton.swift */; };
 		22F11E5E1DBC1F9500CF73BE /* SVCalendarComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F11E5D1DBC1F9500CF73BE /* SVCalendarComponents.swift */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +48,7 @@
 		222C90DB1DCC9B0800BA3509 /* SVCalendarHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SVCalendarHeaderView.xib; path = Calendar/Views/SVCalendarHeaderView.xib; sourceTree = "<group>"; };
 		222C90DE1DCC9B2500BA3509 /* SVCalendarTimeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SVCalendarTimeView.swift; path = Calendar/Views/SVCalendarTimeView.swift; sourceTree = "<group>"; };
 		222C90DF1DCC9B2500BA3509 /* SVCalendarTimeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SVCalendarTimeView.xib; path = Calendar/Views/SVCalendarTimeView.xib; sourceTree = "<group>"; };
+		225C8C751DD7B5530023DA6A /* SVColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SVColorExtension.swift; path = Calendar/Extensions/SVColorExtension.swift; sourceTree = "<group>"; };
 		22603A531DB6A5F900AD1673 /* SVCalendarView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SVCalendarView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22603A561DB6A5F900AD1673 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		22603A581DB6A5F900AD1673 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -53,6 +56,7 @@
 		22603A5D1DB6A5F900AD1673 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		22603A601DB6A5F900AD1673 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		22603A621DB6A5F900AD1673 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2295EA3E1DDA53B5007F7B91 /* SVCalendarSwitcherButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SVCalendarSwitcherButton.swift; path = Calendar/Views/SVCalendarSwitcherButton.swift; sourceTree = "<group>"; };
 		22F11E5D1DBC1F9500CF73BE /* SVCalendarComponents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SVCalendarComponents.swift; path = Calendar/Components/SVCalendarComponents.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -78,6 +82,7 @@
 		2225DDF11DB8158E00C232DC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2295EA3E1DDA53B5007F7B91 /* SVCalendarSwitcherButton.swift */,
 				2225DE091DB81DA000C232DC /* SVCalendarViewCell.swift */,
 				2225DE0A1DB81DA000C232DC /* SVCalendarViewCell.xib */,
 				222C90DA1DCC9B0800BA3509 /* SVCalendarHeaderView.swift */,
@@ -131,6 +136,14 @@
 			name = Styles;
 			sourceTree = "<group>";
 		};
+		225C8C741DD7B5300023DA6A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				225C8C751DD7B5530023DA6A /* SVColorExtension.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		22603A4A1DB6A5F900AD1673 = {
 			isa = PBXGroup;
 			children = (
@@ -161,6 +174,7 @@
 		22603A681DB6A64300AD1673 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
+				225C8C741DD7B5300023DA6A /* Extensions */,
 				22F11E5C1DBC1F7600CF73BE /* Components */,
 				2225DDF01DB8157500C232DC /* Configurations */,
 				2225DDF21DB8159B00C232DC /* Controllers */,
@@ -287,11 +301,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				22603A591DB6A5F900AD1673 /* ViewController.swift in Sources */,
+				2295EA3F1DDA53B5007F7B91 /* SVCalendarSwitcherButton.swift in Sources */,
 				2225DE071DB81D8500C232DC /* SVCalendarStyle.swift in Sources */,
 				222C90E01DCC9B2500BA3509 /* SVCalendarTimeView.swift in Sources */,
 				22F11E5E1DBC1F9500CF73BE /* SVCalendarComponents.swift in Sources */,
 				2225DE041DB81D7A00C232DC /* SVCalendarManger.swift in Sources */,
 				2225DE0B1DB81DA000C232DC /* SVCalendarViewCell.swift in Sources */,
+				225C8C761DD7B5530023DA6A /* SVColorExtension.swift in Sources */,
 				2225DDF81DB81D4A00C232DC /* SVCalendarConfiguration.swift in Sources */,
 				222C90DC1DCC9B0800BA3509 /* SVCalendarHeaderView.swift in Sources */,
 				222A49FD1DB8222400ECD849 /* SVCalendarSwitcherViewController.swift in Sources */,
