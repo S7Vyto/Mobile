@@ -1,0 +1,6 @@
+framework module Pods_SVNewsletter {
+  umbrella header "Pods-SVNewsletter-umbrella.h"
+
+  export *
+  module * { export * }
+}
