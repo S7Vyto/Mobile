@@ -187,6 +187,7 @@
 		2295EA051DDA4140007F7B91 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = SV;
 				LastSwiftUpdateCheck = 0810;
 				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Semyon Vyatkin";
