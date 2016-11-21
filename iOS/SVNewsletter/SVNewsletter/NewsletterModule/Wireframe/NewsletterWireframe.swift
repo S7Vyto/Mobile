@@ -11,6 +11,7 @@ import UIKit
 
 protocol NewsletterWireframeInput {
     func presentDetailsInterface(forNewsletter newsletter: NewsEntity)
+    func presentExceptionMessage(_ exceptionMsg: String)
 }
 
 class NewsletterWireframe: NewsletterWireframeInput {
@@ -39,6 +40,14 @@ class NewsletterWireframe: NewsletterWireframeInput {
     }
     
     // MARK: - NewsletterWireframe Input
+    func presentExceptionMessage(_ exceptionMsg: String) {
+        let controller = UIAlertController(title: "Error", message: exceptionMsg, preferredStyle: .alert)
+        let done = UIAlertAction(title: "OK", style: .default, handler: nil)
+        
+        controller.addAction(done)
+        newsletterController.present(controller, animated: true, completion: nil)
+    }
+    
     func presentDetailsInterface(forNewsletter newsletter: NewsEntity) {
         
     }

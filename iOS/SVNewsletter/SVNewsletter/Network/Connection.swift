@@ -8,15 +8,21 @@
 
 import Foundation
 
-struct Connection {
-    static let apiVersion = "v1"
-    static let baseURL = "https://api.tinkoff.ru"
+struct URLSettings {
+    static let api = "v1"
+    static let base = "https://api.tinkoff.ru"
+}
+
+enum URLPaths {
+    case news
+    case content(id: String)
     
-    static var newsURL: String {
-        return baseURL + "/" + apiVersion + "/" + "news"
-    }
-    
-    static var newsContentURL: String {
-        return baseURL + "/" + apiVersion + "/" + "news_content?id="
+    func url() -> String {
+        switch self {
+        case .news:
+            return "\(URLSettings.base)/\(URLSettings.api)/news"
+        case let .content(id):
+            return "\(URLSettings.base)/\(URLSettings.api)/news_content?id=\(id)"
+        }
     }
 }

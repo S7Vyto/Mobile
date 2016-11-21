@@ -20,11 +20,7 @@ class NewsletterPresenter: NewsletterPresenterInteface, NewsletterInteractorOutp
     var wireframe: NewsletterWireframe!
     
     var newsletters = [NewsEntity]()
-    
-    // MARK: - Presenter LifeCycle
-    init() {
         
-    }
     
     // MARK: - NewsletterModuleInterface
     func updateNewsletterListView() {
@@ -42,6 +38,14 @@ class NewsletterPresenter: NewsletterPresenterInteface, NewsletterInteractorOutp
         }
         
         newsletterListView.showNewsletters(newsletters: newsletters)
+    }
+    
+    func fetchFailedWithException(_ exception: NSError?) {
+        guard let errorMsg = exception?.userInfo["errorMsg"] as? String else {
+            return
+        }
+        
+        wireframe.presentExceptionMessage(errorMsg)
     }
 }
 

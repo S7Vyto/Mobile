@@ -14,15 +14,20 @@ protocol NewsletterInteractorInput: class {
 
 protocol NewsletterInteractorOutput: class {
     func fetchedNewsletters(_ newsletters: [NewsEntity])
+    func fetchFailedWithException(_ exception: NSError?)
 }
 
 class NewsletterInteractor: NewsletterInteractorInput {
+    private var netService = NetworkService()
     weak var interactorOutput: NewsletterInteractorOutput!
     
     // MARK: - NewsletterInteractorInput
     func fetchNewsletters() {
-        
-        
-        interactorOutput.fetchedNewsletters([])
+        netService.request(url: URLPaths.news.url(),
+                           completionBlock: { [weak self] data in
+                            self?.interactorOutput.fetchedNewsletters([])
+        }, exceptionBlock: { [weak self] exception in                        
+            self?.interactorOutput.fetchFailedWithException(exception)
+        })
     }
 }
