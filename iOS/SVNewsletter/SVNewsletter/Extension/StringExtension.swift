@@ -11,7 +11,7 @@ import UIKit
 
 extension String {
     
-    func decodeString() -> String {
+    func removeSpecialSymbols() -> String {
         guard let encodedData = self.data(using: .utf8) else {
             return self
         }
