@@ -23,6 +23,9 @@
 		2290C4661DE4C7EB009E3720 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2290C4651DE4C7EB009E3720 /* StringExtension.swift */; };
 		2290C4681DE4CF4C009E3720 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2290C4671DE4CF4C009E3720 /* ColorExtension.swift */; };
 		2290C46B1DE4EEA1009E3720 /* AsyncOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2290C46A1DE4EEA1009E3720 /* AsyncOperation.swift */; };
+		2290C4711DE4F0F2009E3720 /* NewsletterDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2290C4701DE4F0F2009E3720 /* NewsletterDetailsPresenter.swift */; };
+		2290C4741DE4F28C009E3720 /* NewsletterDetailsWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2290C4731DE4F28C009E3720 /* NewsletterDetailsWireframe.swift */; };
+		2290C4761DE4F3DA009E3720 /* NewsletterDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2290C4751DE4F3DA009E3720 /* NewsletterDetailsViewController.swift */; };
 		22C5F1C41DE2251E0008A54A /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C5F1C31DE2251D0008A54A /* Connection.swift */; };
 		22C6ECE71DE0C7270071C0A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C6ECE61DE0C7270071C0A9 /* AppDelegate.swift */; };
 		22C6ECEC1DE0C7270071C0A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22C6ECEA1DE0C7270071C0A9 /* Main.storyboard */; };
@@ -58,6 +61,9 @@
 		2290C4651DE4C7EB009E3720 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringExtension.swift; path = Extension/StringExtension.swift; sourceTree = "<group>"; };
 		2290C4671DE4CF4C009E3720 /* ColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorExtension.swift; path = Extension/ColorExtension.swift; sourceTree = "<group>"; };
 		2290C46A1DE4EEA1009E3720 /* AsyncOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AsyncOperation.swift; path = Operations/AsyncOperation.swift; sourceTree = "<group>"; };
+		2290C4701DE4F0F2009E3720 /* NewsletterDetailsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewsletterDetailsPresenter.swift; path = Modules/NewsletterDetails/Presenter/NewsletterDetailsPresenter.swift; sourceTree = "<group>"; };
+		2290C4731DE4F28C009E3720 /* NewsletterDetailsWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewsletterDetailsWireframe.swift; path = Modules/NewsletterDetails/Wireframe/NewsletterDetailsWireframe.swift; sourceTree = "<group>"; };
+		2290C4751DE4F3DA009E3720 /* NewsletterDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewsletterDetailsViewController.swift; path = Modules/NewsletterDetails/View/NewsletterDetailsViewController.swift; sourceTree = "<group>"; };
 		22C5F1C31DE2251D0008A54A /* Connection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Connection.swift; path = Network/Connection.swift; sourceTree = "<group>"; };
 		22C6ECE31DE0C7260071C0A9 /* SVNewsletter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SVNewsletter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22C6ECE61DE0C7270071C0A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -184,8 +190,43 @@
 		2290C46C1DE4EF45009E3720 /* NewsletterDetails */ = {
 			isa = PBXGroup;
 			children = (
+				2290C46D1DE4F075009E3720 /* View */,
+				2290C46F1DE4F09F009E3720 /* Interactor */,
+				2290C46E1DE4F096009E3720 /* Presenter */,
+				2290C4721DE4F25C009E3720 /* Wireframe */,
 			);
 			name = NewsletterDetails;
+			sourceTree = "<group>";
+		};
+		2290C46D1DE4F075009E3720 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2290C4751DE4F3DA009E3720 /* NewsletterDetailsViewController.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		2290C46E1DE4F096009E3720 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				2290C4701DE4F0F2009E3720 /* NewsletterDetailsPresenter.swift */,
+			);
+			name = Presenter;
+			sourceTree = "<group>";
+		};
+		2290C46F1DE4F09F009E3720 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Interactor;
+			sourceTree = "<group>";
+		};
+		2290C4721DE4F25C009E3720 /* Wireframe */ = {
+			isa = PBXGroup;
+			children = (
+				2290C4731DE4F28C009E3720 /* NewsletterDetailsWireframe.swift */,
+			);
+			name = Wireframe;
 			sourceTree = "<group>";
 		};
 		22C5F1C21DE224E70008A54A /* Network */ = {
@@ -498,6 +539,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2290C4741DE4F28C009E3720 /* NewsletterDetailsWireframe.swift in Sources */,
 				2290C45C1DE493FF009E3720 /* NetworkService.swift in Sources */,
 				222385C51DE38A6700AAAAE4 /* Wireframe.swift in Sources */,
 				2290C45F1DE4AD63009E3720 /* NewsletterOperation.swift in Sources */,
@@ -505,7 +547,9 @@
 				2290C4521DE493BC009E3720 /* NewsletterViewControllerExtension.swift in Sources */,
 				2290C4511DE493BC009E3720 /* NewsletterViewController.swift in Sources */,
 				2290C4581DE493E3009E3720 /* NewsEntity.swift in Sources */,
+				2290C4761DE4F3DA009E3720 /* NewsletterDetailsViewController.swift in Sources */,
 				222385C21DE38A0800AAAAE4 /* AssemblyService.swift in Sources */,
+				2290C4711DE4F0F2009E3720 /* NewsletterDetailsPresenter.swift in Sources */,
 				2290C4661DE4C7EB009E3720 /* StringExtension.swift in Sources */,
 				2290C4681DE4CF4C009E3720 /* ColorExtension.swift in Sources */,
 				2290C4541DE493C8009E3720 /* NewsletterInteractor.swift in Sources */,

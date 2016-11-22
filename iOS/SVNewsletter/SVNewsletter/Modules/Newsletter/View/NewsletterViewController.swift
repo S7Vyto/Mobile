@@ -77,6 +77,7 @@ class NewsletterViewController: UIViewController, NewsletterInterface {
         
         self.navigationController?.navigationBar.barStyle = .black
         self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.navigationBar.tintColor = UIColor.rgb(248.0, 248.0, 28.0)
         self.navigationController?.navigationBar.barTintColor = UIColor.rgb(51.0, 43.0, 77.0)
         self.navigationController?.navigationBar.titleTextAttributes = [
             NSForegroundColorAttributeName: UIColor.rgb(248.0, 248.0, 28.0),

@@ -19,7 +19,7 @@ class NewsletterWireframe: NewsletterWireframeInput {
     var newsletterPresenter: NewsletterPresenter!
     
     var rootWireframe: Wireframe!
-    var newsletterDetailsWireframe: NewsletterWireframe!
+    var newsletterDetailsWireframe = NewsletterDetailsWireframe()
     
     init() {
         let newsletterInteractor = NewsletterInteractor()
@@ -32,7 +32,7 @@ class NewsletterWireframe: NewsletterWireframeInput {
     }
     
     func presentNewsletterListView(_ window: UIWindow?) {
-        newsletterController = newsletterListViewController()
+        newsletterController = Wireframe.viewControllerWith(name: "NewsletterViewController") as! NewsletterViewController
         newsletterController.presenter = newsletterPresenter
         
         newsletterPresenter.newsletterListView = newsletterController
@@ -49,14 +49,7 @@ class NewsletterWireframe: NewsletterWireframeInput {
     }
     
     func presentDetailsInterface(forNewsletter newsletter: NewsEntity) {
-        
-    }
-    
-    // MARK: - Wireframe Methods
-    private func newsletterListViewController() -> NewsletterViewController {
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        let controller = storyboard.instantiateViewController(withIdentifier: "NewsletterViewController") as! NewsletterViewController
-        
-        return controller
-    }
+        newsletterDetailsWireframe.newsletterDetailsPresenter.newsletter = newsletter
+        newsletterDetailsWireframe.presentNewsletterDetails(from: newsletterController)
+    }        
 }

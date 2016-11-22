@@ -37,11 +37,30 @@
                     <navigationItem key="navigationItem" title="News" id="45R-yP-sBG"/>
                     <connections>
                         <outlet property="tableView" destination="nRg-Ss-ZOq" id="iCx-Sb-YYm"/>
+                        <segue destination="zgI-1D-QiL" kind="show" identifier="NewsletterDetailsSegue" id="vjd-Ci-1GJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1225" y="-544"/>
+        </scene>
+        <!--Newsletter Details View Controller-->
+        <scene sceneID="rjK-8d-b43">
+            <objects>
+                <viewController storyboardIdentifier="NewsletterDetailsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zgI-1D-QiL" customClass="NewsletterDetailsViewController" customModule="SVNewsletter" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PCx-O3-1si"/>
+                        <viewControllerLayoutGuide type="bottom" id="jCb-I3-Ppo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tU4-ia-EEp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RnT-kx-FB2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2074" y="-544"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2TW-wZ-4lD">

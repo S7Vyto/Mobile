@@ -31,6 +31,7 @@ extension NewsletterViewController: UITableViewDataSource, UITableViewDelegate {
     
     // MARK: - TableView Delegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let newsletterEntity = newsletters[indexPath.row]
+        presenter.showDetails(forNewsletter: newsletterEntity)
     }
 }

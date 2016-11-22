@@ -20,7 +20,6 @@ class NewsletterPresenter: NewsletterPresenterInteface, NewsletterInteractorOutp
     var wireframe: NewsletterWireframe!
     
     var newsletters = [NewsEntity]()
-        
     
     // MARK: - NewsletterModuleInterface
     func updateNewsletterListView() {

@@ -15,4 +15,12 @@ class Wireframe {
         let navigationController = window?.rootViewController as! UINavigationController
         navigationController.viewControllers = [viewController]
     }
+    
+    // MARK: - Wireframe Methods
+    static func viewControllerWith(name: String) -> UIViewController {
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let controller = storyboard.instantiateViewController(withIdentifier: name)
+        
+        return controller
+    }
 }
