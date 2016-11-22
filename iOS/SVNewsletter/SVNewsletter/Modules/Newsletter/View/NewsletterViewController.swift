@@ -15,7 +15,7 @@ protocol NewsletterInterface: class {
 class NewsletterViewController: UIViewController, NewsletterInterface {
     @IBOutlet weak private var tableView: UITableView!
     
-    private var newsletters = [NewsEntity]()
+    var newsletters = [NewsEntity]()
     var presenter: NewsletterPresenter!
 
     override func viewDidLoad() {
@@ -41,6 +41,9 @@ class NewsletterViewController: UIViewController, NewsletterInterface {
         
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 125.0
+        
+        self.tableView.register(UINib(nibName: NewsletterTableViewCell.identifier, bundle: Bundle.main),
+                                forCellReuseIdentifier: NewsletterTableViewCell.identifier)
     }
     
     private func configNavigation() {
@@ -50,5 +53,6 @@ class NewsletterViewController: UIViewController, NewsletterInterface {
     // MARK: - Newsletter Interface
     func showNewsletters(newsletters: [NewsEntity]) {
         self.newsletters = newsletters
+        self.tableView.reloadData()
     }
 }
