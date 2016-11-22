@@ -21,6 +21,7 @@
 		2290C4621DE4C1E0009E3720 /* NewsletterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2290C4601DE4C1E0009E3720 /* NewsletterTableViewCell.swift */; };
 		2290C4631DE4C1E0009E3720 /* NewsletterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2290C4611DE4C1E0009E3720 /* NewsletterTableViewCell.xib */; };
 		2290C4661DE4C7EB009E3720 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2290C4651DE4C7EB009E3720 /* StringExtension.swift */; };
+		2290C4681DE4CF4C009E3720 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2290C4671DE4CF4C009E3720 /* ColorExtension.swift */; };
 		22C5F1C41DE2251E0008A54A /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C5F1C31DE2251D0008A54A /* Connection.swift */; };
 		22C6ECE71DE0C7270071C0A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C6ECE61DE0C7270071C0A9 /* AppDelegate.swift */; };
 		22C6ECEC1DE0C7270071C0A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22C6ECEA1DE0C7270071C0A9 /* Main.storyboard */; };
@@ -54,6 +55,7 @@
 		2290C4601DE4C1E0009E3720 /* NewsletterTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewsletterTableViewCell.swift; path = Modules/Newsletter/View/NewsletterTableViewCell.swift; sourceTree = "<group>"; };
 		2290C4611DE4C1E0009E3720 /* NewsletterTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NewsletterTableViewCell.xib; path = Modules/Newsletter/View/NewsletterTableViewCell.xib; sourceTree = "<group>"; };
 		2290C4651DE4C7EB009E3720 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringExtension.swift; path = Extension/StringExtension.swift; sourceTree = "<group>"; };
+		2290C4671DE4CF4C009E3720 /* ColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorExtension.swift; path = Extension/ColorExtension.swift; sourceTree = "<group>"; };
 		22C5F1C31DE2251D0008A54A /* Connection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Connection.swift; path = Network/Connection.swift; sourceTree = "<group>"; };
 		22C6ECE31DE0C7260071C0A9 /* SVNewsletter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SVNewsletter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22C6ECE61DE0C7270071C0A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				2290C4651DE4C7EB009E3720 /* StringExtension.swift */,
+				2290C4671DE4CF4C009E3720 /* ColorExtension.swift */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -485,6 +488,7 @@
 				2290C4581DE493E3009E3720 /* NewsEntity.swift in Sources */,
 				222385C21DE38A0800AAAAE4 /* AssemblyService.swift in Sources */,
 				2290C4661DE4C7EB009E3720 /* StringExtension.swift in Sources */,
+				2290C4681DE4CF4C009E3720 /* ColorExtension.swift in Sources */,
 				2290C4541DE493C8009E3720 /* NewsletterInteractor.swift in Sources */,
 				22C5F1C41DE2251E0008A54A /* Connection.swift in Sources */,
 				2290C4621DE4C1E0009E3720 /* NewsletterTableViewCell.swift in Sources */,

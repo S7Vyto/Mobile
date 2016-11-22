@@ -74,11 +74,13 @@ class NewsletterOperation: Operation {
         for json in data {
             let newsletter = NewsEntity(id: json["id"].intValue,
                                         name: json["name"].stringValue,
-                                        desc: json["text"].stringValue.decodeString(),
+                                        desc: json["text"].stringValue,
                                         publicationDate: json["publicationDate"]["milliseconds"].doubleValue)
             
             newsletters.append(newsletter)
         }
+        
+        newsletters.sort { $0.publicationDate > $1.publicationDate }
         
         DispatchQueue.main.async { [weak self] in
             self?.finishBlock(newsletters)
