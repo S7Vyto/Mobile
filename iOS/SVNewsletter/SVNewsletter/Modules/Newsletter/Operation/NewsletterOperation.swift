@@ -17,23 +17,14 @@ class NewsletterOperation: AsyncOperation {
         }
         
         state = .isExecuting
-        
-        var newsletters = [NewsEntity]()
-        for json in data {
-            let newsletter = NewsEntity(id: json["id"].intValue,
-                                        name: json["name"].stringValue,
-                                        desc: json["text"].stringValue.removeSpecialSymbols(),
-                                        publicationDate: json["publicationDate"]["milliseconds"].doubleValue)
-            
-            newsletters.append(newsletter)
+        (UIApplication.shared.delegate as? AppDelegate)?
+            .dataService
+            .saveData(data) { [unowned self] in
+                let dataService = (UIApplication.shared.delegate as? AppDelegate)?.dataService
+                let newsletters = dataService?.fetchData(nil, sorts: [NSSortDescriptor(key: "publicationDate", ascending: false)])
+                
+                self.finishBlock(newsletters ?? [])
+                self.state = .isFinished
         }
-        
-        newsletters.sort { $0.publicationDate > $1.publicationDate }
-        
-        DispatchQueue.main.async { [weak self] in
-            self?.finishBlock(newsletters)
-        }
-        
-        state = .isFinished
     }
 }

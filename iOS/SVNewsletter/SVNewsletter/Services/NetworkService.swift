@@ -11,7 +11,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-typealias CompletionBlock = ([Any]?) -> Void
+typealias CompletionBlock = (Any?) -> Void
 typealias ExceptionBlock = (NSError?) -> Void
 
 class NetworkService {
@@ -19,8 +19,7 @@ class NetworkService {
     private let codeValue = "OK"
     private let errorMsgKey = "plainMessage"
     private let resultKey = "payload"
-            
-    
+
     func request(url: String, completionBlock: @escaping CompletionBlock, exceptionBlock: @escaping ExceptionBlock) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         Alamofire.request(url)
@@ -51,7 +50,7 @@ class NetworkService {
                     return
                 }
                 
-                completionBlock(json[self.resultKey].array)
+                completionBlock(json[self.resultKey])
         }
     }
 }

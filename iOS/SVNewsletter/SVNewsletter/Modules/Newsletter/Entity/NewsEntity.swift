@@ -13,6 +13,9 @@ protocol NewsEntityInterface: class {
     var name: String { get }
     var desc: String { get }
     var publicationDate: TimeInterval { get }
+    var creationDate: TimeInterval { get set }
+    var modificationDate: TimeInterval { get set }
+    var content: String { get set }
     
     init(id: Int, name: String, desc: String, publicationDate: TimeInterval)
 }
@@ -22,6 +25,9 @@ class NewsEntity: NewsEntityInterface {
     var name: String
     var desc: String
     var publicationDate: TimeInterval
+    var creationDate: TimeInterval = 0
+    var modificationDate: TimeInterval = 0
+    var content: String = ""
 
     required init(id: Int, name: String, desc: String, publicationDate: TimeInterval) {
         self.id = id

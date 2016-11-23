@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class NewsletterDetailsWireframe {
-    weak var newsletterDetailsView: NewsletterDetailsViewController!
+    weak var newsletterDetailsView: NewsletterDetailsViewController?
     var newsletterDetailsPresenter: NewsletterDetailsPresenter!
     
     init() {
@@ -18,12 +18,19 @@ class NewsletterDetailsWireframe {
     }
     
     func presentNewsletterDetails(from controller: UIViewController) {
-        newsletterDetailsView = Wireframe.viewControllerWith(name: "NewsletterDetailsViewController") as! NewsletterDetailsViewController
-        newsletterDetailsView.presenter = newsletterDetailsPresenter
+        controller.performSegue(withIdentifier: "NewsletterDetailsSegue", sender: controller)
+    }
+    
+    func setupNewsletterDetails(_ controller: NewsletterDetailsViewController) {
+        let newsletterDetailsInteractor = NewsletterDetailsInteractor()
+        
+        newsletterDetailsView = controller
+        newsletterDetailsView?.presenter = newsletterDetailsPresenter
         
         newsletterDetailsPresenter.newsletterDetailsView = newsletterDetailsView
+        newsletterDetailsPresenter.interactor = newsletterDetailsInteractor
         newsletterDetailsPresenter.wireframe = self
         
-        controller.performSegue(withIdentifier: "NewsletterDetailsSegue", sender: controller)
+        newsletterDetailsInteractor.interactorOutput = newsletterDetailsPresenter
     }
 }

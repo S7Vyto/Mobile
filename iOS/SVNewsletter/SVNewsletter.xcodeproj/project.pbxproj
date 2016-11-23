@@ -10,13 +10,18 @@
 		19A89CDF4C20A1C3FD6C0D86 /* Pods_SVNewsletter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA7BACE393D734DCD62A5CC3 /* Pods_SVNewsletter.framework */; };
 		222385C21DE38A0800AAAAE4 /* AssemblyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222385C11DE38A0800AAAAE4 /* AssemblyService.swift */; };
 		222385C51DE38A6700AAAAE4 /* Wireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222385C41DE38A6700AAAAE4 /* Wireframe.swift */; };
+		226781E71DE60448002CD9A9 /* NewsletterDetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226781E61DE60448002CD9A9 /* NewsletterDetailsInteractor.swift */; };
+		226781EA1DE6177B002CD9A9 /* NewsletterDetailsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226781E91DE6177B002CD9A9 /* NewsletterDetailsOperation.swift */; };
+		226781EE1DE62012002CD9A9 /* NewsModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 226781EC1DE62012002CD9A9 /* NewsModel.xcdatamodeld */; };
+		226781F11DE62093002CD9A9 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226781F01DE62093002CD9A9 /* DataService.swift */; };
+		226781F31DE6210D002CD9A9 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226781F21DE6210D002CD9A9 /* NetworkService.swift */; };
+		226DBA881DE64749000C5D07 /* NewsEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226DBA861DE64749000C5D07 /* NewsEntity+CoreDataClass.swift */; };
+		226DBA891DE64749000C5D07 /* NewsEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226DBA871DE64749000C5D07 /* NewsEntity+CoreDataProperties.swift */; };
 		2290C4511DE493BC009E3720 /* NewsletterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2290C44F1DE493BC009E3720 /* NewsletterViewController.swift */; };
 		2290C4521DE493BC009E3720 /* NewsletterViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2290C4501DE493BC009E3720 /* NewsletterViewControllerExtension.swift */; };
 		2290C4541DE493C8009E3720 /* NewsletterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2290C4531DE493C8009E3720 /* NewsletterInteractor.swift */; };
 		2290C4561DE493D5009E3720 /* NewsletterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2290C4551DE493D5009E3720 /* NewsletterPresenter.swift */; };
-		2290C4581DE493E3009E3720 /* NewsEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2290C4571DE493E3009E3720 /* NewsEntity.swift */; };
 		2290C45A1DE493EE009E3720 /* NewsletterWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2290C4591DE493EE009E3720 /* NewsletterWireframe.swift */; };
-		2290C45C1DE493FF009E3720 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2290C45B1DE493FF009E3720 /* NetworkService.swift */; };
 		2290C45F1DE4AD63009E3720 /* NewsletterOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2290C45E1DE4AD63009E3720 /* NewsletterOperation.swift */; };
 		2290C4621DE4C1E0009E3720 /* NewsletterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2290C4601DE4C1E0009E3720 /* NewsletterTableViewCell.swift */; };
 		2290C4631DE4C1E0009E3720 /* NewsletterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2290C4611DE4C1E0009E3720 /* NewsletterTableViewCell.xib */; };
@@ -48,13 +53,18 @@
 /* Begin PBXFileReference section */
 		222385C11DE38A0800AAAAE4 /* AssemblyService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AssemblyService.swift; path = Assembly/AssemblyService.swift; sourceTree = "<group>"; };
 		222385C41DE38A6700AAAAE4 /* Wireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Wireframe.swift; path = Wireframe/Wireframe.swift; sourceTree = "<group>"; };
+		226781E61DE60448002CD9A9 /* NewsletterDetailsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewsletterDetailsInteractor.swift; path = Modules/NewsletterDetails/Interactor/NewsletterDetailsInteractor.swift; sourceTree = "<group>"; };
+		226781E91DE6177B002CD9A9 /* NewsletterDetailsOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewsletterDetailsOperation.swift; path = Modules/NewsletterDetails/Operation/NewsletterDetailsOperation.swift; sourceTree = "<group>"; };
+		226781ED1DE62012002CD9A9 /* NewsModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NewsModel.xcdatamodel; sourceTree = "<group>"; };
+		226781F01DE62093002CD9A9 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataService.swift; path = Services/DataService.swift; sourceTree = "<group>"; };
+		226781F21DE6210D002CD9A9 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkService.swift; path = Services/NetworkService.swift; sourceTree = "<group>"; };
+		226DBA861DE64749000C5D07 /* NewsEntity+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NewsEntity+CoreDataClass.swift"; path = "CoreData/NewsEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		226DBA871DE64749000C5D07 /* NewsEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NewsEntity+CoreDataProperties.swift"; path = "CoreData/NewsEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2290C44F1DE493BC009E3720 /* NewsletterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewsletterViewController.swift; path = Modules/Newsletter/View/NewsletterViewController.swift; sourceTree = "<group>"; };
 		2290C4501DE493BC009E3720 /* NewsletterViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewsletterViewControllerExtension.swift; path = Modules/Newsletter/View/NewsletterViewControllerExtension.swift; sourceTree = "<group>"; };
 		2290C4531DE493C8009E3720 /* NewsletterInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewsletterInteractor.swift; path = Modules/Newsletter/Interactor/NewsletterInteractor.swift; sourceTree = "<group>"; };
 		2290C4551DE493D5009E3720 /* NewsletterPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewsletterPresenter.swift; path = Modules/Newsletter/Presenter/NewsletterPresenter.swift; sourceTree = "<group>"; };
-		2290C4571DE493E3009E3720 /* NewsEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewsEntity.swift; path = Modules/Newsletter/Entity/NewsEntity.swift; sourceTree = "<group>"; };
 		2290C4591DE493EE009E3720 /* NewsletterWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewsletterWireframe.swift; path = Modules/Newsletter/Wireframe/NewsletterWireframe.swift; sourceTree = "<group>"; };
-		2290C45B1DE493FF009E3720 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkService.swift; path = Modules/Newsletter/Service/NetworkService.swift; sourceTree = "<group>"; };
 		2290C45E1DE4AD63009E3720 /* NewsletterOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewsletterOperation.swift; path = Modules/Newsletter/Operation/NewsletterOperation.swift; sourceTree = "<group>"; };
 		2290C4601DE4C1E0009E3720 /* NewsletterTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewsletterTableViewCell.swift; path = Modules/Newsletter/View/NewsletterTableViewCell.swift; sourceTree = "<group>"; };
 		2290C4611DE4C1E0009E3720 /* NewsletterTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NewsletterTableViewCell.xib; path = Modules/Newsletter/View/NewsletterTableViewCell.xib; sourceTree = "<group>"; };
@@ -121,14 +131,6 @@
 			name = Presenter;
 			sourceTree = "<group>";
 		};
-		222385BA1DE3827A00AAAAE4 /* Service */ = {
-			isa = PBXGroup;
-			children = (
-				2290C45B1DE493FF009E3720 /* NetworkService.swift */,
-			);
-			name = Service;
-			sourceTree = "<group>";
-		};
 		222385BD1DE382F500AAAAE4 /* Wireframe */ = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +153,33 @@
 				222385C41DE38A6700AAAAE4 /* Wireframe.swift */,
 			);
 			name = Wireframe;
+			sourceTree = "<group>";
+		};
+		226781E81DE6174B002CD9A9 /* Operation */ = {
+			isa = PBXGroup;
+			children = (
+				226781E91DE6177B002CD9A9 /* NewsletterDetailsOperation.swift */,
+			);
+			name = Operation;
+			sourceTree = "<group>";
+		};
+		226781EB1DE61FF2002CD9A9 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				226781EC1DE62012002CD9A9 /* NewsModel.xcdatamodeld */,
+				226DBA861DE64749000C5D07 /* NewsEntity+CoreDataClass.swift */,
+				226DBA871DE64749000C5D07 /* NewsEntity+CoreDataProperties.swift */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
+		226781EF1DE62068002CD9A9 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				226781F01DE62093002CD9A9 /* DataService.swift */,
+				226781F21DE6210D002CD9A9 /* NetworkService.swift */,
+			);
+			name = Services;
 			sourceTree = "<group>";
 		};
 		2290C44E1DE4937B009E3720 /* Modules */ = {
@@ -190,6 +219,7 @@
 		2290C46C1DE4EF45009E3720 /* NewsletterDetails */ = {
 			isa = PBXGroup;
 			children = (
+				226781E81DE6174B002CD9A9 /* Operation */,
 				2290C46D1DE4F075009E3720 /* View */,
 				2290C46F1DE4F09F009E3720 /* Interactor */,
 				2290C46E1DE4F096009E3720 /* Presenter */,
@@ -217,6 +247,7 @@
 		2290C46F1DE4F09F009E3720 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
+				226781E61DE60448002CD9A9 /* NewsletterDetailsInteractor.swift */,
 			);
 			name = Interactor;
 			sourceTree = "<group>";
@@ -244,19 +275,9 @@
 				22C5F1CA1DE22C030008A54A /* View */,
 				22C5F1C91DE22AB50008A54A /* Interactor */,
 				222385B71DE37DDA00AAAAE4 /* Presenter */,
-				22C5F1C81DE22A910008A54A /* Entity */,
 				222385BD1DE382F500AAAAE4 /* Wireframe */,
-				222385BA1DE3827A00AAAAE4 /* Service */,
 			);
 			name = Newsletter;
-			sourceTree = "<group>";
-		};
-		22C5F1C81DE22A910008A54A /* Entity */ = {
-			isa = PBXGroup;
-			children = (
-				2290C4571DE493E3009E3720 /* NewsEntity.swift */,
-			);
-			name = Entity;
 			sourceTree = "<group>";
 		};
 		22C5F1C91DE22AB50008A54A /* Interactor */ = {
@@ -301,12 +322,14 @@
 		22C6ECE51DE0C7260071C0A9 /* SVNewsletter */ = {
 			isa = PBXGroup;
 			children = (
+				22C5F1C21DE224E70008A54A /* Network */,
+				226781EF1DE62068002CD9A9 /* Services */,
+				226781EB1DE61FF2002CD9A9 /* CoreData */,
 				2290C4691DE4EE7A009E3720 /* Operations */,
 				2290C4641DE4C7D2009E3720 /* Extension */,
 				2290C44E1DE4937B009E3720 /* Modules */,
 				222385C31DE38A5000AAAAE4 /* Wireframe */,
 				222385C01DE389CD00AAAAE4 /* Assembly */,
-				22C5F1C21DE224E70008A54A /* Network */,
 				22C6ECE61DE0C7270071C0A9 /* AppDelegate.swift */,
 				22C6ECEA1DE0C7270071C0A9 /* Main.storyboard */,
 				22C6ECED1DE0C7270071C0A9 /* Assets.xcassets */,
@@ -540,19 +563,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				2290C4741DE4F28C009E3720 /* NewsletterDetailsWireframe.swift in Sources */,
-				2290C45C1DE493FF009E3720 /* NetworkService.swift in Sources */,
 				222385C51DE38A6700AAAAE4 /* Wireframe.swift in Sources */,
+				226781F31DE6210D002CD9A9 /* NetworkService.swift in Sources */,
+				226DBA891DE64749000C5D07 /* NewsEntity+CoreDataProperties.swift in Sources */,
 				2290C45F1DE4AD63009E3720 /* NewsletterOperation.swift in Sources */,
+				226781EE1DE62012002CD9A9 /* NewsModel.xcdatamodeld in Sources */,
+				226781F11DE62093002CD9A9 /* DataService.swift in Sources */,
 				2290C4561DE493D5009E3720 /* NewsletterPresenter.swift in Sources */,
 				2290C4521DE493BC009E3720 /* NewsletterViewControllerExtension.swift in Sources */,
 				2290C4511DE493BC009E3720 /* NewsletterViewController.swift in Sources */,
-				2290C4581DE493E3009E3720 /* NewsEntity.swift in Sources */,
 				2290C4761DE4F3DA009E3720 /* NewsletterDetailsViewController.swift in Sources */,
 				222385C21DE38A0800AAAAE4 /* AssemblyService.swift in Sources */,
+				226781EA1DE6177B002CD9A9 /* NewsletterDetailsOperation.swift in Sources */,
 				2290C4711DE4F0F2009E3720 /* NewsletterDetailsPresenter.swift in Sources */,
 				2290C4661DE4C7EB009E3720 /* StringExtension.swift in Sources */,
+				226DBA881DE64749000C5D07 /* NewsEntity+CoreDataClass.swift in Sources */,
 				2290C4681DE4CF4C009E3720 /* ColorExtension.swift in Sources */,
 				2290C4541DE493C8009E3720 /* NewsletterInteractor.swift in Sources */,
+				226781E71DE60448002CD9A9 /* NewsletterDetailsInteractor.swift in Sources */,
 				22C5F1C41DE2251E0008A54A /* Connection.swift in Sources */,
 				2290C4621DE4C1E0009E3720 /* NewsletterTableViewCell.swift in Sources */,
 				22C6ECE71DE0C7270071C0A9 /* AppDelegate.swift in Sources */,
@@ -787,6 +815,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		226781EC1DE62012002CD9A9 /* NewsModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				226781ED1DE62012002CD9A9 /* NewsModel.xcdatamodel */,
+			);
+			currentVersion = 226781ED1DE62012002CD9A9 /* NewsModel.xcdatamodel */;
+			name = NewsModel.xcdatamodeld;
+			path = CoreData/NewsModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 22C6ECDB1DE0C7260071C0A9 /* Project object */;
 }

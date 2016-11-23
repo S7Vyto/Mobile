@@ -24,7 +24,7 @@ extension NewsletterViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: NewsletterTableViewCell.identifier, for: indexPath) as! NewsletterTableViewCell
         let newsletter = newsletters[indexPath.row]
 
-        cell.desc = newsletter.desc
+        cell.desc = newsletter.text
         
         return cell
     }

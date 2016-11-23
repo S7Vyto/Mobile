@@ -55,8 +55,26 @@
                     <view key="view" contentMode="scaleToFill" id="tU4-ia-EEp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" indicatorStyle="white" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wkn-d9-53T">
+                                <rect key="frame" x="5" y="69" width="365" height="593"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="0.91764705879999997" green="0.91372549020000005" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jCb-I3-Ppo" firstAttribute="top" secondItem="wkn-d9-53T" secondAttribute="bottom" constant="5" id="UTt-se-Y5d"/>
+                            <constraint firstItem="wkn-d9-53T" firstAttribute="leading" secondItem="tU4-ia-EEp" secondAttribute="leading" constant="5" id="dOB-t7-FOp"/>
+                            <constraint firstItem="wkn-d9-53T" firstAttribute="top" secondItem="PCx-O3-1si" secondAttribute="bottom" constant="5" id="jyD-O3-ug6"/>
+                            <constraint firstAttribute="trailing" secondItem="wkn-d9-53T" secondAttribute="trailing" constant="5" id="wsA-0t-i44"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="textView" destination="wkn-d9-53T" id="L8J-Iq-SmZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RnT-kx-FB2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

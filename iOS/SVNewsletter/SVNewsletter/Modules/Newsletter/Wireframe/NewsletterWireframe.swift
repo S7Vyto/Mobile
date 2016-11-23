@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 protocol NewsletterWireframeInput {
+    func setupDetailsInteface(_ controller: NewsletterDetailsViewController)
     func presentDetailsInterface(forNewsletter newsletter: NewsEntity)
     func presentExceptionMessage(_ exceptionMsg: String)
 }
@@ -51,5 +52,9 @@ class NewsletterWireframe: NewsletterWireframeInput {
     func presentDetailsInterface(forNewsletter newsletter: NewsEntity) {
         newsletterDetailsWireframe.newsletterDetailsPresenter.newsletter = newsletter
         newsletterDetailsWireframe.presentNewsletterDetails(from: newsletterController)
-    }        
+    }
+    
+    func setupDetailsInteface(_ controller: NewsletterDetailsViewController) {
+        newsletterDetailsWireframe.setupNewsletterDetails(controller)
+    }
 }
