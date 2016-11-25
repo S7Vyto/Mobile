@@ -37,20 +37,18 @@ class DataService {
         privateContext.undoManager = nil
         privateContext.parent = mainContext
         
-        DispatchQueue.global(qos: .background).async {
-            let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-            let documentsUrl = urls[urls.endIndex - 1]
-            let databaseUrl = documentsUrl.appendingPathComponent("NewsData.sqlite")
-            print("Database path: \(databaseUrl)")
-            do {
-                try coordinator.addPersistentStore(ofType: NSSQLiteStoreType,
-                                                   configurationName: nil,
-                                                   at: databaseUrl,
-                                                   options: nil)
-            }
-            catch {
-                fatalError("Error migrating database store: \(error.localizedDescription)")
-            }
+        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let documentsUrl = urls[urls.endIndex - 1]
+        let databaseUrl = documentsUrl.appendingPathComponent("NewsData.sqlite")
+        
+        do {
+            try coordinator.addPersistentStore(ofType: NSSQLiteStoreType,
+                                               configurationName: nil,
+                                               at: databaseUrl,
+                                               options: nil)
+        }
+        catch {
+            fatalError("Error migrating database store: \(error.localizedDescription)")
         }
     }
     
@@ -110,10 +108,10 @@ class DataService {
         }
     }
     
-    func updateData(_ data: JSON, _ completionBlock: @escaping ([NewsEntity]) -> Void) {
-        privateContext.perform { [unowned self] in
-            guard let newsEntity = self.fetchData(data["title"]["id"].stringValue, sorts: nil)?.first else {
-                completionBlock([])
+    func updateData(_ data: JSON, _ completionBlock: @escaping (Void) -> Void) {
+        privateContext.perform { [weak self] in
+            guard let newsEntity = self?.fetchData(data["title"]["id"].stringValue, sorts: nil)?.first else {
+                completionBlock()
                 return
             }
             
@@ -122,14 +120,14 @@ class DataService {
             newsEntity.modificationDate = data["lastModificationDate"]["milliseconds"].doubleValue
             
             do {
-                try self.privateContext.save()
-                self.mainContext.performAndWait { [weak self] in
+                try self?.privateContext.save()
+                self?.mainContext.performAndWait { [weak self] in
                     do {
                         try self?.mainContext.save()
                         self?.mainContext.reset()
                         
                         DispatchQueue.main.async {
-                            completionBlock([newsEntity])
+                            completionBlock()
                         }
                     }
                     catch {
@@ -145,6 +143,7 @@ class DataService {
     
     func fetchData(_ id: String?, sorts: [NSSortDescriptor]?) -> [NewsEntity]? {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "NewsEntity")
+        fetchRequest.returnsObjectsAsFaults = false
         
         if id != nil {
             fetchRequest.predicate = NSPredicate(format: "id == %@", id!)

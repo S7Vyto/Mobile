@@ -10,24 +10,22 @@ import Foundation
 import UIKit
 
 class NewsletterDetailsWireframe {
-    weak var newsletterDetailsView: NewsletterDetailsViewController?
     var newsletterDetailsPresenter: NewsletterDetailsPresenter!
     
     init() {
         newsletterDetailsPresenter = NewsletterDetailsPresenter()
     }
     
-    func presentNewsletterDetails(from controller: UIViewController) {
-        controller.performSegue(withIdentifier: "NewsletterDetailsSegue", sender: controller)
+    func presentNewsletterDetails(info: [UIViewController : NewsEntity]) {
+        info.keys.first?.performSegue(withIdentifier: "NewsletterDetailsSegue", sender: info)
     }
     
     func setupNewsletterDetails(_ controller: NewsletterDetailsViewController) {
         let newsletterDetailsInteractor = NewsletterDetailsInteractor()
         
-        newsletterDetailsView = controller
-        newsletterDetailsView?.presenter = newsletterDetailsPresenter
+        controller.presenter = newsletterDetailsPresenter
         
-        newsletterDetailsPresenter.newsletterDetailsView = newsletterDetailsView
+        newsletterDetailsPresenter.newsletterDetailsView = controller
         newsletterDetailsPresenter.interactor = newsletterDetailsInteractor
         newsletterDetailsPresenter.wireframe = self
         

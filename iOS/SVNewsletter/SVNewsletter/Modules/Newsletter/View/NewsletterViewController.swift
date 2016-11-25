@@ -58,7 +58,7 @@ class NewsletterViewController: UIViewController, NewsletterInterface {
         configAppearance()
         configNavigation()
         
-        presenter.updateNewsletterListView(isNeedRefresh: false)
+        presenter.updateNewsletters()
     }
 
     override func didReceiveMemoryWarning() {
@@ -111,7 +111,7 @@ class NewsletterViewController: UIViewController, NewsletterInterface {
         
         DispatchQueue.global(qos: .userInitiated)
             .asyncAfter(deadline: .now() + 1.5, execute: { [weak self] in
-                self?.presenter.updateNewsletterListView(isNeedRefresh: true)
+                self?.presenter.syncNewsletters()
         })
     }
     
@@ -128,7 +128,7 @@ class NewsletterViewController: UIViewController, NewsletterInterface {
     // MARKL - Navigation 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "NewsletterDetailsSegue" {
-            presenter.setupDetails(segue.destination as! NewsletterDetailsViewController)
+            
         }
     }
 }

@@ -22,21 +22,12 @@ class NewsletterDetailsPresenter: NewsletterDetailsPresenterInteface, Newsletter
     
     // MARK: - NewsletterDetailsPresenterInteface
     func updateNewsletterDetails() {
-        guard let _ = newsletter.content else {
-            interactor.fetchNewsletterDetails(newsletter.id!)
-            return
-        }
-        
-        newsletterDetailsView?.showNewsletterDetails(newsletter: newsletter)
+//        interactor.fetchNewsletterDetails(newsletter)
     }
     
     // MARK: - NewsletterDetailsInteractor Output
-    func fetchedNewsletters(_ newsletters: [NewsEntity]) {
-        guard let news = newsletters.first else {
-            return
-        }
-        
-        newsletterDetailsView?.showNewsletterDetails(newsletter: news)
+    func fetchedNewsletterDetails() {
+        newsletterDetailsView?.showNewsletterDetails(newsletter: newsletter)
     }
     
     func fetchFailedWithException(_ exception: NSError?) {

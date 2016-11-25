@@ -10,29 +10,29 @@ import Foundation
 import SwiftyJSON
 
 protocol NewsletterDetailsInteractorInput: class {
-    func fetchNewsletterDetails(_ id: String)
+    func fetchNewsletterDetails(_ newsletter: NewsEntity)
 }
 
 protocol NewsletterDetailsInteractorOutput: class {
-    func fetchedNewsletters(_ newsletters: [NewsEntity])
+    func fetchedNewsletterDetails()
     func fetchFailedWithException(_ exception: NSError?)
 }
 
 class NewsletterDetailsInteractor: NewsletterDetailsInteractorInput {
-    private var netService = NetworkService()
-    private var pendingOperation: OperationQueue = {
-        let queue = OperationQueue()
-        queue.name = "SVNewsletter::ParsingDataQueue"
-        queue.maxConcurrentOperationCount = 1
-        queue.qualityOfService = .userInitiated
-        
-        return queue
-    }()
-    
+    private var netService = NetworkService()    
     weak var interactorOutput: NewsletterDetailsInteractorOutput!
     
     // MARK: - NewsletterInteractorInput
-    func fetchNewsletterDetails(_ id: String) {                
+    func fetchNewsletterDetails(_ newsletter: NewsEntity) {
+        guard let _ = newsletter.content else {
+            self.downloadNewsletterDetails(newsletter.id!)
+            return
+        }
+        
+        self.interactorOutput.fetchedNewsletterDetails()
+    }
+    
+    func downloadNewsletterDetails(_ id: String) {
         netService.request(url: URLPaths.content(id: id).url(),
                            completionBlock: { [weak self] data in
                             guard data != nil else {
@@ -40,11 +40,10 @@ class NewsletterDetailsInteractor: NewsletterDetailsInteractorInput {
                                 return
                             }
                             
-                            let operation = NewsletterDetailsOperation(data: [data as! JSON], { [weak self] (newsEntities) in
-                                self?.interactorOutput.fetchedNewsletters(newsEntities)
-                            })
-
-                            self?.pendingOperation.addOperation(operation)
+                            weak var dataService = (UIApplication.shared.delegate as! AppDelegate).dataService
+                            dataService?.updateData([data as! JSON].first!) { [weak self] in
+                                self?.interactorOutput.fetchedNewsletterDetails()
+                            }
             }, exceptionBlock: { [weak self] exception in
                 self?.interactorOutput.fetchFailedWithException(exception)
         })

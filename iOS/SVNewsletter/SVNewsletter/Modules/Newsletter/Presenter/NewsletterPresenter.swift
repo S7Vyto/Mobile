@@ -9,9 +9,9 @@
 import Foundation
 
 protocol NewsletterPresenterInteface: class {
-    func updateNewsletterListView(isNeedRefresh: Bool)
-    func showDetails(forNewsletter newsletter: NewsEntity)
-    func setupDetails(_ controller: NewsletterDetailsViewController)
+    func updateNewsletters()
+    func syncNewsletters()
+    func showDetails(forNewsletter newsletter: NewsEntity)    
 }
 
 class NewsletterPresenter: NewsletterPresenterInteface, NewsletterInteractorOutput {
@@ -23,17 +23,17 @@ class NewsletterPresenter: NewsletterPresenterInteface, NewsletterInteractorOutp
     var newsletters = [NewsEntity]()
     
     // MARK: - NewsletterPresenterInterface
-    func updateNewsletterListView(isNeedRefresh: Bool) {
-        interactor.fetchNewsletters(isNeedRefresh: isNeedRefresh)
+    func updateNewsletters() {
+        interactor.fetchNewsletters()
+    }
+    
+    func syncNewsletters() {
+        interactor.updateNewsletters()
     }
     
     func showDetails(forNewsletter newsletter: NewsEntity) {
-        wireframe.presentDetailsInterface(forNewsletter: newsletter)
-    }
-    
-    func setupDetails(_ controller: NewsletterDetailsViewController) {
-        wireframe.setupDetailsInteface(controller)
-    }
+        wireframe.presentDetailsInterface(for: newsletter)
+    }    
     
     // MARK: - NewsletterInteractorOutput
     func fetchedNewsletters(_ newsletters: [NewsEntity]) {                

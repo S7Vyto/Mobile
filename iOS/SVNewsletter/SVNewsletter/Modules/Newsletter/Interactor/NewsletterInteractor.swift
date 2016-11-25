@@ -10,7 +10,8 @@ import Foundation
 import SwiftyJSON
 
 protocol NewsletterInteractorInput: class {
-    func fetchNewsletters(isNeedRefresh: Bool)
+    func fetchNewsletters()
+    func updateNewsletters()
 }
 
 protocol NewsletterInteractorOutput: class {
@@ -20,34 +21,24 @@ protocol NewsletterInteractorOutput: class {
 
 class NewsletterInteractor: NewsletterInteractorInput {
     private var netService = NetworkService()
-    private var pendingOperation: OperationQueue = {
-        let queue = OperationQueue()
-        queue.name = "SVNewsletter::ParsingDataQueue"
-        queue.maxConcurrentOperationCount = 1
-        queue.qualityOfService = .userInitiated
-        
-        return queue
-    }()
+    private let app = UIApplication.shared.delegate as? AppDelegate
     
     weak var interactorOutput: NewsletterInteractorOutput!
     
     // MARK: - NewsletterInteractorInput
-    func fetchNewsletters(isNeedRefresh: Bool) {
-        let app = UIApplication.shared.delegate as? AppDelegate
+    func fetchNewsletters() {
+        let sort = NSSortDescriptor(key: "publicationDate", ascending: false)
+        guard let newsletters = app?.dataService.fetchData(nil, sorts: [sort]), newsletters.count > 0 else {
+            updateNewsletters()
+            return
+        }
         
-        if isNeedRefresh {
-            app?.dataService.clearData()
-            downloadNewsletters()
-        }
-        else {
-            let sort = NSSortDescriptor(key: "publicationDate", ascending: false)
-            guard let newsletters = app?.dataService.fetchData(nil, sorts: [sort]), newsletters.count > 0 else {
-                downloadNewsletters()
-                return
-            }
-            
-            interactorOutput.fetchedNewsletters(newsletters)
-        }
+        interactorOutput.fetchedNewsletters(newsletters)
+    }
+    
+    func updateNewsletters() {
+        app?.dataService.clearData()
+        downloadNewsletters()
     }
     
     private func downloadNewsletters() {
@@ -58,11 +49,13 @@ class NewsletterInteractor: NewsletterInteractorInput {
                                 return
                             }
                             
-                            let operation = NewsletterOperation(data: (data as! JSON).arrayValue, { [weak self] (newsEntities) in
-                                self?.interactorOutput.fetchedNewsletters(newsEntities)
-                            })
-                            
-                            self?.pendingOperation.addOperation(operation)
+                            weak var dataService = (UIApplication.shared.delegate as! AppDelegate).dataService
+                            dataService?.saveData((data as! JSON).arrayValue) { [weak self] in
+                                let sort = NSSortDescriptor(key: "publicationDate", ascending: false)
+                                let newsletters = dataService?.fetchData(nil, sorts: [sort]) ?? []
+                                
+                                self?.interactorOutput.fetchedNewsletters(newsletters)                                
+                            }
             }, exceptionBlock: { [weak self] exception in
                 self?.interactorOutput.fetchFailedWithException(exception)
         })

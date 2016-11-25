@@ -41,7 +41,7 @@ class NewsletterDetailsViewController: UIViewController, NewsletterDetailsInterf
         super.viewDidLoad()
         
         configAppearance()
-        presenter.updateNewsletterDetails()
+//        presenter.updateNewsletterDetails()
     }
 
     override func didReceiveMemoryWarning() {
