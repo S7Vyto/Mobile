@@ -9,7 +9,12 @@
 import Foundation
 import UIKit
 
-class Wireframe {
+protocol WireframeProtocol: class {
+    func showRootViewController(_ viewController: UIViewController, in window: UIWindow?)
+    func viewControllerWith(name: String) -> UIViewController
+}
+
+class Wireframe: WireframeProtocol {
     
     func showRootViewController(_ viewController: UIViewController, in window: UIWindow?) {
         let navigationController = window?.rootViewController as! UINavigationController
@@ -17,7 +22,7 @@ class Wireframe {
     }
     
     // MARK: - Wireframe Methods
-    static func viewControllerWith(name: String) -> UIViewController {
+    func viewControllerWith(name: String) -> UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         let controller = storyboard.instantiateViewController(withIdentifier: name)
         

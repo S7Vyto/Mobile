@@ -108,11 +108,7 @@ class NewsletterViewController: UIViewController, NewsletterInterface {
     
     @objc private func refreshContent(_ sender: UIRefreshControl) {        
         refreshControl.beginRefreshing()
-        
-        DispatchQueue.global(qos: .userInitiated)
-            .asyncAfter(deadline: .now() + 1.5, execute: { [weak self] in
-                self?.presenter.syncNewsletters()
-        })
+        presenter.syncNewsletters()        
     }
     
     // MARK: - Newsletter Interface

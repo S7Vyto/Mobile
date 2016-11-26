@@ -9,15 +9,17 @@
 import Foundation
 import UIKit
 
-protocol NewsletterWireframeInput {
+protocol NewsletterWireframeProtocol {
     func presentDetailsInterface(for newsletter: NewsEntity)
-    func presentExceptionMessage(_ exceptionMsg: String)
+    func showLoadingIndicator()
+    func dismissLoadingIndicator()
 }
 
-class NewsletterWireframe: NewsletterWireframeInput {
+class NewsletterWireframe: NewsletterWireframeProtocol {
     weak var newsletterController: NewsletterViewController!
-    var newsletterPresenter: NewsletterPresenter!
+    var loadingIndicator = LoadingViewController.indicator
     
+    var newsletterPresenter: NewsletterPresenter!
     var rootWireframe: Wireframe!
     
     init() {
@@ -31,14 +33,22 @@ class NewsletterWireframe: NewsletterWireframeInput {
     }
     
     func presentNewsletterListView(_ window: UIWindow?) {
-        newsletterController = Wireframe.viewControllerWith(name: "NewsletterViewController") as! NewsletterViewController
+        newsletterController = rootWireframe.viewControllerWith(name: "NewsletterViewController") as! NewsletterViewController
         newsletterController.presenter = newsletterPresenter
         
         newsletterPresenter.newsletterListView = newsletterController
         rootWireframe.showRootViewController(newsletterController, in: window)
     }
     
-    // MARK: - NewsletterWireframe Input
+    // MARK: - NewsletterWireframe Protocol
+    func showLoadingIndicator() {
+        loadingIndicator.showFrom(newsletterController)
+    }
+    
+    func dismissLoadingIndicator() {
+        loadingIndicator.dismiss()        
+    }
+    
     func presentExceptionMessage(_ exceptionMsg: String) {
         let controller = UIAlertController(title: "Error", message: exceptionMsg, preferredStyle: .alert)
         let done = UIAlertAction(title: "OK", style: .default, handler: nil)

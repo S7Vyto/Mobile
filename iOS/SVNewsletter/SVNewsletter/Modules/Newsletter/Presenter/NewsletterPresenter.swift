@@ -24,11 +24,18 @@ class NewsletterPresenter: NewsletterPresenterInteface, NewsletterInteractorOutp
     
     // MARK: - NewsletterPresenterInterface
     func updateNewsletters() {
-        interactor.fetchNewsletters()
+        wireframe.showLoadingIndicator()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: { [weak self] in
+            self?.interactor.fetchNewsletters()
+        })
     }
     
     func syncNewsletters() {
-        interactor.updateNewsletters()
+        DispatchQueue.global(qos: .userInitiated)
+            .asyncAfter(deadline: .now() + 2, execute: { [weak self] in
+                self?.interactor.updateNewsletters()
+            })
     }
     
     func showDetails(forNewsletter newsletter: NewsEntity) {
@@ -36,8 +43,9 @@ class NewsletterPresenter: NewsletterPresenterInteface, NewsletterInteractorOutp
     }    
     
     // MARK: - NewsletterInteractorOutput
-    func fetchedNewsletters(_ newsletters: [NewsEntity]) {                
+    func fetchedNewsletters(_ newsletters: [NewsEntity]) {
         newsletterListView.showNewsletters(newsletters: newsletters)
+        wireframe.dismissLoadingIndicator()
     }
     
     func fetchFailedWithException(_ exception: NSError?) {
