@@ -11,7 +11,9 @@ import Foundation
 protocol NewsletterPresenterInteface: class {
     func updateNewsletters()
     func syncNewsletters()
-    func showDetails(forNewsletter newsletter: NewsEntity)    
+    
+    func showDetails(for newsletter: NewsEntity)
+    func configDetails(_ controller: NewsletterDetailsViewController)
 }
 
 class NewsletterPresenter: NewsletterPresenterInteface, NewsletterInteractorOutput {
@@ -25,22 +27,27 @@ class NewsletterPresenter: NewsletterPresenterInteface, NewsletterInteractorOutp
     // MARK: - NewsletterPresenterInterface
     func updateNewsletters() {
         wireframe.showLoadingIndicator()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: { [weak self] in
-            self?.interactor.fetchNewsletters()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: { [weak self] in
+                self?.interactor.fetchNewsletters()
         })
     }
     
     func syncNewsletters() {
         DispatchQueue.global(qos: .userInitiated)
-            .asyncAfter(deadline: .now() + 2, execute: { [weak self] in
+            .asyncAfter(deadline: .now() + 1, execute: { [weak self] in
                 self?.interactor.updateNewsletters()
             })
     }
     
-    func showDetails(forNewsletter newsletter: NewsEntity) {
-        wireframe.presentDetailsInterface(for: newsletter)
-    }    
+    func showDetails(for newsletter: NewsEntity) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: { [weak self] in
+            self?.wireframe.presentDetailsInterface(for: newsletter)
+        })
+    }
+    
+    func configDetails(_ controller: NewsletterDetailsViewController) {
+        wireframe.configurateDetailsInteface(controller)
+    }
     
     // MARK: - NewsletterInteractorOutput
     func fetchedNewsletters(_ newsletters: [NewsEntity]) {

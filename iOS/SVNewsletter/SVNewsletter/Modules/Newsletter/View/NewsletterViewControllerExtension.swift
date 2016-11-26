@@ -44,7 +44,11 @@ extension NewsletterViewController: UITableViewDataSource, UITableViewDelegate {
     
     // MARK: - TableView Delegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let newsletterEntity = newsletters[indexPath.row]
-        presenter.showDetails(forNewsletter: newsletterEntity)
+        guard let cell = tableView.cellForRow(at: indexPath) as? NewsletterTableViewCell else {
+            return
+        }
+        
+        cell.isTouched = true
+        presenter.showDetails(for: newsletters[indexPath.row])
     }
 }

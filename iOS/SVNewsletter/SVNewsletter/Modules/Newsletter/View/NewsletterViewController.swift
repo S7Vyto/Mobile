@@ -124,7 +124,11 @@ class NewsletterViewController: UIViewController, NewsletterInterface {
     // MARKL - Navigation 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "NewsletterDetailsSegue" {
+            guard let configurated = segue.destination as? NewsletterDetailsViewController else {
+                return
+            }
             
+            presenter.configDetails(configurated)
         }
     }
 }

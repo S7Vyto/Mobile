@@ -14,38 +14,39 @@ protocol NewsletterDetailsInteractorInput: class {
 }
 
 protocol NewsletterDetailsInteractorOutput: class {
-    func fetchedNewsletterDetails()
+    func fetchedNewsletterDetails(_ content: String?)
     func fetchFailedWithException(_ exception: NSError?)
 }
 
 class NewsletterDetailsInteractor: NewsletterDetailsInteractorInput {
-    private var netService = NetworkService()    
-    weak var interactorOutput: NewsletterDetailsInteractorOutput!
+    private var netService = NetworkService()
+    
+    weak var interactorOutput: NewsletterDetailsInteractorOutput?
     
     // MARK: - NewsletterInteractorInput
     func fetchNewsletterDetails(_ newsletter: NewsEntity) {
-        guard let _ = newsletter.content else {
-            self.downloadNewsletterDetails(newsletter.id!)
+        guard let content = newsletter.content else {
+            downloadNewsletterDetails(newsletter.id!)
             return
         }
         
-        self.interactorOutput.fetchedNewsletterDetails()
+        interactorOutput?.fetchedNewsletterDetails(content)
     }
     
     func downloadNewsletterDetails(_ id: String) {
         netService.request(url: URLPaths.content(id: id).url(),
                            completionBlock: { [weak self] data in
                             guard data != nil else {
-                                self?.interactorOutput.fetchFailedWithException(nil)
+                                self?.interactorOutput?.fetchFailedWithException(nil)
                                 return
                             }
                             
                             weak var dataService = (UIApplication.shared.delegate as! AppDelegate).dataService
-                            dataService?.updateData([data as! JSON].first!) { [weak self] in
-                                self?.interactorOutput.fetchedNewsletterDetails()
+                            dataService?.updateData([data as! JSON].first!) { [weak self] content in
+                                self?.interactorOutput?.fetchedNewsletterDetails(content)
                             }
             }, exceptionBlock: { [weak self] exception in
-                self?.interactorOutput.fetchFailedWithException(exception)
+                self?.interactorOutput?.fetchFailedWithException(exception)
         })
     }
 }

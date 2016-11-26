@@ -15,10 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var assemblyService: AssemblyService!
     var dataService: DataService!
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
-        UIApplication.shared.statusBarStyle = .lightContent
-        
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {                
         dataService = DataService()
         
         assemblyService = AssemblyService()

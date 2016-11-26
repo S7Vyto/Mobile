@@ -108,10 +108,10 @@ class DataService {
         }
     }
     
-    func updateData(_ data: JSON, _ completionBlock: @escaping (Void) -> Void) {
+    func updateData(_ data: JSON, _ completionBlock: @escaping (String?) -> Void) {
         privateContext.perform { [weak self] in
             guard let newsEntity = self?.fetchData(data["title"]["id"].stringValue, sorts: nil)?.first else {
-                completionBlock()
+                completionBlock(nil)
                 return
             }
             
@@ -123,11 +123,10 @@ class DataService {
                 try self?.privateContext.save()
                 self?.mainContext.performAndWait { [weak self] in
                     do {
-                        try self?.mainContext.save()
-                        self?.mainContext.reset()
+                        try self?.mainContext.save()                        
                         
                         DispatchQueue.main.async {
-                            completionBlock()
+                            completionBlock(newsEntity.content)
                         }
                     }
                     catch {

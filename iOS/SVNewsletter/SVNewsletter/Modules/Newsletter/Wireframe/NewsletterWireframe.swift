@@ -11,16 +11,19 @@ import UIKit
 
 protocol NewsletterWireframeProtocol {
     func presentDetailsInterface(for newsletter: NewsEntity)
+    func configurateDetailsInteface(_ controller: NewsletterDetailsViewController)
+    
     func showLoadingIndicator()
     func dismissLoadingIndicator()
 }
 
 class NewsletterWireframe: NewsletterWireframeProtocol {
-    weak var newsletterController: NewsletterViewController!
-    var loadingIndicator = LoadingViewController.indicator
+    weak var newsletterController: NewsletterViewController?
+    var rootWireframe: Wireframe?
     
-    var newsletterPresenter: NewsletterPresenter!
-    var rootWireframe: Wireframe!
+    let loadingIndicator = LoadingViewController.indicator    
+    let newsletterPresenter: NewsletterPresenter
+    let detailsWireframe = NewsletterDetailsWireframe()
     
     init() {
         let newsletterInteractor = NewsletterInteractor()
@@ -33,16 +36,19 @@ class NewsletterWireframe: NewsletterWireframeProtocol {
     }
     
     func presentNewsletterListView(_ window: UIWindow?) {
-        newsletterController = rootWireframe.viewControllerWith(name: "NewsletterViewController") as! NewsletterViewController
-        newsletterController.presenter = newsletterPresenter
+        newsletterController = rootWireframe?.viewControllerWith(name: "NewsletterViewController") as? NewsletterViewController
+        newsletterController?.presenter = newsletterPresenter
         
         newsletterPresenter.newsletterListView = newsletterController
-        rootWireframe.showRootViewController(newsletterController, in: window)
+        
+        assert(newsletterController != nil, "Controller can't be empty")
+        rootWireframe?.showRootViewController(newsletterController!, in: window)
     }
     
     // MARK: - NewsletterWireframe Protocol
     func showLoadingIndicator() {
-        loadingIndicator.showFrom(newsletterController)
+        assert(newsletterController != nil, "Controller can't be empty")
+        loadingIndicator.showFrom(newsletterController!, with: "Обновление новостей")
     }
     
     func dismissLoadingIndicator() {
@@ -54,12 +60,17 @@ class NewsletterWireframe: NewsletterWireframeProtocol {
         let done = UIAlertAction(title: "OK", style: .default, handler: nil)
         
         controller.addAction(done)
-        newsletterController.present(controller, animated: true, completion: nil)
+        newsletterController?.present(controller, animated: true, completion: nil)
     }
     
     func presentDetailsInterface(for newsletter: NewsEntity) {
-        let newsletterDetailsWireframe = NewsletterDetailsWireframe()
-        newsletterDetailsWireframe.newsletterDetailsPresenter.newsletter = newsletter
-        newsletterDetailsWireframe.presentNewsletterDetails(info: [newsletterController : newsletter])
+        detailsWireframe.detailsPresenter.newsletter = newsletter
+        detailsWireframe.sourceController = newsletterController
+        
+        detailsWireframe.presentNewsletterDetails()
+    }
+    
+    func configurateDetailsInteface(_ controller: NewsletterDetailsViewController) {
+        detailsWireframe.configurateDetailsInterface(controller)
     }
 }

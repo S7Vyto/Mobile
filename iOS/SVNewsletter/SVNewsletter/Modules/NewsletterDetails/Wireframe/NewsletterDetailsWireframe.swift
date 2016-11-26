@@ -9,26 +9,48 @@
 import Foundation
 import UIKit
 
-class NewsletterDetailsWireframe {
-    var newsletterDetailsPresenter: NewsletterDetailsPresenter!
+protocol NewsletterDetailsWireframeProtocol {
+    func presentNewsletterDetails()
+    func configurateDetailsInterface(_ controller: NewsletterDetailsViewController)
+    
+    func showLoadingIndicator()
+    func dismissLoadingIndicator()
+}
+
+class NewsletterDetailsWireframe: NewsletterDetailsWireframeProtocol {
+    weak var detailsViewController: NewsletterDetailsViewController?
+    weak var sourceController: UIViewController?
+    
+    let detailsPresenter: NewsletterDetailsPresenter
+    let loadingIndicator = LoadingViewController.indicator
     
     init() {
-        newsletterDetailsPresenter = NewsletterDetailsPresenter()
+        let detailsInteractor = NewsletterDetailsInteractor()
+        
+        detailsPresenter = NewsletterDetailsPresenter()
+        detailsPresenter.interactor = detailsInteractor
+        detailsPresenter.wireframe = self
+        
+        detailsInteractor.interactorOutput = detailsPresenter
     }
     
-    func presentNewsletterDetails(info: [UIViewController : NewsEntity]) {
-        info.keys.first?.performSegue(withIdentifier: "NewsletterDetailsSegue", sender: info)
+    // MARK: - NewsletterDetailsWireframe Protocol
+    func presentNewsletterDetails() {
+        sourceController?.performSegue(withIdentifier: "NewsletterDetailsSegue", sender: nil)
     }
     
-    func setupNewsletterDetails(_ controller: NewsletterDetailsViewController) {
-        let newsletterDetailsInteractor = NewsletterDetailsInteractor()
+    func configurateDetailsInterface(_ controller: NewsletterDetailsViewController) {
+        detailsViewController = controller
         
-        controller.presenter = newsletterDetailsPresenter
-        
-        newsletterDetailsPresenter.newsletterDetailsView = controller
-        newsletterDetailsPresenter.interactor = newsletterDetailsInteractor
-        newsletterDetailsPresenter.wireframe = self
-        
-        newsletterDetailsInteractor.interactorOutput = newsletterDetailsPresenter
+        detailsPresenter.newsletterDetailsView = detailsViewController
+        detailsViewController?.presenter = detailsPresenter
+    }
+    
+    func showLoadingIndicator() {
+        loadingIndicator.showFrom(detailsViewController, with: "Загрузка описания")
+    }
+    
+    func dismissLoadingIndicator() {
+        loadingIndicator.dismiss()
     }
 }

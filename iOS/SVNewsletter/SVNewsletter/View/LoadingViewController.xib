@@ -11,6 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoadingViewController" customModule="SVNewsletter" customModuleProvider="target">
             <connections>
+                <outlet property="indicatorLabel" destination="G8r-Nd-H4S" id="l4N-3y-FHW"/>
+                <outlet property="indicatorView" destination="e21-nE-zY4" id="vrd-Q1-ude"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,14 +21,22 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Загрузка новостей" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G8r-Nd-H4S">
+                    <rect key="frame" x="124" y="325" width="126" height="17"/>
+                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                    <color key="textColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.10980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="e21-nE-zY4">
-                    <rect key="frame" x="178" y="324" width="20" height="20"/>
+                    <rect key="frame" x="177.5" y="295" width="20" height="20"/>
                     <color key="color" red="0.97254901960784312" green="0.97254901960784312" blue="0.10980392156862745" alpha="1" colorSpace="calibratedRGB"/>
                 </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="e21-nE-zY4" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Eeb-nx-roN"/>
+                <constraint firstItem="G8r-Nd-H4S" firstAttribute="top" secondItem="e21-nE-zY4" secondAttribute="bottom" constant="10" id="6ZX-QF-S2R"/>
+                <constraint firstItem="G8r-Nd-H4S" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="c6y-Kv-bgv"/>
+                <constraint firstItem="G8r-Nd-H4S" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="olS-b1-poO"/>
                 <constraint firstItem="e21-nE-zY4" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="yes-OJ-Cw1"/>
             </constraints>
             <point key="canvasLocation" x="-242" y="49"/>

@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--News-->
+        <!--Новости-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="NewsletterViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="NewsletterViewController" customModule="SVNewsletter" customModuleProvider="target" sceneMemberID="viewController">
@@ -34,7 +34,7 @@
                             <constraint firstItem="nRg-Ss-ZOq" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Pwa-qp-DZf"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="News" id="45R-yP-sBG"/>
+                    <navigationItem key="navigationItem" title="Новости" id="45R-yP-sBG"/>
                     <connections>
                         <outlet property="tableView" destination="nRg-Ss-ZOq" id="iCx-Sb-YYm"/>
                         <segue destination="zgI-1D-QiL" kind="show" identifier="NewsletterDetailsSegue" id="vjd-Ci-1GJ"/>
@@ -44,10 +44,10 @@
             </objects>
             <point key="canvasLocation" x="1225" y="-544"/>
         </scene>
-        <!--Newsletter Details View Controller-->
+        <!--Описание-->
         <scene sceneID="rjK-8d-b43">
             <objects>
-                <viewController storyboardIdentifier="NewsletterDetailsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zgI-1D-QiL" customClass="NewsletterDetailsViewController" customModule="SVNewsletter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NewsletterDetailsViewController" title="Описание" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zgI-1D-QiL" customClass="NewsletterDetailsViewController" customModule="SVNewsletter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PCx-O3-1si"/>
                         <viewControllerLayoutGuide type="bottom" id="jCb-I3-Ppo"/>
@@ -64,7 +64,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="jCb-I3-Ppo" firstAttribute="top" secondItem="wkn-d9-53T" secondAttribute="bottom" constant="5" id="UTt-se-Y5d"/>
                             <constraint firstItem="wkn-d9-53T" firstAttribute="leading" secondItem="tU4-ia-EEp" secondAttribute="leading" constant="5" id="dOB-t7-FOp"/>

@@ -15,7 +15,8 @@ class FreeFormPresentationController: UIPresentationController {
 }
 
 class LoadingViewController: UIViewController, UIViewControllerTransitioningDelegate {
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var indicatorView: UIActivityIndicatorView!
+    @IBOutlet weak var indicatorLabel: UILabel!
     
     static var identifier: String {
         return NSStringFromClass(LoadingViewController.self).replacingOccurrences(of: "SVNewsletter.", with: "")
@@ -30,6 +31,8 @@ class LoadingViewController: UIViewController, UIViewControllerTransitioningDele
         return loadindIndicator
     }
     
+    var indicatorText: String?
+    
     // MARK: - Controller LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,15 +45,17 @@ class LoadingViewController: UIViewController, UIViewControllerTransitioningDele
     
     // MARK: - Controller Appearance
     private func configAppearance() {        
-        self.preferredContentSize = CGSize(width: 150.0, height: 150.0)
+        self.indicatorLabel.text = indicatorText
         
         self.view.backgroundColor = UIColor.clear
         self.view.isOpaque = false
     }
     
     // MARK: - Indicator Methods
-    func showFrom(_ controller: UIViewController) {
+    func showFrom(_ controller: UIViewController?, with text: String?) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: { [weak controller, unowned self] in
+            self.indicatorText = text
+            
             controller?.present(self, animated: true, completion: nil)
             controller?.transitioningDelegate = self
         })

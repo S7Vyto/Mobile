@@ -9,7 +9,7 @@
 import UIKit
 
 protocol NewsletterDetailsInterface: class {
-    func showNewsletterDetails(newsletter: NewsEntity)
+    func showNewsletterDetails(_ content: String?)
 }
 
 class NewsletterDetailsViewController: UIViewController, NewsletterDetailsInterface {
@@ -34,14 +34,13 @@ class NewsletterDetailsViewController: UIViewController, NewsletterDetailsInterf
         return bgLayer
     }()
     
-    var presenter: NewsletterDetailsPresenter!
+    var presenter: NewsletterDetailsPresenter?
     
     // MARK: - Controller LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         configAppearance()
-//        presenter.updateNewsletterDetails()
+        presenter?.updateNewsletterDetails()
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,7 +50,7 @@ class NewsletterDetailsViewController: UIViewController, NewsletterDetailsInterf
     // MARK: - Controller Appearance
     private func configAppearance() {
         self.automaticallyAdjustsScrollViewInsets = false
-        self.edgesForExtendedLayout = []
+        self.edgesForExtendedLayout = []                
         
         self.navigationController?.navigationBar.barStyle = .black
         self.navigationController?.navigationBar.isTranslucent = true
@@ -68,7 +67,8 @@ class NewsletterDetailsViewController: UIViewController, NewsletterDetailsInterf
     }
     
     // MARK: - NewsletterDetailsInterface    
-    func showNewsletterDetails(newsletter: NewsEntity) {
-        textView.text = newsletter.content
+    func showNewsletterDetails(_ content: String?) {
+        textView.text = content
+        textView.scrollRangeToVisible(NSRange(location:0, length:0))
     }
 }
