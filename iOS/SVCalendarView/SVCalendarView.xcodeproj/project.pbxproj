@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		220A87E11E06D367009B759C /* SVDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220A87E01E06D367009B759C /* SVDateExtension.swift */; };
 		2225DDF81DB81D4A00C232DC /* SVCalendarConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2225DDF71DB81D4A00C232DC /* SVCalendarConfiguration.swift */; };
 		2225DDFB1DB81D5400C232DC /* SVCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2225DDF91DB81D5400C232DC /* SVCalendarViewController.swift */; };
 		2225DDFC1DB81D5400C232DC /* SVCalendarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2225DDFA1DB81D5400C232DC /* SVCalendarViewController.xib */; };
@@ -37,6 +38,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		220A87E01E06D367009B759C /* SVDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SVDateExtension.swift; path = Calendar/Extensions/SVDateExtension.swift; sourceTree = "<group>"; };
 		2225DDF71DB81D4A00C232DC /* SVCalendarConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SVCalendarConfiguration.swift; path = Calendar/Configurations/SVCalendarConfiguration.swift; sourceTree = "<group>"; };
 		2225DDF91DB81D5400C232DC /* SVCalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SVCalendarViewController.swift; path = Calendar/Controllers/SVCalendarViewController.swift; sourceTree = "<group>"; };
 		2225DDFA1DB81D5400C232DC /* SVCalendarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SVCalendarViewController.xib; path = Calendar/Controllers/SVCalendarViewController.xib; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				225C8C751DD7B5530023DA6A /* SVColorExtension.swift */,
+				220A87E01E06D367009B759C /* SVDateExtension.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 				2225DE0B1DB81DA000C232DC /* SVCalendarViewCell.swift in Sources */,
 				225C8C761DD7B5530023DA6A /* SVColorExtension.swift in Sources */,
 				2225DDF81DB81D4A00C232DC /* SVCalendarConfiguration.swift in Sources */,
+				220A87E11E06D367009B759C /* SVDateExtension.swift in Sources */,
 				222C90DC1DCC9B0800BA3509 /* SVCalendarHeaderView.swift in Sources */,
 				222A49FD1DB8222400ECD849 /* SVCalendarSwitcherViewController.swift in Sources */,
 				22603A571DB6A5F900AD1673 /* AppDelegate.swift in Sources */,

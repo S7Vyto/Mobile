@@ -59,7 +59,7 @@ struct SVCalendarStyle {
     fileprivate mutating func configStyleForController(_ control: SVCalendarControlls) {
         switch control {
         case .container:
-            background.normalColor = UIColor.rgb(32.0, 41.0, 75.0, 1)
+            background.normalColor = UIColor.clear
             break
             
         case .calendar:

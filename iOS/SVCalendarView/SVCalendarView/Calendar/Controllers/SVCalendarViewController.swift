@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SVCalendarViewController: UIViewController, SVCalendarSwitcherDelegate {
+class SVCalendarViewController: UIViewController, SVCalendarSwitcherDelegate, SVCalendarNavigationDelegate {
     @IBOutlet weak fileprivate var calendarCollectionView: UICollectionView!
     
     fileprivate let service = SVCalendarService(types: SVCalendarConfiguration.shared.types)
@@ -152,6 +152,7 @@ class SVCalendarViewController: UIViewController, SVCalendarSwitcherDelegate {
     fileprivate func configCalendarNavigation() {
         if config.isNavigationVisible {
             let navigation = SVCalendarNavigationViewController.controller
+            navigation.delegate = self
             
             self.addChildViewController(navigation)
             self.view.addSubview(navigation.view)
@@ -167,6 +168,8 @@ class SVCalendarViewController: UIViewController, SVCalendarSwitcherDelegate {
             
             self.view.addConstraints(vertConst)
             self.view.addConstraints(horizConst)
+            
+            navigation.configNavigationDate(service.updatedDate.convertWith(format: SVCalendarDateFormat.monthYear))
         }
     }
     
@@ -177,6 +180,8 @@ class SVCalendarViewController: UIViewController, SVCalendarSwitcherDelegate {
     }
     
     fileprivate func updateCalendarData(for type: SVCalendarType) {
+        clearData()
+        
         dates = service.dates(for: type)
         headerTitles = service.titles(for: type)
     }
@@ -198,6 +203,24 @@ class SVCalendarViewController: UIViewController, SVCalendarSwitcherDelegate {
     func didSelectType(_ type: SVCalendarType) {
         updateCalendarData(for: type)
         configCalendarLayout(for: type)
+        
         calendarCollectionView.reloadData()
+    }
+    
+    // MARK: - Calendar Navigation
+    func didChangeNavigationDate(direction: SVCalendarNavigationDirection) -> String? {
+        if direction == .reduce {
+            service.updateDate(for: .month, isDateIncrease: false)
+        }
+        else if direction == .increase {
+            service.updateDate(for: .month, isDateIncrease: true)
+        }
+        
+        configCalendarLayout(for: .month)
+        updateCalendarData(for: .month)
+        
+        calendarCollectionView.reloadData()
+        
+        return service.updatedDate.convertWith(format: SVCalendarDateFormat.monthYear)
     }
 }

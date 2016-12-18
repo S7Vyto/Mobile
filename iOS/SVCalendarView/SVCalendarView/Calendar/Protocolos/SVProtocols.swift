@@ -14,5 +14,5 @@ protocol SVCalendarDelegate: class {
 }
 
 protocol SVCalendarNavigationDelegate: class {
-
+    func didChangeNavigationDate(direction: SVCalendarNavigationDirection) -> String?
 }

@@ -167,7 +167,13 @@ class SVCalendarFlowLayout: UICollectionViewFlowLayout {
     }
     
     override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
-        return !self.collectionView!.bounds.equalTo(newBounds)
+        if self.collectionView!.bounds.equalTo(newBounds) {
+           return false
+        }
+        
+        update()
+        
+        return true
     }
     
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {

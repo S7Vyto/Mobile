@@ -8,6 +8,10 @@
 
 import UIKit
 
+enum SVCalendarNavigationDirection {
+    case reduce, increase
+}
+
 class SVCalendarNavigationViewController: UIViewController {
     @IBOutlet weak var reduceButton: UIButton!
     @IBOutlet weak var increaseButton: UIButton!
@@ -26,11 +30,16 @@ class SVCalendarNavigationViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        configApperance()
+        self.configApperance()
     }
 
     override func didReceiveMemoryWarning() {
+        self.clearData()
         super.didReceiveMemoryWarning()
+    }
+    
+    deinit {
+        self.clearData()
     }
     
     // MARK: - Config Appearance
@@ -42,7 +51,20 @@ class SVCalendarNavigationViewController: UIViewController {
     }
     
     // MARK: - Navigation Methods
+    fileprivate func clearData() {
+        self.delegate = nil
+    }
+    
+    // MARK: - Navigation Delegates
+    func configNavigationDate(_ date: String?) {
+        self.dateTitle.text = date
+    }
+    
     @IBAction func didChangeNavigationDate(_ sender: UIButton) {
+        guard let date = delegate?.didChangeNavigationDate(direction: sender.tag == 0 ? .reduce : .increase), date != "" else {
+            return
+        }
         
+        self.configNavigationDate(date)
     }    
 }
