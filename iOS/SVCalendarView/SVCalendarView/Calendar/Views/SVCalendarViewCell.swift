@@ -10,15 +10,29 @@ import UIKit
 
 class SVCalendarViewCell: UICollectionViewCell {    
     fileprivate var model: SVCalendarDate!
-    fileprivate let style = SVCalendarConfiguration.shared.styles.calendar
+    static let style = SVCalendarConfiguration.shared.styles.cell
     
     static var identifier: String {
         return NSStringFromClass(SVCalendarViewCell.self).replacingOccurrences(of: "SVCalendarView.", with: "")
     }
     
+    lazy var selectionLayer: CAShapeLayer = {
+        let circleLayer = CAShapeLayer()
+        circleLayer.fillColor = SVCalendarViewCell.style.layer.normalColor?.cgColor
+        circleLayer.strokeColor = SVCalendarViewCell.style.layer.selectedColor?.cgColor
+        
+        return circleLayer
+    }()
+    
     override var bounds: CGRect {
         didSet {
             self.contentView.frame = self.bounds
+        }
+    }
+
+    override var isSelected: Bool {
+        didSet {
+            selectionLayer.isHidden = !isSelected            
         }
     }
     
@@ -28,8 +42,19 @@ class SVCalendarViewCell: UICollectionViewCell {
         configAppearance()
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        let selectionWidth = min(self.bounds.size.width, self.bounds.size.height) * 0.75
+        let selectionX = (self.bounds.size.width - selectionWidth) * 0.5
+        let selectionY = (self.bounds.size.height - selectionWidth) * 0.5
+        let selectionRect = CGRect(x: selectionX, y: selectionY, width: selectionWidth, height: selectionWidth)
+        
+        selectionLayer.frame = self.bounds
+        selectionLayer.path = UIBezierPath(roundedRect: selectionRect, cornerRadius: selectionRect.size.width * 0.5).cgPath
+    }
+    
     func configCell(with model: SVCalendarDate) {
-//        clearCellContent()
         self.model = model
         
         switch model.type {
@@ -50,28 +75,40 @@ class SVCalendarViewCell: UICollectionViewCell {
     }
     
     fileprivate func configAppearance() {
-        self.layer.backgroundColor = style.button.normalColor?.cgColor
+        self.layer.backgroundColor = SVCalendarViewCell.style.button.normalColor?.cgColor
             
         self.contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         self.contentView.autoresizesSubviews = true
+        
+        self.contentView.layer.addSublayer(selectionLayer)
     }
 
     fileprivate func configValueLabel() {
-        guard let valueLabel = self.contentView.viewWithTag(SVCalendarComponentTag) as? UILabel else {
-            let valueLabel = SVCalendarComponents.cellLabel(with: model.title).value() as! UILabel
+        var valueLabel = self.contentView.viewWithTag(SVCalendarComponentTag) as? UILabel
+        if valueLabel == nil {
+            valueLabel = SVCalendarComponents.cellLabel(with: self.model.title).value() as? UILabel
+            self.contentView.addSubview(valueLabel!)
             
-            self.contentView.addSubview(valueLabel)
+            let nameView = "valueLabel"
+            let bindigViews = [
+                nameView: valueLabel!
+                ] as [String: Any]
             
-            let vertConst = NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[valueLabel]-0-|", options: [], metrics: nil, views: ["valueLabel" : valueLabel])
-            let horizConst = NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[valueLabel]-0-|", options: [], metrics: nil, views: ["valueLabel" : valueLabel])
+            let vertConst = NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[\(nameView)]-0-|", options: [], metrics: nil, views:bindigViews)
+            let horizConst = NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[\(nameView)]-0-|", options: [], metrics: nil, views: bindigViews)
             
             self.contentView.addConstraints(vertConst)
             self.contentView.addConstraints(horizConst)
             
-            return
         }
         
-        valueLabel.text = model.title
+        valueLabel?.textColor = SVCalendarViewCell.style.text.normalColor
+        valueLabel?.text = self.model.title
+        valueLabel?.font = SVCalendarViewCell.style.text.font
+        
+        if !self.model.isEnabled {
+            valueLabel?.textColor = SVCalendarViewCell.style.text.disabledColor
+        }
     }
     
     fileprivate func configDayCell() {

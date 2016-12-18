@@ -21,8 +21,7 @@ struct SVCalendarType: OptionSet, Hashable {
     static let quarter = SVCalendarType(rawValue: 1 << 3)
     static let year = SVCalendarType(rawValue: 1 << 4)
     
-    static let defaultTypes = [SVCalendarType.day, SVCalendarType.month, SVCalendarType.year]
-    static let testTypes = [SVCalendarType.month]
+    static let defaultTypes = [SVCalendarType.day, SVCalendarType.month, SVCalendarType.year]    
 }
 
 public class SVCalendarConfiguration {
@@ -36,9 +35,12 @@ public class SVCalendarConfiguration {
         var header1 = SVCalendarStyle(for: .header1)
         var header2 = SVCalendarStyle(for: .header2)
         var time = SVCalendarStyle(for: .time)
+        var cell = SVCalendarStyle(for: .cell)
     }
     
-    var types = SVCalendarType.testTypes
+    var types: [SVCalendarType] {
+        return [SVCalendarType.month]
+    }
     var minYear: Int = 2000
     var maxYear: Int = 2020
     

@@ -28,6 +28,7 @@ class SVCalendarHeaderView: UICollectionReusableView {
     // MARK: - View LifeCycle
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         configAppearance()
         configTitleLabel()
     }
@@ -38,22 +39,25 @@ class SVCalendarHeaderView: UICollectionReusableView {
     }
     
     fileprivate func configTitleLabel() {
-        guard self.viewWithTag(SVCalendarComponentTag) != nil else {
-            let titleLabel = SVCalendarComponents.cellLabel(with: title ?? "-").value() as! UILabel
+        var titleLabel = self.viewWithTag(SVCalendarComponentTag) as? UILabel
+        if titleLabel == nil {
+            titleLabel = SVCalendarComponents.cellLabel(with: title ?? "-").value() as? UILabel
             
-            self.addSubview(titleLabel)
+            self.addSubview(titleLabel!)
             
             let bindingViews = [
-                "titleLabel" : titleLabel
+                "titleLabel" : titleLabel!
             ]
             
             let vertConst = NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[titleLabel]-0-|", options: [], metrics: nil, views: bindingViews)
             let horizConst = NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[titleLabel]-0-|", options: [], metrics: nil, views: bindingViews)
             
             self.addConstraints(vertConst)
-            self.addConstraints(horizConst)
-            
-            return
+            self.addConstraints(horizConst)                        
         }
+        
+        titleLabel?.font = style.text.font
+        titleLabel?.textColor = style.text.normalColor
+        titleLabel?.text = title
     }
 }

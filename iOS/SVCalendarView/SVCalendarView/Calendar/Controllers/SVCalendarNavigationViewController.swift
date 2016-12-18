@@ -15,7 +15,12 @@ enum SVCalendarNavigationDirection {
 class SVCalendarNavigationViewController: UIViewController {
     @IBOutlet weak var reduceButton: UIButton!
     @IBOutlet weak var increaseButton: UIButton!
-    @IBOutlet weak var dateTitle: UILabel!
+    @IBOutlet weak var dateTitle: UILabel! {
+        didSet {
+            dateTitle.textColor = self.style.text.normalColor
+            dateTitle.font = self.style.text.font
+        }
+    }
     
     static var identifier: String {
         return NSStringFromClass(SVCalendarNavigationViewController.self).replacingOccurrences(of: "SVCalendarView.", with: "")
@@ -26,6 +31,7 @@ class SVCalendarNavigationViewController: UIViewController {
                                                   bundle: Bundle.main)
     }
     
+    fileprivate let style = SVCalendarConfiguration.shared.styles.navigation
     weak var delegate: SVCalendarNavigationDelegate?
 
     override func viewDidLoad() {
@@ -48,6 +54,7 @@ class SVCalendarNavigationViewController: UIViewController {
         self.edgesForExtendedLayout = []
         
         self.view.translatesAutoresizingMaskIntoConstraints = false
+        self.view.backgroundColor = self.style.background.normalColor
     }
     
     // MARK: - Navigation Methods
@@ -61,7 +68,7 @@ class SVCalendarNavigationViewController: UIViewController {
     }
     
     @IBAction func didChangeNavigationDate(_ sender: UIButton) {
-        guard let date = delegate?.didChangeNavigationDate(direction: sender.tag == 0 ? .reduce : .increase), date != "" else {
+        guard let date = self.delegate?.didChangeNavigationDate(direction: sender.tag == 0 ? .reduce : .increase), date != "" else {
             return
         }
         

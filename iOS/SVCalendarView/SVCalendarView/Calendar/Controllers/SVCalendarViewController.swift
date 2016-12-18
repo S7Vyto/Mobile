@@ -22,6 +22,7 @@ class SVCalendarViewController: UIViewController, SVCalendarSwitcherDelegate, SV
     var headerTitles = [String]()
     
     weak var delegate: SVCalendarDelegate?
+    var selectedDate: Date?
 
     // MARK: - Controller LifeCycle
     override func viewDidLoad() {
@@ -169,6 +170,7 @@ class SVCalendarViewController: UIViewController, SVCalendarSwitcherDelegate, SV
             self.view.addConstraints(vertConst)
             self.view.addConstraints(horizConst)
             
+            self.updateCalendarCollectioViewConstraints(anchor: navigation.view)
             navigation.configNavigationDate(service.updatedDate.convertWith(format: SVCalendarDateFormat.monthYear))
         }
     }

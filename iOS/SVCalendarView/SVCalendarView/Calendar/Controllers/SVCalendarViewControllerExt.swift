@@ -63,18 +63,33 @@ extension SVCalendarViewController: UICollectionViewDataSource, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SVCalendarViewCell.identifier, for: indexPath) as! SVCalendarViewCell        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SVCalendarViewCell.identifier, for: indexPath) as! SVCalendarViewCell
         let model = dates[indexPath.item]
         
         cell.configCell(with: model)
+        cell.isSelected = !(self.selectedDate == nil
+            || self.selectedDate!.compare(model.value) != .orderedSame)
         
         return cell
     }
     
     // MARK: - Collection Delegate
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SVCalendarViewCell.identifier, for: indexPath) as! SVCalendarViewCell
         let model = dates[indexPath.item]
         
-        delegate?.didSelectDate(model.value)
+        cell.isSelected = true
+        
+        if self.selectedDate != nil {
+            if let index = dates.index(where: { $0.value.compare(self.selectedDate!) == .orderedSame }) {
+                let selectedIndex = IndexPath(item: index, section: 0)
+                let selectedCell = collectionView.dequeueReusableCell(withReuseIdentifier: SVCalendarViewCell.identifier,
+                                                                      for: selectedIndex) as! SVCalendarViewCell
+                selectedCell.isSelected = false
+            }
+        }
+        
+        self.selectedDate = model.value
+        self.delegate?.didSelectDate(model.value)
     }
 }
