@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SVCalendarViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, SVCalendarSwitcherDelegate {
+class SVCalendarViewController: UIViewController, SVCalendarSwitcherDelegate {
     @IBOutlet weak fileprivate var calendarCollectionView: UICollectionView!
     
     fileprivate let service = SVCalendarService(types: SVCalendarConfiguration.shared.types)
@@ -18,8 +18,10 @@ class SVCalendarViewController: UIViewController, UICollectionViewDataSource, UI
     fileprivate let containerStyle = SVCalendarConfiguration.shared.styles.container
     fileprivate let calendarStyle = SVCalendarConfiguration.shared.styles.calendar
     
-    fileprivate var dates = [SVCalendarDate]()
-    fileprivate var headerTitles = [String]()
+    var dates = [SVCalendarDate]()
+    var headerTitles = [String]()
+    
+    weak var delegate: SVCalendarDelegate?
 
     // MARK: - Controller LifeCycle
     override func viewDidLoad() {
@@ -28,7 +30,12 @@ class SVCalendarViewController: UIViewController, UICollectionViewDataSource, UI
     }
 
     override func didReceiveMemoryWarning() {
+        clearData()
         super.didReceiveMemoryWarning()
+    }
+    
+    deinit {
+        clearData()
     }
     
     // MARK: - Configurate Appearance
@@ -36,6 +43,7 @@ class SVCalendarViewController: UIViewController, UICollectionViewDataSource, UI
         configParentView()
         configCalendarView()
         configCalendarSwitcher()
+        configCalendarNavigation()
     }
     
     fileprivate func configParentView() {
@@ -122,7 +130,7 @@ class SVCalendarViewController: UIViewController, UICollectionViewDataSource, UI
     }
     
     fileprivate func configCalendarSwitcher() {
-        if config.isSwitcherVisible {
+        if config.isSwitcherVisible && config.types.count > 1 {
             let switcher = SVCalendarSwitcherViewController(types: config.types)
             switcher.delegate = self
             switcher.selectedIndex = 0
@@ -141,7 +149,33 @@ class SVCalendarViewController: UIViewController, UICollectionViewDataSource, UI
         }
     }
     
+    fileprivate func configCalendarNavigation() {
+        if config.isNavigationVisible {
+            let navigation = SVCalendarNavigationViewController.controller
+            
+            self.addChildViewController(navigation)
+            self.view.addSubview(navigation.view)
+            navigation.didMove(toParentViewController: self)
+            
+            let viewName = "navigationView"
+            let bindingViews = [
+                viewName: navigation.view
+            ] as [String : Any]
+            
+            let vertConst = NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[\(viewName)(45)]", options: [], metrics: nil, views: bindingViews)
+            let horizConst = NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[\(viewName)]-0-|", options: [], metrics: nil, views: bindingViews)
+            
+            self.view.addConstraints(vertConst)
+            self.view.addConstraints(horizConst)
+        }
+    }
+    
     // MARK: - Calendar Methods
+    fileprivate func clearData() {
+        dates.removeAll()
+        headerTitles.removeAll()
+    }
+    
     fileprivate func updateCalendarData(for type: SVCalendarType) {
         dates = service.dates(for: type)
         headerTitles = service.titles(for: type)
@@ -166,70 +200,4 @@ class SVCalendarViewController: UIViewController, UICollectionViewDataSource, UI
         configCalendarLayout(for: type)
         calendarCollectionView.reloadData()
     }
-    
-    // MARK: - Collection DataSource
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dates.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        
-        switch kind {
-        case SVCalendarHeaderSection1:
-            let index = indexPath.item + 1
-            var title: String?
-            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
-                                                                             withReuseIdentifier: SVCalendarHeaderView.identifier,
-                                                                             for: indexPath) as! SVCalendarHeaderView
-            if headerTitles.count == 0 {
-                title = "-"
-            }
-            else if index >= headerTitles.count {
-                title = headerTitles[0]
-            }
-            else {
-                title = headerTitles[index]
-            }
-            
-            headerView.title = title
-            
-            return headerView
-            
-        case SVCalendarHeaderSection2:
-            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
-                                                                             withReuseIdentifier: SVCalendarHeaderView.identifier,
-                                                                             for: indexPath)
-            
-            return headerView
-            
-        case SVCalendarTimeSection:
-            let timeView = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
-                                                                           withReuseIdentifier: SVCalendarTimeView.identifier,
-                                                                           for: indexPath)
-            
-            return timeView
-            
-        default:
-            return UICollectionReusableView()
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SVCalendarViewCell.identifier, for: indexPath) as! SVCalendarViewCell
-        let model = dates[indexPath.item]
-        
-        cell.configCell(with: model)
-        
-        return cell
-    }
- 
-    // MARK: - Collection Delegate
 }

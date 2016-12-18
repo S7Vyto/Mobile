@@ -9,7 +9,7 @@
 import UIKit
 
 class SVCalendarTimeView: UICollectionReusableView {
-    class var identifier: String {
+    static var identifier: String {
         return NSStringFromClass(SVCalendarTimeView.self).replacingOccurrences(of: "SVCalendarView.", with: "")
     }
     

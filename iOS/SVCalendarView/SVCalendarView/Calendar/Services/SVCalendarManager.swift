@@ -19,11 +19,11 @@ public class SVCalendarManager {
         return NSStringFromClass(SVCalendarViewController.self).replacingOccurrences(of: "SVCalendarView.", with: "")
     }
     
-    class var calendarController: SVCalendarViewController {
+    static var calendarController: SVCalendarViewController {
         return SVCalendarViewController(nibName: calendarIndetifier, bundle: Bundle.main)
     }
     
-    class func addCalendarTo(parentController: UIViewController, withConstraints constraints: [NSLayoutConstraint]?) -> SVCalendarViewController {
+    static func addCalendarTo(parentController: UIViewController, withConstraints constraints: [NSLayoutConstraint]?) -> SVCalendarViewController {
         let calendar = calendarController
         
         parentController.addChildViewController(calendar)

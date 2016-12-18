@@ -22,7 +22,7 @@ struct SVCalendarType: OptionSet, Hashable {
     static let year = SVCalendarType(rawValue: 1 << 4)
     
     static let defaultTypes = [SVCalendarType.day, SVCalendarType.month, SVCalendarType.year]
-    static let testTypes = [SVCalendarType.day, SVCalendarType.week, SVCalendarType.month, SVCalendarType.year]
+    static let testTypes = [SVCalendarType.month]
 }
 
 public class SVCalendarConfiguration {
@@ -46,7 +46,8 @@ public class SVCalendarConfiguration {
     
     var isStyleDefault = true
     var isSwitcherVisible = true
+    var isNavigationVisible = true
     var isHeaderSection1Visible = true
     var isHeaderSection2Visible = false
-    var isTimeSectionVisible = true
+    var isTimeSectionVisible = false
 }

@@ -12,7 +12,7 @@ class SVCalendarViewCell: UICollectionViewCell {
     fileprivate var model: SVCalendarDate!
     fileprivate let style = SVCalendarConfiguration.shared.styles.calendar
     
-    class var identifier: String {
+    static var identifier: String {
         return NSStringFromClass(SVCalendarViewCell.self).replacingOccurrences(of: "SVCalendarView.", with: "")
     }
     
@@ -33,23 +33,12 @@ class SVCalendarViewCell: UICollectionViewCell {
         self.model = model
         
         switch model.type {
-        case SVCalendarType.day:
-            configDayCell()
-            break
-        case SVCalendarType.week:
-            configWeekCell()
-            break
-        case SVCalendarType.month:
-            configMonthCell()
-            break
-        case SVCalendarType.quarter:
-            configQuarterCell()
-            break
-        case SVCalendarType.year:
-            configYearCell()
-            break
-        default:
-            break
+        case SVCalendarType.day: configDayCell()
+        case SVCalendarType.week: configWeekCell()
+        case SVCalendarType.month: configMonthCell()
+        case SVCalendarType.quarter: configQuarterCell()
+        case SVCalendarType.year: configYearCell()
+        default: break
         }
     }
     

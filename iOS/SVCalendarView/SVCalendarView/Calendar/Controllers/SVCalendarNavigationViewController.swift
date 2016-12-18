@@ -9,27 +9,40 @@
 import UIKit
 
 class SVCalendarNavigationViewController: UIViewController {
+    @IBOutlet weak var reduceButton: UIButton!
+    @IBOutlet weak var increaseButton: UIButton!
+    @IBOutlet weak var dateTitle: UILabel!
+    
+    static var identifier: String {
+        return NSStringFromClass(SVCalendarNavigationViewController.self).replacingOccurrences(of: "SVCalendarView.", with: "")
+    }
+    
+    static var controller: SVCalendarNavigationViewController {
+        return SVCalendarNavigationViewController(nibName: SVCalendarNavigationViewController.identifier,
+                                                  bundle: Bundle.main)
+    }
+    
+    weak var delegate: SVCalendarNavigationDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        configApperance()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // MARK: - Config Appearance
+    fileprivate func configApperance() {
+        self.automaticallyAdjustsScrollViewInsets = false
+        self.edgesForExtendedLayout = []
+        
+        self.view.translatesAutoresizingMaskIntoConstraints = false
     }
-    */
-
+    
+    // MARK: - Navigation Methods
+    @IBAction func didChangeNavigationDate(_ sender: UIButton) {
+        
+    }    
 }

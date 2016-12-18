@@ -299,19 +299,19 @@ class SVCalendarService {
         let weeksInMonth = calendar.range(of: .weekOfMonth, in: .month, for: beginMonthDate)
         
         let beginMonthComponents = calendar.dateComponents(components, from: beginMonthDate)
-        let endMonthComponents = calendar.dateComponents(components, from: endMonthDate)
+        var endMonthComponents = calendar.dateComponents(components, from: endMonthDate)
         
         var startDate: Date?
         var endDate: Date?
         
-        if let weekDay = beginMonthComponents.weekday, weekDay <= daysInWeek {
+        if let weekDay = beginMonthComponents.weekday, indexOfDay(with: weekDay) <= daysInWeek {
             startDate = calendar.date(byAdding: .day, value: -indexOfDay(with: weekDay), to: beginMonthDate)
         }
         else {
             startDate = beginMonthDate
         }
         
-        if let weekDay = endMonthComponents.weekday, weekDay != daysInWeek {
+        if let weekDay = endMonthComponents.weekday, indexOfDay(with: weekDay) != daysInWeek {
             let difference = daysInWeek - indexOfDay(with: weekDay)
             endDate = calendar.date(byAdding: .day, value: difference, to: endMonthDate)
         }
@@ -320,7 +320,13 @@ class SVCalendarService {
         }
         
         if weeksInMonth!.count < 6 {
-            endDate = calendar.date(byAdding: .day, value: daysInWeek, to: endDate!)
+            endDate = calendar.date(byAdding: .day, value: daysInWeek, to: endMonthDate)
+            endMonthComponents = calendar.dateComponents(components, from: endDate!)
+            
+            if let weekDay = endMonthComponents.weekday, indexOfDay(with: weekDay) != daysInWeek {
+                let difference = daysInWeek - indexOfDay(with: weekDay)
+                endDate = calendar.date(byAdding: .day, value: difference, to: endDate!)
+            }
         }
         
         guard startDate != nil && endDate != nil else {
