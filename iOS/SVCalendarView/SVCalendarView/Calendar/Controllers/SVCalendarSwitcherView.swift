@@ -75,22 +75,27 @@ class SVCalendarSwitcherView: UIView {
             switch type {
             case SVCalendarType.day:
                 title = "DAY"
+                index = 0
                 break
             
             case SVCalendarType.week:
                 title = "WEEK"
+                index = 1
                 break
                 
             case SVCalendarType.month:
                 title = "MONTH"
+                index = 2
                 break
                 
             case SVCalendarType.quarter:
                 title = "QUARTER"
+                index = 3
                 break
                 
             case SVCalendarType.year:
                 title = "YEAR"
+                index = 4
                 break
                 
             default:
@@ -103,7 +108,6 @@ class SVCalendarSwitcherView: UIView {
             switcher.addTarget(self, action: #selector(didChangeValue(_:)), for: .touchUpInside)
             
             stackViewContainer.addArrangedSubview(switcher)
-            index += 1
         }
     }    
     
