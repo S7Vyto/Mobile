@@ -1,5 +1,5 @@
 //
-//  SVCalendarSwitcherViewController.swift
+//  SVCalendarSwitcherView.swift
 //  SVCalendarView
 //
 //  Created by Sam on 20/10/2016.
@@ -12,7 +12,7 @@ protocol SVCalendarSwitcherDelegate: class {
     func didSelectType(_ type: SVCalendarType)
 }
 
-class SVCalendarSwitcherViewController: UIViewController {
+class SVCalendarSwitcherView: UIView {
     fileprivate lazy var stackViewContainer: UIStackView = {
         let control = UIStackView(frame: CGRect.zero)
         control.translatesAutoresizingMaskIntoConstraints = false
@@ -26,45 +26,35 @@ class SVCalendarSwitcherViewController: UIViewController {
     
     fileprivate let types: [SVCalendarType]
     fileprivate let style = SVCalendarConfiguration.shared.styles.switcher
+    fileprivate weak var delegate: SVCalendarSwitcherDelegate?
     
-    weak var delegate: SVCalendarSwitcherDelegate?
-    var selectedIndex = 0 {
-        didSet {
-            
-        }
-    }
+    var selectedIndex = 0
     
     // MARK: - Controller LifeCycle
-    init(types: [SVCalendarType]) {
+    init(types: [SVCalendarType], delegate: SVCalendarSwitcherDelegate?) {
         self.types = types
-        super.init(nibName: nil, bundle: nil)
+        self.delegate = delegate
+        
+        super.init(frame: CGRect.zero)
+        
+        self.configAppearance()
+        self.configStackViewContainer()
+        self.configStackViewContent()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        configAppearance()
-        configStackViewContainer()
-        configStackViewContent()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
     // MARK: - Configurate Appearance
     fileprivate func configAppearance() {
-        self.edgesForExtendedLayout = []
-        self.view.translatesAutoresizingMaskIntoConstraints = false
-        self.view.backgroundColor = style.background.normalColor
+        self.translatesAutoresizingMaskIntoConstraints = false
+        self.backgroundColor = style.background.normalColor
     }
     
     fileprivate func configStackViewContainer() {
-        self.view.addSubview(stackViewContainer)
-        self.view.bringSubview(toFront: stackViewContainer)
+        self.addSubview(stackViewContainer)
+        self.bringSubview(toFront: stackViewContainer)
         
         let bindingViews = [
             "stackViewContainer" : stackViewContainer
@@ -73,8 +63,8 @@ class SVCalendarSwitcherViewController: UIViewController {
         let vertConst = NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[stackViewContainer]-0-|", options: [], metrics: nil, views: bindingViews)
         let horizConst = NSLayoutConstraint.constraints(withVisualFormat: "H:|-2-[stackViewContainer]-2-|", options: [], metrics: nil, views: bindingViews)
         
-        self.view.addConstraints(vertConst)
-        self.view.addConstraints(horizConst)
+        self.addConstraints(vertConst)
+        self.addConstraints(horizConst)
     }
     
     fileprivate func configStackViewContent() {

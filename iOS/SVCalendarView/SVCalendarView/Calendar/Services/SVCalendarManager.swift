@@ -14,33 +14,34 @@ import UIKit
  This class help easy set up calendar by default
  */
 
-public class SVCalendarManager {
-    class var calendarIndetifier: String {
-        return NSStringFromClass(SVCalendarViewController.self).replacingOccurrences(of: "SVCalendarView.", with: "")
-    }
-    
+public class SVCalendarManager {    
     static var calendarController: SVCalendarViewController {
-        return SVCalendarViewController(nibName: calendarIndetifier, bundle: Bundle.main)
+        return SVCalendarViewController(nibName: nil, bundle: nil)
     }
     
     static func addCalendarTo(parentController: UIViewController, withConstraints constraints: [NSLayoutConstraint]?) -> SVCalendarViewController {
-        let calendar = calendarController
+        let calendar = SVCalendarManager.calendarController
         
         parentController.addChildViewController(calendar)
         parentController.view.addSubview(calendar.view)
         calendar.didMove(toParentViewController: parentController)
         
-        guard constraints != nil else {
-            let vc = NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[calendar]-0-|", options: [], metrics: nil, views: ["calendar": calendar.view])
-            let hc = NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[calendar]-0-|", options: [], metrics: nil, views: ["calendar": calendar.view])
+        if constraints == nil {
+            let bindingViews = [
+                "calendarView": calendar.view
+            ]
             
-            parentController.view.addConstraints(vc)
-            parentController.view.addConstraints(hc)
+            var calendarConstraints = [NSLayoutConstraint]()
+            calendarConstraints += NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[calendarView]-0-|", options: [], metrics: nil, views: bindingViews)
             
-            return calendar
+            calendarConstraints += NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[calendarView]-0-|", options: [], metrics: nil, views: bindingViews)
+            
+            parentController.view.addConstraints(calendarConstraints)
+        }
+        else {
+            parentController.view.addConstraints(constraints!)
         }
         
-        parentController.view.addConstraints(constraints!)
         return calendar
     }
 }

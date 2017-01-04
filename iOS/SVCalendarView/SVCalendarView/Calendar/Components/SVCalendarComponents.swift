@@ -9,7 +9,13 @@
 import Foundation
 import UIKit
 
-public let SVCalendarComponentTag = 1001001
+//public let SVCalendarComponentTag = 1001001
+
+enum SVCalendarTag: Int {
+    case switcher = 100100
+    case navigation = 100101
+    case container = 100102
+}
 
 enum SVCalendarComponents {
     case defaultLabel(with: String)
@@ -36,8 +42,7 @@ enum SVCalendarComponents {
             return button            
             
         case let .cellLabel(title):
-            let label = SVCalendarComponents.defaultLabel(with: title).value() as! UILabel
-            label.tag = SVCalendarComponentTag
+            let label = SVCalendarComponents.defaultLabel(with: title).value() as! UILabel            
             label.textAlignment = .center
             label.contentMode = .center
             

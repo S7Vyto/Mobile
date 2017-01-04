@@ -1,5 +1,5 @@
 //
-//  SVCalendarViewControllerExt.swift
+//  SVCalendarViewControllerExtension.swift
 //  SVCalendarView
 //
 //  Created by Sam on 17/12/2016.
@@ -63,10 +63,11 @@ extension SVCalendarViewController: UICollectionViewDataSource, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SVCalendarViewCell.identifier, for: indexPath) as! SVCalendarViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SVCalendarViewBaseCell.identifier, for: indexPath) as! SVCalendarViewBaseCell
         let model = dates[indexPath.item]
-        
-        cell.configCell(with: model)
+                
+        cell.value = model.title
+        cell.isEnabled = model.isEnabled
         cell.isSelected = !(self.selectedDate == nil
             || self.selectedDate!.compare(model.value) != .orderedSame)
         
@@ -75,7 +76,7 @@ extension SVCalendarViewController: UICollectionViewDataSource, UICollectionView
     
     // MARK: - Collection Delegate
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SVCalendarViewCell.identifier, for: indexPath) as! SVCalendarViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SVCalendarViewBaseCell.identifier, for: indexPath) as! SVCalendarViewBaseCell
         let model = dates[indexPath.item]
         
         cell.isSelected = true
@@ -83,8 +84,8 @@ extension SVCalendarViewController: UICollectionViewDataSource, UICollectionView
         if self.selectedDate != nil {
             if let index = dates.index(where: { $0.value.compare(self.selectedDate!) == .orderedSame }) {
                 let selectedIndex = IndexPath(item: index, section: 0)
-                let selectedCell = collectionView.dequeueReusableCell(withReuseIdentifier: SVCalendarViewCell.identifier,
-                                                                      for: selectedIndex) as! SVCalendarViewCell
+                let selectedCell = collectionView.dequeueReusableCell(withReuseIdentifier: SVCalendarViewBaseCell.identifier,
+                                                                      for: selectedIndex) as! SVCalendarViewBaseCell
                 selectedCell.isSelected = false
             }
         }
