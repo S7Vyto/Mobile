@@ -10,10 +10,21 @@ import Foundation
 
 /**
  Calendar date
- This class keep info for special date
+ This struct keep info for special date
  */
 
-public class SVCalendarDate {
+protocol SVCalendarDateProtocol {
+    var isCurrent: Bool { get }
+    var isEnabled: Bool { get }
+    var isWeekend: Bool { get }
+    var title: String { get }
+    var value: Date { get }
+    var type: SVCalendarType { get }
+    
+    init(isEnabled: Bool, isCurrent: Bool, isWeekend: Bool, title: String, value: Date, type: SVCalendarType)
+}
+
+public struct SVCalendarDate: SVCalendarDateProtocol {
     var isCurrent: Bool = false
     var isEnabled: Bool = true
     var isWeekend: Bool = false

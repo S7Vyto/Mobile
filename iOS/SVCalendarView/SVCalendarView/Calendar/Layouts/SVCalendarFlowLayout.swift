@@ -40,7 +40,7 @@ class SVCalendarFlowLayout: UICollectionViewFlowLayout {
     
     var numberOfColumns: Int?
     var numberOfRows: Int?
-    
+        
     var headerWidth: CGFloat = 0.0
     var headerHeight: CGFloat = 0.0
     

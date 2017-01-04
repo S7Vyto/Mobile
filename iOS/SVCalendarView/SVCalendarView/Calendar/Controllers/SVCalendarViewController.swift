@@ -152,16 +152,14 @@ class SVCalendarViewController: UIViewController, SVCalendarSwitcherDelegate, SV
     
     fileprivate func configCalendarNavigation() {
         if config.isNavigationVisible {
-            let navigation = SVCalendarNavigationViewController.controller
-            navigation.delegate = self
-            
-            self.addChildViewController(navigation)
-            self.view.addSubview(navigation.view)
-            navigation.didMove(toParentViewController: self)
+            let navTitle = self.service.updatedDate.convertWith(format: SVCalendarDateFormat.monthYear)
+            let navView = SVCalendarNavigationView.navigation(delegate: self,
+                                                                 title: navTitle)
+            self.view.addSubview(navView)
             
             let viewName = "navigationView"
             let bindingViews = [
-                viewName: navigation.view
+                viewName: navView
             ] as [String : Any]
             
             let vertConst = NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[\(viewName)(45)]", options: [], metrics: nil, views: bindingViews)
@@ -170,8 +168,7 @@ class SVCalendarViewController: UIViewController, SVCalendarSwitcherDelegate, SV
             self.view.addConstraints(vertConst)
             self.view.addConstraints(horizConst)
             
-            self.updateCalendarCollectioViewConstraints(anchor: navigation.view)
-            navigation.configNavigationDate(service.updatedDate.convertWith(format: SVCalendarDateFormat.monthYear))
+            self.updateCalendarCollectioViewConstraints(anchor: navView)
         }
     }
     

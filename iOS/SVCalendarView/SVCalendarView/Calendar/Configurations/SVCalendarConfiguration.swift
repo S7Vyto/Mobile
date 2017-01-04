@@ -9,8 +9,8 @@
 import Foundation
 
 struct SVCalendarType: OptionSet, Hashable {
-    let rawValue: Int
-    var hashValue: Int {
+    public let rawValue: Int
+    public var hashValue: Int {
         return rawValue
     }
     
