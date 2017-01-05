@@ -9,22 +9,12 @@
 import UIKit
 
 class SVCalendarViewController: UIViewController, SVCalendarSwitcherDelegate, SVCalendarNavigationDelegate {
-    lazy var calendarView: UICollectionView = {
-        let flowLayout = SVCalendarFlowLayout(direction: SVCalendarFlowLayoutDirection.vertical)
-        let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: flowLayout)
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.dataSource = self
-        collectionView.delegate = self
+    fileprivate lazy var calendarView = SVCollectionView()
         
-        return collectionView
-    }()
-    
-    fileprivate var flowLayout: SVCalendarFlowLayout!
     fileprivate let service = SVCalendarService(types: SVCalendarConfiguration.shared.types)
     fileprivate let config = SVCalendarConfiguration.shared
     
-    fileprivate let containerStyle = SVCalendarConfiguration.shared.styles.container
-    fileprivate let calendarStyle = SVCalendarConfiguration.shared.styles.calendar
+    fileprivate let style = SVCalendarConfiguration.shared.styles.container
     
     fileprivate var switcherView: SVCalendarSwitcherView?
     fileprivate var navigationView: SVCalendarNavigationView!
@@ -61,84 +51,17 @@ class SVCalendarViewController: UIViewController, SVCalendarSwitcherDelegate, SV
     
     fileprivate func configParentView() {        
         self.view.translatesAutoresizingMaskIntoConstraints = false
-        self.view.backgroundColor = containerStyle.background.normalColor
+        self.view.backgroundColor = style.background.normalColor
     }
     
-    fileprivate func configCalendarLayout(for type: SVCalendarType) {
-        self.flowLayout.clear()
-        
-        self.flowLayout.isHeader1Visible = config.isHeaderSection1Visible
-        self.flowLayout.isHeader2Visible = config.isHeaderSection2Visible
-        self.flowLayout.isTimeVisible = config.isTimeSectionVisible
-        
-        self.flowLayout.isAutoResizeCell = true
-        self.flowLayout.cellPadding = 0
-        
-        switch type {
-        case SVCalendarType.day:
-            self.flowLayout.columnHeight = 45
-            
-            self.flowLayout.numberOfColumns = 1
-            self.flowLayout.numberOfRows = 25
-            break
-            
-        case SVCalendarType.week:
-            self.flowLayout.columnHeight = 45
-            
-            self.flowLayout.numberOfColumns = 7
-            self.flowLayout.numberOfRows = 25
-            break
-            
-        case SVCalendarType.month:
-            self.flowLayout.isHeader2Visible = false
-            self.flowLayout.isTimeVisible = false
-            
-            self.flowLayout.numberOfColumns = 7
-            self.flowLayout.numberOfRows = 6
-            break
-            
-        case SVCalendarType.quarter:
-            break
-            
-        case SVCalendarType.year:
-            break
-            
-        default:
-            break
-        }
-        
-        self.flowLayout.update()
-    }
-    
-    fileprivate func configCalendarView() {
-        self.flowLayout = self.calendarView.collectionViewLayout as! SVCalendarFlowLayout
-        
-        self.calendarView.backgroundColor = calendarStyle.background.normalColor
-        self.calendarView.register(UINib(nibName: SVCalendarViewBaseCell.identifier, bundle: Bundle.main),
-                                        forCellWithReuseIdentifier: SVCalendarViewBaseCell.identifier)
-        
-        if self.config.isHeaderSection1Visible {
-            self.calendarView.register(UINib(nibName: SVCalendarHeaderView.identifier, bundle: Bundle.main),
-                                       forSupplementaryViewOfKind: SVCalendarHeaderSection1,
-                                       withReuseIdentifier: SVCalendarHeaderView.identifier)
-        }
-        
-        if self.config.isHeaderSection2Visible {
-            self.calendarView.register(UINib(nibName: SVCalendarHeaderView.identifier, bundle: Bundle.main),
-                                       forSupplementaryViewOfKind: SVCalendarHeaderSection2,
-                                       withReuseIdentifier: SVCalendarHeaderView.identifier)
-        }
-        
-        if self.config.isTimeSectionVisible {
-            self.calendarView.register(UINib(nibName: SVCalendarTimeView.identifier, bundle: Bundle.main),
-                                       forSupplementaryViewOfKind: SVCalendarTimeSection,
-                                       withReuseIdentifier: SVCalendarTimeView.identifier)
-        }
-        
+    fileprivate func configCalendarView() {        
         self.view.addSubview(self.calendarView)
         
-        self.updateCalendarData(for: .month)
-        self.configCalendarLayout(for: .month)
+        self.calendarView.dataSource = self
+        self.calendarView.delegate = self
+        
+        self.updateCalendarLayout(type: .month)
+        self.updateCalendarData(type: .month)
     }
     
     fileprivate func configCalendarSwitcher() {
@@ -156,19 +79,6 @@ class SVCalendarViewController: UIViewController, SVCalendarSwitcherDelegate, SV
                                                                       title: self.service.updatedDate.convertWith(format: SVCalendarDateFormat.monthYear))
             self.view.addSubview(self.navigationView)
         }
-    }
-    
-    // MARK: - Calendar Methods
-    fileprivate func clearData() {
-        dates.removeAll()
-        headerTitles.removeAll()
-    }
-    
-    fileprivate func updateCalendarData(for type: SVCalendarType) {
-        self.clearData()
-        
-        self.dates = service.dates(for: type)
-        self.headerTitles = service.titles(for: type)
     }
     
     fileprivate func updateCalendarConstraints() {
@@ -234,12 +144,59 @@ class SVCalendarViewController: UIViewController, SVCalendarSwitcherDelegate, SV
         }
     }
     
-    // MARK: - Calendar Switcher
-    func didSelectType(_ type: SVCalendarType) {
-        self.updateCalendarData(for: type)
-        self.configCalendarLayout(for: type)
+    // MARK: - Calendar Methods
+    fileprivate func clearData() {
+        dates.removeAll()
+        headerTitles.removeAll()
+    }
+    
+    fileprivate func updateCalendarData(type: SVCalendarType) {
+        self.clearData()
+        
+        self.dates = service.dates(for: type)
+        self.headerTitles = service.titles(for: type)
         
         self.calendarView.reloadData()
+    }
+    
+    fileprivate func updateCalendarLayout(type: SVCalendarType) {
+        self.calendarView.flowLayout.isAutoResizeCell = true
+        
+        self.calendarView.flowLayout.isHeader1Visible = self.config.isHeaderSection1Visible
+        self.calendarView.flowLayout.isHeader2Visible = self.config.isHeaderSection2Visible
+        self.calendarView.flowLayout.isTimeVisible = self.config.isTimeSectionVisible
+        
+        self.calendarView.flowLayout.cellPadding = 0.0
+        self.calendarView.flowLayout.numberOfRows = 6
+        self.calendarView.flowLayout.numberOfColumns = 7
+        
+        switch type {
+        case SVCalendarType.day:
+            break        
+        case SVCalendarType.week:
+            break
+        case SVCalendarType.month:
+            break
+        case SVCalendarType.quarter:
+            break
+        case SVCalendarType.year:
+            self.calendarView.flowLayout.isHeader1Visible = false
+            self.calendarView.flowLayout.isHeader2Visible = false
+            self.calendarView.flowLayout.isTimeVisible = false
+            break
+        case SVCalendarType.all:
+            break
+        default:
+            break
+        }
+        
+        self.calendarView.flowLayout.updateLayout()
+    }
+    
+    // MARK: - Calendar Switcher
+    func didSelectType(_ type: SVCalendarType) {
+        self.updateCalendarLayout(type: type)
+        self.updateCalendarData(type: type)
     }
     
     // MARK: - Calendar Navigation
@@ -251,10 +208,7 @@ class SVCalendarViewController: UIViewController, SVCalendarSwitcherDelegate, SV
             self.service.updateDate(for: .month, isDateIncrease: true)
         }
         
-        self.configCalendarLayout(for: .month)
-        self.updateCalendarData(for: .month)
-        
-        self.calendarView.reloadData()
+        self.updateCalendarData(type: .month)
         
         return self.service.updatedDate.convertWith(format: SVCalendarDateFormat.monthYear)
     }

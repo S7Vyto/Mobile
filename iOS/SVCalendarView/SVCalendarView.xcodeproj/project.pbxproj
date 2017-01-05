@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		220A87E11E06D367009B759C /* SVDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220A87E01E06D367009B759C /* SVDateExtension.swift */; };
+		22257FBC1E1EB41600ECCB12 /* SVCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22257FBB1E1EB41600ECCB12 /* SVCollectionView.swift */; };
 		2225DDF81DB81D4A00C232DC /* SVCalendarConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2225DDF71DB81D4A00C232DC /* SVCalendarConfiguration.swift */; };
 		2225DDFB1DB81D5400C232DC /* SVCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2225DDF91DB81D5400C232DC /* SVCalendarViewController.swift */; };
 		2225DDFE1DB81D5D00C232DC /* SVCalendarFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2225DDFD1DB81D5D00C232DC /* SVCalendarFlowLayout.swift */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		220A87E01E06D367009B759C /* SVDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SVDateExtension.swift; path = Calendar/Extensions/SVDateExtension.swift; sourceTree = "<group>"; };
+		22257FBB1E1EB41600ECCB12 /* SVCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SVCollectionView.swift; path = Calendar/Views/Collection/SVCollectionView.swift; sourceTree = "<group>"; };
 		2225DDF71DB81D4A00C232DC /* SVCalendarConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SVCalendarConfiguration.swift; path = Calendar/Configurations/SVCalendarConfiguration.swift; sourceTree = "<group>"; };
 		2225DDF91DB81D5400C232DC /* SVCalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SVCalendarViewController.swift; path = Calendar/Controllers/SVCalendarViewController.swift; sourceTree = "<group>"; };
 		2225DDFD1DB81D5D00C232DC /* SVCalendarFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SVCalendarFlowLayout.swift; path = Calendar/Layouts/SVCalendarFlowLayout.swift; sourceTree = "<group>"; };
@@ -81,6 +83,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		22257FBA1E1EB3E300ECCB12 /* Collection */ = {
+			isa = PBXGroup;
+			children = (
+				22257FBB1E1EB41600ECCB12 /* SVCollectionView.swift */,
+			);
+			name = Collection;
+			sourceTree = "<group>";
+		};
 		2225DDF01DB8157500C232DC /* Configurations */ = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +102,7 @@
 		2225DDF11DB8158E00C232DC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				22257FBA1E1EB3E300ECCB12 /* Collection */,
 				22DD05DD1E1D96A30050D763 /* Button */,
 				22DD05DC1E1D96600050D763 /* Header */,
 				22DD05D61E1D96310050D763 /* Cell */,
@@ -412,6 +423,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				22603A591DB6A5F900AD1673 /* ViewController.swift in Sources */,
+				22257FBC1E1EB41600ECCB12 /* SVCollectionView.swift in Sources */,
 				22DD05DF1E1D96B70050D763 /* SVCalendarSwitcherButton.swift in Sources */,
 				22F0CBB01E0547BB00D2BDCE /* SVCalendarViewControllerExtension.swift in Sources */,
 				2225DE071DB81D8500C232DC /* SVCalendarStyle.swift in Sources */,

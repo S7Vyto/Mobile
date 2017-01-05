@@ -171,8 +171,7 @@ class SVCalendarFlowLayout: UICollectionViewFlowLayout {
            return false
         }
         
-        update()
-        
+        self.updateLayout()
         return true
     }
     
@@ -233,7 +232,7 @@ class SVCalendarFlowLayout: UICollectionViewFlowLayout {
     }
     
     override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
-        return cache[indexPath]
+        return self.cache[indexPath]
     }
     
     override func layoutAttributesForSupplementaryView(ofKind elementKind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
@@ -262,23 +261,11 @@ class SVCalendarFlowLayout: UICollectionViewFlowLayout {
         return attrs
     }
     
-    // MARK: - Layout Methods
-    func clear() {
-        self.width = 0
-        self.height = 0
+    // MARK: - Layout Methods    
+    func updateLayout() {
+        self.width = 0.0
+        self.height = 0.0
         
-        self.headerWidth = 0.0
-        self.headerHeight = 0.0
-        
-        self.timeWidth = 0.0
-        self.timeHeight = 0.0
-        
-        self.columnWidth = 50.0
-        self.columnHeight = 50.0
-        self.columnOffset = 0.0
-    }
-    
-    func update() {        
         self.cache.removeAll()
         self.invalidateLayout()        
     }
