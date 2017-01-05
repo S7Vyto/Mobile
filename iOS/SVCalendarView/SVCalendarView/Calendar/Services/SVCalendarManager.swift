@@ -19,6 +19,10 @@ public class SVCalendarManager {
         return SVCalendarViewController(nibName: nil, bundle: nil)
     }
     
+    static var bundleIdentifier: String {
+        return "\(Bundle.main.infoDictionary?[kCFBundleNameKey as String] as! String)."
+    }
+    
     static func addCalendarTo(parentController: UIViewController, withConstraints constraints: [NSLayoutConstraint]?) -> SVCalendarViewController {
         let calendar = SVCalendarManager.calendarController
         

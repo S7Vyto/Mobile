@@ -16,8 +16,8 @@ class SVCalendarHeaderView: UICollectionReusableView {
         }
     }
     
-    static var identifier: String {
-        return NSStringFromClass(SVCalendarHeaderView.self).replacingOccurrences(of: "SVCalendarView.", with: "")
+    static var identifier: String {        
+        return NSStringFromClass(SVCalendarHeaderView.self).replacingOccurrences(of: SVCalendarManager.bundleIdentifier, with: "")
     }
     
     fileprivate let style = SVCalendarConfiguration.shared.styles.header1

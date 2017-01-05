@@ -22,8 +22,8 @@ class SVCalendarNavigationView: UIView {
         }
     }
     
-    static var identifier: String {
-        return NSStringFromClass(SVCalendarNavigationView.self).replacingOccurrences(of: "SVCalendarView.", with: "")
+    static var identifier: String {        
+        return NSStringFromClass(SVCalendarNavigationView.self).replacingOccurrences(of: SVCalendarManager.bundleIdentifier, with: "")
     }
     
     fileprivate let style = SVCalendarConfiguration.shared.styles.navigation

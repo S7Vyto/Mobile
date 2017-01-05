@@ -18,7 +18,7 @@ class SVCalendarViewBaseCell: UICollectionViewCell {
     
     static let style = SVCalendarConfiguration.shared.styles.cell
     static var identifier: String {
-        return NSStringFromClass(SVCalendarViewBaseCell.self).replacingOccurrences(of: "SVCalendarView.", with: "")
+        return NSStringFromClass(SVCalendarViewBaseCell.self).replacingOccurrences(of: SVCalendarManager.bundleIdentifier, with: "")
     }
     
     lazy var selectionLayer: CAShapeLayer = {

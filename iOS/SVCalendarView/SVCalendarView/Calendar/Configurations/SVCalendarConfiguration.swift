@@ -39,7 +39,7 @@ public class SVCalendarConfiguration {
     }
     
     var types: [SVCalendarType] {
-        return SVCalendarType.defaultTypes
+        return [SVCalendarType.month]
     }
     var minYear: Int = 2000
     var maxYear: Int = 2020
